@@ -17,6 +17,23 @@ class SFSHooks {
 	}
 
 	/**
+	 * @param SpecialPage $sp
+	 * @param array $fields
+	 * @return bool
+	 */
+	public static function onSpecialBlockModifyFormFields( SpecialPage $sp, &$fields ) {
+		if ( $sp->getUser()->isAllowed( 'stopforumspam' ) ) {
+			$fields['SFS'] = array(
+				'type' => 'check',
+				'label-message' => 'stopforumspam-checkbox',
+				'default' => false,
+			);
+		}
+
+		return true;
+	}
+
+	/**
 	 * Triggers the data submission process
 	 * @param Block $block
 	 * @param User $user who made the block

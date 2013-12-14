@@ -34,6 +34,7 @@ $wgAutoloadClasses['SFSHooks'] = __DIR__ . '/StopForumSpam.hooks.php';
 $wgAutoloadClasses['StopForumSpam'] = __DIR__ . '/StopForumSpam.body.php';
 
 $wgHooks['SpecialBlockBeforeFormDisplay'][] = 'SFSHooks::onSpecialBlockBeforeFormDisplay';
+$wgHooks['SpecialBlockModifyFormFields'][] = 'SFSHooks::onSpecialBlockModifyFormFields';
 $wgHooks['BlockIpComplete'][] = 'SFSHooks::onBlockIpComplete';
 $wgHooks['AbuseFilter-computeVariable'][] = 'SFSHooks::abuseFilterComputeVariable';
 $wgHooks['AbuseFilter-generateUserVars'][] = 'SFSHooks::abuseFilterGenerateUserVars';

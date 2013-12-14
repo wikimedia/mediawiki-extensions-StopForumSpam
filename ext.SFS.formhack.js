@@ -6,19 +6,22 @@
 		var $blockTarget = $( '#mw-bi-target' ),
 			$SFSbox;
 
-		// this will be needed until gerrit change #101063 is merged
-		$SFSbox = $('<tr>')
-			.addClass( 'mw-htmlform-field-HTMLCheckField')
-			.append( '<td class="mw-label"><label>&#160;</label></td>' )
-			.append( $('<td>')
-				.addClass('mw-input')
-				.append('<input name="wpSFS" type="checkbox" value="1" id="mw-input-wpSFS" />')
-				.append('&#160;')
-				.append( $('<label>')
-					.attr('for', 'mw-input-wpSFS')
-					.text( mw.message( 'stopforumspam-checkbox').text() )
-				)
-			);
+		// Back-compat for pre-1.23
+		$SFSbox = $( '#mw-input-wpSFS' );
+		if ( $SFSbox.length === 0 ) {
+			$SFSbox = $('<tr>')
+				.addClass( 'mw-htmlform-field-HTMLCheckField')
+				.append( '<td class="mw-label"><label>&#160;</label></td>' )
+				.append( $('<td>')
+					.addClass('mw-input')
+					.append('<input name="wpSFS" type="checkbox" value="1" id="mw-input-wpSFS" />')
+					.append('&#160;')
+					.append( $('<label>')
+						.attr('for', 'mw-input-wpSFS')
+						.text( mw.message( 'stopforumspam-checkbox').text() )
+					)
+				);
+		}
 
 		$( '#mw-input-wpHardBlock' ).closest( 'tr').after( $SFSbox );
 
