@@ -3,6 +3,11 @@
 class StopForumSpam {
 
 	/**
+	 * How long the confidence level should be cached for (1 day)
+	 */
+	const CACHE_DURATION = 86400;
+
+	/**
 	 * Actual submission process to stopforumspam.com
 	 * @param User $user our bad spammer to report
 	 * @return bool indicating success of operation
@@ -123,5 +128,63 @@ class StopForumSpam {
 		}
 
 		return $ips;
+	}
+
+	/**
+	 * Actually makes a request and returns the average confidence
+	 * @see StopForumSpam::getConfidence
+	 * @param array $params
+	 * @return float
+	 */
+	protected static function getConfidenceInternal( $params ) {
+		$params['f'] = 'json';
+		$url = wfAppendQuery( 'http://www.stopforumspam.com/api', $params );
+		$req = MWHttpRequest::factory( $url );
+		$req->execute();
+		$data = $req->getContent();
+		$json = FormatJson::decode( $data );
+		if ( $json['success'] !== 1 ) {
+			// Blegh. Set 0 confidence.
+			return 0.0;
+		}
+		$div = 0;
+		$total = 0;
+		foreach( array( 'email', 'ip', 'username' ) as $key ) {
+			if ( isset( $params[$key] ) && isset( $json[$key] ) ) {
+				if ( isset( $json[$key]['confidence'] ) ) {
+					$total += $json[$key]['confidence'];
+				}
+				$div++;
+			}
+		}
+
+		return $total / $div;
+	}
+
+	/**
+	 * Get a user's confidence level, might be cached
+	 * @param User $user
+	 * @return float
+	 */
+	public static function getConfidence( User $user ) {
+		global $wgMemc;
+
+		if ( $user->isLoggedIn() ) {
+			$params['username'] = $user->getName();
+			if ( $user->getEmail() ) {
+				$params['username'] = $user->getEmail();
+			}
+		} else {
+			$params['ip'] = $user->getName();
+		}
+
+		$key = 'sfs:conf:' . md5( serialize( $params ) );
+		$conf = $wgMemc->get( $key );
+		if ( $conf === false ) {
+			$conf = self::getConfidenceInternal( $params );
+			$wgMemc->set( $key, $conf, self::CACHE_DURATION );
+		}
+
+		return $conf;
 	}
 }

@@ -7,8 +7,8 @@ if ( !defined( 'MEDIAWIKI' ) ) {
 /**
  * StopForumSpam.com is a website dedicated to
  * stopping spam. This extension helps
- * by contributing data when an administrator
- * blocks a user.
+ * by utilizing and contributing to their
+ * data.
  *
  * @see http://stopforumspam.com/faq
  * @author Kunal Mehta <legoktm@gmail.com>
@@ -35,6 +35,10 @@ $wgAutoloadClasses['StopForumSpam'] = __DIR__ . '/StopForumSpam.body.php';
 
 $wgHooks['SpecialBlockBeforeFormDisplay'][] = 'SFSHooks::onSpecialBlockBeforeFormDisplay';
 $wgHooks['BlockIpComplete'][] = 'SFSHooks::onBlockIpComplete';
+$wgHooks['AbuseFilter-computeVariable'][] = 'SFSHooks::abuseFilterComputeVariable';
+$wgHooks['AbuseFilter-generateUserVars'][] = 'SFSHooks::abuseFilterGenerateUserVars';
+$wgHooks['AbuseFilter-builder'][] = 'SFSHooks::abuseFilterBuilder';
+
 
 $wgResourceModules['ext.SFS.formhack'] = array(
 	'scripts' => array(

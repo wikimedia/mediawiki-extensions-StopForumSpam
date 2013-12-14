@@ -45,4 +45,44 @@ class SFSHooks {
 
 		return true;
 	}
+
+	/**
+	 * Computes the sfs-confidence variable
+	 * @param string $method
+	 * @param AbuseFilterVariableHolder $vars
+	 * @param array $parameters
+	 * @param null &$result
+	 * @return bool
+	 */
+	static function abuseFilterComputeVariable( $method, $vars, $parameters, &$result ) {
+		if ( $method == 'sfs-confidence' ) {
+			$result = StopForumSpam::getConfidence( $parameters['user'] );
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	/**
+	 * Load our confidence variable
+	 * @param AbuseFilterVariableHolder $vars
+	 * @param User $user
+	 * @return bool
+	 */
+	static function abuseFilterGenerateUserVars( $vars, $user ) {
+		$vars->setLazyLoadVar( 'sfs_confidence', 'sfs-confidence', array( 'user' => $user ) );
+		return true;
+	}
+
+	/**
+	 * Tell AbuseFilter about our sfs-confidence variable
+	 * @param array &$builderValues
+	 * @return bool
+	 */
+	static function abuseFilterBuilder( &$builderValues ) {
+		// Uses: 'abusefilter-edit-builder-vars-sfs-confidence'
+		$builderValues['vars']['sfs_confidence'] = 'sfs-confidence';
+		return true;
+	}
+
 }
