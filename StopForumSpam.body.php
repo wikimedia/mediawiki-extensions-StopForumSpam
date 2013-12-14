@@ -192,4 +192,44 @@ class StopForumSpam {
 
 		return $conf;
 	}
+
+	/**
+	 * Get memcached key
+	 * @param string $ip
+	 * @return string
+	 */
+	protected static function getBlacklistKey( $ip ) {
+		return 'sfs:blacklisted:' . md5( $ip );
+	}
+
+	/**
+	 * Checks if a given IP address is blacklisted
+	 * @param string $ip
+	 * @return bool
+	 */
+	public static function isBlacklisted( $ip ) {
+		global $wgMemc;
+		if ( !IP::isIPAddress( $ip ) ) {
+			return false;
+		}
+		return $wgMemc->get( self::getBlacklistKey( $ip) ) !== false;
+	}
+
+	/**
+	 * Sticks the blacklist in memcache
+	 * Might take a lot of time/memory, should use
+	 * updateBlacklist.php script to generate
+	 */
+	public static function makeBlacklist() {
+		global $wgSFSIPListLocation, $wgMemc;
+
+		$handle = fopen( $wgSFSIPListLocation, 'rt' );
+		while ( ( $buffer = fgets( $handle ) ) !== false ) {
+			if ( $buffer !== '' ) {
+				$key = self::getBlacklistKey( trim( $buffer ) );
+				$wgMemc->set( $key, '1', self::CACHE_DURATION );
+			}
+		}
+		fclose( $handle );
+	}
 }

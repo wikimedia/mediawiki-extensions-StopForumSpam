@@ -21,6 +21,13 @@ if ( !defined( 'MEDIAWIKI' ) ) {
  */
 $wgSFSAPIKey = '';
 
+/**
+ * Location on the server where the IP blacklist can be found
+ * File should be unzipped
+ * @see http://www.stopforumspam.com/downloads/
+ */
+$wgSFSIPListLocation = false;
+
 $wgExtensionCredits['antispam'][] = array(
 	'path' => __FILE__,
 	'name' => 'StopForumSpam',
@@ -39,6 +46,9 @@ $wgHooks['BlockIpComplete'][] = 'SFSHooks::onBlockIpComplete';
 $wgHooks['AbuseFilter-computeVariable'][] = 'SFSHooks::abuseFilterComputeVariable';
 $wgHooks['AbuseFilter-generateUserVars'][] = 'SFSHooks::abuseFilterGenerateUserVars';
 $wgHooks['AbuseFilter-builder'][] = 'SFSHooks::abuseFilterBuilder';
+$wgHooks['getUserPermissionsErrorsExpensive'][] = 'SFSHooks::onGetUserPermissionsErrorsExpensive';
+$wgHooks['OtherBlockLogLink'][] = 'SFSHooks::onOtherBlockLogLink';
+
 $wgExtensionMessagesFiles['StopForumSpam'] = __DIR__ . '/StopForumSpam.i18n.php';
 
 
@@ -55,3 +65,4 @@ $wgResourceModules['ext.SFS.formhack'] = array(
 );
 
 $wgGroupPermissions['sysop']['stopforumspam'] = true;
+$wgGroupPermissions['sysop']['sfsblock-bypass'] = true;

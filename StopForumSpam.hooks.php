@@ -102,4 +102,75 @@ class SFSHooks {
 		return true;
 	}
 
+	/**
+	 * If an IP address is blacklisted, don't let them edit.
+	 *
+	 * @param Title $title Title being acted upon
+	 * @param User $user User performing the action
+	 * @param string $action Action being performed
+	 * @param array &$result Will be filled with block status if blocked
+	 * @return bool
+	 */
+	public static function onGetUserPermissionsErrorsExpensive( &$title, &$user, $action, &$result ) {
+		global $wgSFSIPListLocation;
+		if ( !$wgSFSIPListLocation ) {
+			// Not configured
+			return true;
+		}
+		if ( $action === 'read' ) {
+			return true;
+		}
+
+		if ( $user->isAnon() ) {
+			$ip = $user->getName();
+		} else {
+			$context = RequestContext::getMain();
+			if ( $context->getUser()->getName() === $user->getName() ) {
+				$ip = $context->getRequest()->getIP();
+			} else {
+				// Some other user is making an action, stay on the safe side
+				return true;
+			}
+		}
+
+		if ( StopForumSpam::isBlacklisted( $ip ) ) {
+			wfDebugLog( 'StopForumSpam', "{$user->getName()} tripped blacklist by using $ip." );
+			if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
+				wfDebugLog( 'StopForumSpam', "{$user->getName()} is exempt from SFS blocks." );
+				return true;
+			}
+			// I just copied this from TorBlock, not sure if it actually makes sense.
+			if ( Block::isWhitelistedFromAutoblocks( $ip ) ) {
+				wfDebugLog( 'StopForumSpam', "$ip is in autoblock whitelist. Exempting from SFS blocks." );
+				return true;
+			}
+
+			$result = array( 'stopforumspam-blocked', $ip );
+			return false;
+		}
+
+		return true;
+	}
+
+	/**
+	 * @param array $msg
+	 * @param string $ip
+	 * @return bool
+	 */
+	public static function onOtherBlockLogLink( &$msg, $ip ) {
+		global $wgSFSIPListLocation;
+		if ( !$wgSFSIPListLocation ) {
+			return true;
+		}
+		if ( IP::isIPAddress( $ip ) && StopForumSpam::isBlacklisted( $ip ) ) {
+			$msg[] = Html::rawElement(
+				'span',
+				array( 'class' => 'mw-stopforumspam-blacklisted' ),
+				wfMessage( 'stopforumspam-is-blocked', $ip )->parse()
+			);
+		}
+
+		return true;
+	}
+
 }
