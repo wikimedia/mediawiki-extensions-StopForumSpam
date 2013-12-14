@@ -8,6 +8,14 @@ class StopForumSpam {
 	const CACHE_DURATION = 86400;
 
 	/**
+	 * Used in determining cache keys
+	 * Not const due to the fact this changes based on whether PHP is 32-bit or 64-bit
+	 */
+	protected static $SHIFT_AMOUNT = null;
+	protected static $BUCKET_MASK;
+	protected static $OFFSET_MASK;
+
+	/**
 	 * Actual submission process to stopforumspam.com
 	 * @param User $user our bad spammer to report
 	 * @return bool indicating success of operation
@@ -195,11 +203,11 @@ class StopForumSpam {
 
 	/**
 	 * Get memcached key
-	 * @param string $ip
+	 * @param int $bucket
 	 * @return string
 	 */
-	protected static function getBlacklistKey( $ip ) {
-		return 'sfs:blacklisted:' . md5( $ip );
+	protected static function getBlacklistKey( $bucket ) {
+		return 'sfs:blacklisted:' . $bucket;
 	}
 
 	/**
@@ -209,27 +217,59 @@ class StopForumSpam {
 	 */
 	public static function isBlacklisted( $ip ) {
 		global $wgMemc;
-		if ( !IP::isIPAddress( $ip ) ) {
+		if ( !IP::isValid( $ip ) || IP::isIPv6( $ip ) ) {
 			return false;
 		}
-		return $wgMemc->get( self::getBlacklistKey( $ip) ) !== false;
+		list( $bucket, $offset ) = self::getBucketAndOffset( $ip );
+		$bitfield = $wgMemc->get( self::getBlacklistKey( $bucket ) );
+		return (bool)( $bitfield & ( 1 << $offset ) );
 	}
 
 	/**
 	 * Sticks the blacklist in memcache
 	 * Might take a lot of time/memory, should use
 	 * updateBlacklist.php script to generate
+	 * @param bool $checkValid Verifies that the IP addresses are valid, this runs faster if these checks are disabled
 	 */
-	public static function makeBlacklist() {
+	public static function makeBlacklist( $checkValid = false ) {
 		global $wgSFSIPListLocation, $wgMemc;
 
-		$handle = fopen( $wgSFSIPListLocation, 'rt' );
-		while ( ( $buffer = fgets( $handle ) ) !== false ) {
-			if ( $buffer !== '' ) {
-				$key = self::getBlacklistKey( trim( $buffer ) );
-				$wgMemc->set( $key, '1', self::CACHE_DURATION );
+		$data = array();
+		$fh = fopen( $wgSFSIPListLocation, 'rb' );
+
+		while ( !feof( $fh ) ) {
+			$ip = stream_get_line( $fh, 4096, "\n" );
+			if ( $ip === '' || ( $checkValid && ( !IP::isValid( $ip ) || IP::isIPv6( $ip ) ) ) ) {
+				continue; // discard invalid lines
 			}
+			list( $bucket, $offset ) = self::getBucketAndOffset( $ip );
+			if ( !isset( $data[$bucket] ) ) {
+				$data[$bucket] = 0;
+			}
+			$data[$bucket] |= ( 1 << $offset );
 		}
-		fclose( $handle );
+
+		foreach ( $data as $bucket => $bitfield ) {
+			$wgMemc->set( self::getBlacklistKey( $bucket ), $bitfield, self::CACHE_DURATION );
+		}
+
+		fclose( $fh );
+	}
+
+	/**
+	 * Gets the bucket (cache key) and offset (bit within the cache)
+	 * @param string $ip
+	 * @return array of two ints (bucket and offset)
+	 */
+	protected static function getBucketAndOffset( $ip ) {
+		if ( self::$SHIFT_AMOUNT === null ) {
+			self::$SHIFT_AMOUNT = ( PHP_INT_SIZE == 4 ) ? 5 : 6;
+			self::$BUCKET_MASK = ( PHP_INT_SIZE == 4 ) ? 134217727 : 67108863;
+			self::$OFFSET_MASK = ( PHP_INT_SIZE == 4 ) ? 31 : 63;
+		}
+		$ip = ip2long( $ip );
+		$bucket = ( $ip >> self::$SHIFT_AMOUNT ) & self::$BUCKET_MASK;
+		$offset = $ip & self::$OFFSET_MASK;
+		return array( $bucket, $offset );
 	}
 }
