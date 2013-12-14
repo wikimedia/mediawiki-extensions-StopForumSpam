@@ -9,21 +9,22 @@
 		// Back-compat for pre-1.23
 		$SFSbox = $( '#mw-input-wpSFS' );
 		if ( $SFSbox.length === 0 ) {
-			$SFSbox = $('<tr>')
-				.addClass( 'mw-htmlform-field-HTMLCheckField')
+			$SFSbox = $( '<tr>' )
+				.addClass( 'mw-htmlform-field-HTMLCheckField' )
 				.append( '<td class="mw-label"><label>&#160;</label></td>' )
-				.append( $('<td>')
-					.addClass('mw-input')
-					.append('<input name="wpSFS" type="checkbox" value="1" id="mw-input-wpSFS" />')
-					.append('&#160;')
-					.append( $('<label>')
-						.attr('for', 'mw-input-wpSFS')
-						.text( mw.message( 'stopforumspam-checkbox').text() )
+				.append( $( '<td>' )
+					.addClass( 'mw-input' )
+					.append( '<input name="wpSFS" type="checkbox" value="1" id="mw-input-wpSFS" />' )
+					.append( '&#160;' )
+					.append( $( '<label>' )
+						.attr( 'for', 'mw-input-wpSFS' )
+						.text( mw.message( 'stopforumspam-checkbox' ).text() )
 					)
 				);
+
+			$( '#mw-input-wpHardBlock' ).closest( 'tr' ).after( $SFSbox );
 		}
 
-		$( '#mw-input-wpHardBlock' ).closest( 'tr').after( $SFSbox );
 
 		function updateBlockOptions( instant ) {
 			var blocktarget = $.trim( $blockTarget.val() ),
