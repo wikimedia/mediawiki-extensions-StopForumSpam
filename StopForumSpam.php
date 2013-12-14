@@ -39,6 +39,7 @@ $wgHooks['BlockIpComplete'][] = 'SFSHooks::onBlockIpComplete';
 $wgHooks['AbuseFilter-computeVariable'][] = 'SFSHooks::abuseFilterComputeVariable';
 $wgHooks['AbuseFilter-generateUserVars'][] = 'SFSHooks::abuseFilterGenerateUserVars';
 $wgHooks['AbuseFilter-builder'][] = 'SFSHooks::abuseFilterBuilder';
+$wgExtensionMessagesFiles['StopForumSpam'] = __DIR__ . '/StopForumSpam.i18n.php';
 
 
 $wgResourceModules['ext.SFS.formhack'] = array(
