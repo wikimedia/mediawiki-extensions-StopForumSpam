@@ -169,10 +169,15 @@ class StopForumSpam {
 	public static function getConfidence( User $user ) {
 		global $wgMemc;
 
+		$main = RequestContext::getMain();
+
 		if ( $user->isLoggedIn() ) {
 			$params['username'] = $user->getName();
 			if ( $user->getEmail() ) {
 				$params['username'] = $user->getEmail();
+			}
+			if ( $main->getUser()->getName() === $user->getName() ) {
+				$params['ip'] = $main->getRequest()->getIP();
 			}
 		} else {
 			$params['ip'] = $user->getName();
