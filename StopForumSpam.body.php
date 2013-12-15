@@ -237,17 +237,20 @@ class StopForumSpam {
 	 * @param bool $checkValid Verifies that the IP addresses are valid, this runs faster if these checks are disabled
 	 */
 	public static function makeBlacklist( $checkValid = false ) {
-		global $wgSFSIPListLocation, $wgMemc;
+		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgMemc;
 
 		$data = array();
 		$fh = fopen( $wgSFSIPListLocation, 'rb' );
 
 		while ( !feof( $fh ) ) {
-			$ip = stream_get_line( $fh, 4096, "\n" );
-			if ( $ip === '' || ( $checkValid && ( !IP::isValid( $ip ) || IP::isIPv6( $ip ) ) ) ) {
+			$ip = fgetcsv( $fh, 4096, ',', '"' );
+			if ( $ip === array( null ) || ( $checkValid && ( !IP::isValid( $ip[0] ) || IP::isIPv6( $ip[0] ) ) ) ) {
 				continue; // discard invalid lines
 			}
-			list( $bucket, $offset ) = self::getBucketAndOffset( $ip );
+			if ( isset( $ip[1] ) && $ip[1] < $wgSFSIPThreshold ) {
+				continue; // wasn't hit enough times
+			}
+			list( $bucket, $offset ) = self::getBucketAndOffset( $ip[0] );
 			if ( !isset( $data[$bucket] ) ) {
 				$data[$bucket] = 0;
 			}

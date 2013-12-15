@@ -23,15 +23,21 @@ $wgSFSAPIKey = '';
 
 /**
  * Location on the server where the IP blacklist can be found
- * File should be unzipped
+ * File should be unzipped and in the "Record summary" format
  * @see http://www.stopforumspam.com/downloads/
  */
 $wgSFSIPListLocation = false;
 
+/**
+ * How many times an IP needs to be reported before it is added to the blacklist
+ * This corresponds to the 2nd field in the record summary CSV
+ */
+$wgSFSIPThreshold = 5;
+
 $wgExtensionCredits['antispam'][] = array(
 	'path' => __FILE__,
 	'name' => 'StopForumSpam',
-	'author' => 'Kunal Mehta',
+	'author' => array( 'Kunal Mehta', 'Ryan Schmidt' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:StopForumSpam',
 	'descriptionmsg' => 'stopforumspam-desc',
 	'version' => '0.1',
