@@ -207,11 +207,28 @@ class StopForumSpam {
 	}
 
 	/**
+	 * @return bool true if blacklist has not expired
+	 */
+	public static function isBlacklistUpToDate() {
+		global $wgMemc;
+		return $wgMemc->get( self::getBlacklistKey() ) !== false;
+	}
+
+	/**
+	 * Returns key for main blacklist
+	 * @return string
+	 */
+	public static function getBlacklistKey() {
+		return 'sfs:blacklist:set';
+	}
+
+	/**
 	 * Get memcached key
+	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 * @param int $bucket
 	 * @return string
 	 */
-	protected static function getBlacklistKey( $bucket ) {
+	public static function getIPBlacklistKey( $bucket ) {
 		return 'sfs:blacklisted:' . $bucket;
 	}
 
@@ -226,50 +243,17 @@ class StopForumSpam {
 			return false;
 		}
 		list( $bucket, $offset ) = self::getBucketAndOffset( $ip );
-		$bitfield = $wgMemc->get( self::getBlacklistKey( $bucket ) );
+		$bitfield = $wgMemc->get( self::getIPBlacklistKey( $bucket ) );
 		return (bool)( $bitfield & ( 1 << $offset ) );
 	}
 
 	/**
-	 * Sticks the blacklist in memcache
-	 * Might take a lot of time/memory, should use
-	 * updateBlacklist.php script to generate
-	 * @param bool $checkValid Verifies that the IP addresses are valid, this runs faster if these checks are disabled
-	 */
-	public static function makeBlacklist( $checkValid = false ) {
-		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgMemc;
-
-		$data = array();
-		$fh = fopen( $wgSFSIPListLocation, 'rb' );
-
-		while ( !feof( $fh ) ) {
-			$ip = fgetcsv( $fh, 4096, ',', '"' );
-			if ( $ip === array( null ) || ( $checkValid && ( !IP::isValid( $ip[0] ) || IP::isIPv6( $ip[0] ) ) ) ) {
-				continue; // discard invalid lines
-			}
-			if ( isset( $ip[1] ) && $ip[1] < $wgSFSIPThreshold ) {
-				continue; // wasn't hit enough times
-			}
-			list( $bucket, $offset ) = self::getBucketAndOffset( $ip[0] );
-			if ( !isset( $data[$bucket] ) ) {
-				$data[$bucket] = 0;
-			}
-			$data[$bucket] |= ( 1 << $offset );
-		}
-
-		foreach ( $data as $bucket => $bitfield ) {
-			$wgMemc->set( self::getBlacklistKey( $bucket ), $bitfield, self::CACHE_DURATION );
-		}
-
-		fclose( $fh );
-	}
-
-	/**
 	 * Gets the bucket (cache key) and offset (bit within the cache)
+	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 * @param string $ip
 	 * @return array of two ints (bucket and offset)
 	 */
-	protected static function getBucketAndOffset( $ip ) {
+	public static function getBucketAndOffset( $ip ) {
 		if ( self::$SHIFT_AMOUNT === null ) {
 			self::$SHIFT_AMOUNT = ( PHP_INT_SIZE == 4 ) ? 5 : 6;
 			self::$BUCKET_MASK = ( PHP_INT_SIZE == 4 ) ? 134217727 : 67108863;

@@ -29,6 +29,12 @@ $wgSFSAPIKey = '';
 $wgSFSIPListLocation = false;
 
 /**
+ * Whether to validate the IP addresses in the blacklist file
+ * Adds a bit of processing time, but safer.
+ */
+$wgSFSValidateIPList = true;
+
+/**
  * How many times an IP needs to be reported before it is added to the blacklist
  * This corresponds to the 2nd field in the record summary CSV
  */
@@ -45,6 +51,7 @@ $wgExtensionCredits['antispam'][] = array(
 
 $wgAutoloadClasses['SFSHooks'] = __DIR__ . '/StopForumSpam.hooks.php';
 $wgAutoloadClasses['StopForumSpam'] = __DIR__ . '/StopForumSpam.body.php';
+$wgAutoloadClasses['BlacklistUpdate'] = __DIR__ . '/BlacklistUpdate.php';
 
 $wgHooks['SpecialBlockBeforeFormDisplay'][] = 'SFSHooks::onSpecialBlockBeforeFormDisplay';
 $wgHooks['SpecialBlockModifyFormFields'][] = 'SFSHooks::onSpecialBlockModifyFormFields';

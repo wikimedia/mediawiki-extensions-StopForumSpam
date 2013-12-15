@@ -133,6 +133,12 @@ class SFSHooks {
 			}
 		}
 
+		if ( !StopForumSpam::isBlacklistUpToDate() ) {
+			// Note that this doesn't necessarily mean our blacklist
+			// is out of date, that it just needs updating.
+			DeferredUpdates::addUpdate( new BlacklistUpdate() );
+		}
+
 		if ( StopForumSpam::isBlacklisted( $ip ) ) {
 			wfDebugLog( 'StopForumSpam', "{$user->getName()} tripped blacklist doing $action by using $ip." );
 			if ( $user->isAllowed( 'sfsblock-bypass' ) ) {

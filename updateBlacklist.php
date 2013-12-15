@@ -14,14 +14,6 @@ require_once( "$IP/maintenance/Maintenance.php" );
 
 class SFSBlacklistUpdate extends Maintenance {
 
-	public function __construct() {
-		parent::__construct();
-		$this->addOption(
-			'check',
-			'Checks IP addresses in $wgSFSIPListLocation for validity (much faster if left out)'
-		);
-	}
-
 	public function execute() {
 		global $wgSFSIPListLocation;
 		if ( $wgSFSIPListLocation === false ) {
@@ -29,8 +21,12 @@ class SFSBlacklistUpdate extends Maintenance {
 		}
 		$this->output( "Starting...\n" );
 		$before = microtime( true );
-		StopForumSpam::makeBlacklist( $this->hasOption( 'check' ) );
+
+		$update = new BlacklistUpdate();
+		$update->doUpdate(); // Where the magic happens!
+
 		$diff = microtime( true ) - $before;
+
 		$this->output( "Done!\n" );
 		$this->output( "Took {$diff} seconds\n" );
 	}
