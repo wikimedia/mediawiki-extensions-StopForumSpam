@@ -134,7 +134,7 @@ class SFSHooks {
 		}
 
 		if ( StopForumSpam::isBlacklisted( $ip ) ) {
-			wfDebugLog( 'StopForumSpam', "{$user->getName()} tripped blacklist by using $ip." );
+			wfDebugLog( 'StopForumSpam', "{$user->getName()} tripped blacklist doing $action by using $ip." );
 			if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
 				wfDebugLog( 'StopForumSpam', "{$user->getName()} is exempt from SFS blocks." );
 				return true;
