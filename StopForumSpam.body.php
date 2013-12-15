@@ -23,6 +23,11 @@ class StopForumSpam {
 	public static function submit( User $user ) {
 		global $wgSFSAPIKey;
 
+		if ( !$wgSFSAPIKey ) {
+			wfDebugLog( 'StopForumSpam', 'No API key set' );
+			return false;
+		}
+
 		if ( !$user->isLoggedIn() ) {
 			return false;
 		}
