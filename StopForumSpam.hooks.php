@@ -118,7 +118,7 @@ class SFSHooks {
 	 * @return bool
 	 */
 	public static function onGetUserPermissionsErrorsExpensive( &$title, &$user, $action, &$result ) {
-		global $wgSFSIPListLocation;
+		global $wgSFSIPListLocation, $wgSFSEnableDeferredUpdates;
 		if ( !$wgSFSIPListLocation ) {
 			// Not configured
 			return true;
@@ -139,7 +139,7 @@ class SFSHooks {
 			}
 		}
 
-		if ( !StopForumSpam::isBlacklistUpToDate() ) {
+		if ( $wgSFSEnableDeferredUpdates && !StopForumSpam::isBlacklistUpToDate() ) {
 			// Note that this doesn't necessarily mean our blacklist
 			// is out of date, that it just needs updating.
 			DeferredUpdates::addUpdate( new BlacklistUpdate() );
@@ -184,5 +184,4 @@ class SFSHooks {
 
 		return true;
 	}
-
 }

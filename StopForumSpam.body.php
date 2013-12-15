@@ -211,7 +211,8 @@ class StopForumSpam {
 	 */
 	public static function isBlacklistUpToDate() {
 		global $wgMemc;
-		return $wgMemc->get( self::getBlacklistKey() ) !== false;
+		return $wgMemc->get( self::getBlacklistKey() ) !== false
+			&& $wgMemc->get( self::getBlacklistUpdateStateKey() ) === false;
 	}
 
 	/**
@@ -230,6 +231,15 @@ class StopForumSpam {
 	 */
 	public static function getIPBlacklistKey( $bucket ) {
 		return 'sfs:blacklisted:' . $bucket;
+	}
+
+	/**
+	 * Returns key for BlacklistUpdate state
+	 * @private This is only public so SFSBlacklistUpdate::execute can access it
+	 * @return string
+	 */
+	public static function getBlacklistUpdateStateKey() {
+		return 'sfs:blacklist:updatestate';
 	}
 
 	/**

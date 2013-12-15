@@ -35,10 +35,26 @@ $wgSFSIPListLocation = false;
 $wgSFSValidateIPList = true;
 
 /**
+ * Whether to update the IP blacklist as a DeferredUpdate at the end of a pageload
+ * (warning: can be very slow depending on your processor speed and cache settings)
+ * If disabled, you will need to run the updateBlacklist.php maintenance script,
+ * setting up a cron job to do this is recommended.
+ */
+$wgSFSEnableDeferredUpdates = true;
+
+/**
  * How many times an IP needs to be reported before it is added to the blacklist
  * This corresponds to the 2nd field in the record summary CSV
  */
 $wgSFSIPThreshold = 5;
+
+/*
+ * How long (in seconds) the IP blacklist should be cached for
+ * If you are using the 7 day blacklist, try 5 days (432000)
+ * If you are using the 30 day blacklist, try 14 days (1209600)
+ * The default is 5 days
+ */
+$wgSFSBlacklistCacheDuration = 432000;
 
 /**
  * Whether to enable the confidence variable for Extension:AbuseFilter
