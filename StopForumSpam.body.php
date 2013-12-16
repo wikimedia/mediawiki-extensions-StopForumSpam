@@ -199,8 +199,23 @@ class StopForumSpam {
 		$key = 'sfs:conf:' . md5( serialize( $params ) );
 		$conf = $wgMemc->get( $key );
 		if ( $conf === false ) {
-			$conf = self::getConfidenceInternal( $params );
-			$wgMemc->set( $key, $conf, self::CACHE_DURATION );
+			// Check that we haven't gone over our 20,000/day limit
+			$limitKey = 'sfs:confidence:limit:' . date( 'mDY' );
+			if ( $wgMemc->get( $limitKey ) === false ) {
+				$limit = 1;
+				$wgMemc->set( $limitKey, 1, 86400 );
+			} else {
+				$limit = $wgMemc->incr( $limitKey );
+			}
+			if ( $limit > 20000 ) {
+				// We're over, so return 0 to be safe, but don't cache this failure
+				wfDebugLog( 'StopForumSpam', "Skipped fetching confidence for {$user->getName()}, already over over 20k limit");
+				$conf = 0.0;
+			} else {
+				$conf = self::getConfidenceInternal( $params );
+				$wgMemc->set( $key, $conf, self::CACHE_DURATION );
+			}
+
 		}
 
 		return $conf;
