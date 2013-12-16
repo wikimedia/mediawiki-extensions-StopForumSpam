@@ -40,6 +40,12 @@ $wgSFSValidateIPList = true;
  */
 $wgSFSIPThreshold = 5;
 
+/**
+ * Whether to enable the confidence variable for Extension:AbuseFilter
+ * The variable will make external API requests
+ */
+$wgSFSEnableConfidenceVariable = true;
+
 $wgExtensionCredits['antispam'][] = array(
 	'path' => __FILE__,
 	'name' => 'StopForumSpam',

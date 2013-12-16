@@ -87,7 +87,10 @@ class SFSHooks {
 	 * @return bool
 	 */
 	static function abuseFilterGenerateUserVars( $vars, $user ) {
-		$vars->setLazyLoadVar( 'sfs_confidence', 'sfs-confidence', array( 'user' => $user ) );
+		global $wgSFSEnableConfidenceVariable;
+		if ( $wgSFSEnableConfidenceVariable ) {
+			$vars->setLazyLoadVar( 'sfs_confidence', 'sfs-confidence', array( 'user' => $user ) );
+		}
 		return true;
 	}
 
@@ -97,8 +100,11 @@ class SFSHooks {
 	 * @return bool
 	 */
 	static function abuseFilterBuilder( &$builderValues ) {
-		// Uses: 'abusefilter-edit-builder-vars-sfs-confidence'
-		$builderValues['vars']['sfs_confidence'] = 'sfs-confidence';
+		global $wgSFSEnableConfidenceVariable;
+		if ( $wgSFSEnableConfidenceVariable ) {
+			// Uses: 'abusefilter-edit-builder-vars-sfs-confidence'
+			$builderValues['vars']['sfs_confidence'] = 'sfs-confidence';
+		}
 		return true;
 	}
 
