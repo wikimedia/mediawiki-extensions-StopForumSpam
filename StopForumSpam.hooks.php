@@ -53,7 +53,7 @@ class SFSHooks {
 					if ( $target && $target->exists() ) {
 						StopForumSpam::submit( $target );
 					} else {
-						wfDebug( "Could not detect valid user from \"{$block->getTarget()}\"" );
+						wfDebugLog( 'StopForumSpam', "Could not detect valid user from \"{$block->getTarget()}\"" );
 					}
 				}
 
