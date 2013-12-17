@@ -32,14 +32,15 @@ Parameters:
 );
 
 /** German (Deutsch)
+ * @author Kghbln
  * @author Metalhead64
  */
 $messages['de'] = array(
-	'stopforumspam-desc' => 'Ermöglicht es Administratoren, Daten an [http://stopforumspam.com/ stopforumspam.com] zu senden.',
+	'stopforumspam-desc' => 'Ermöglicht es Administratoren, Daten an [http://stopforumspam.com/ stopforumspam.com] zu senden',
 	'stopforumspam-checkbox' => 'Benutzerinformation an stopforumspam.com senden',
 	'abusefilter-edit-builder-vars-sfs-confidence' => 'stopforumspam.com-Vertrauensstufe',
-	'stopforumspam-blocked' => 'Das Bearbeiten von deiner IP-Adresse ($1) wurde gesperrt, seit sie kürzlich auf Spam-Websites verwendet wurde.',
-	'stopforumspam-is-blocked' => 'Die IP-Adresse <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> wurde für Spamming gesperrt.',
+	'stopforumspam-blocked' => 'Das Bearbeiten mit deiner IP-Adresse ($1) wurde gesperrt, da sie kürzlich zum Spammen auf Websites verwendet wurde.',
+	'stopforumspam-is-blocked' => 'Die IP-Adresse <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> wurde aufgrund von Spamming gesperrt.',
 );
 
 /** Japanese (日本語)
@@ -50,6 +51,14 @@ $messages['ja'] = array(
 	'stopforumspam-checkbox' => '利用者情報を stopforumspam.com に送信',
 	'stopforumspam-blocked' => 'あなたの IP アドレス ($1) は、ウェブサイトへのスパム攻撃に最近使用されたため、編集ブロックされています。',
 	'stopforumspam-is-blocked' => 'IP アドレス <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> は、スパム攻撃を行なったためブロックされています。',
+);
+
+/** Luxembourgish (Lëtzebuergesch)
+ * @author Robby
+ */
+$messages['lb'] = array(
+	'stopforumspam-desc' => 'Erlaabt et Administrateure fir Donnéeën un  [http://stopforumspam.com/ stopforumspam.com] ze schécken',
+	'stopforumspam-checkbox' => 'Benotzerinformatiounen u stopforumspam.com schécken',
 );
 
 /** Russian (русский)
