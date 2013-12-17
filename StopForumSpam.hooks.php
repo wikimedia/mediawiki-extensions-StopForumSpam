@@ -118,7 +118,7 @@ class SFSHooks {
 	 * @return bool
 	 */
 	public static function onGetUserPermissionsErrorsExpensive( &$title, &$user, $action, &$result ) {
-		global $wgSFSIPListLocation, $wgSFSEnableDeferredUpdates;
+		global $wgSFSIPListLocation, $wgSFSEnableDeferredUpdates, $wgBlockAllowsUTEdit;
 		if ( !$wgSFSIPListLocation ) {
 			// Not configured
 			return true;
@@ -137,6 +137,11 @@ class SFSHooks {
 				// Some other user is making an action, stay on the safe side
 				return true;
 			}
+		}
+
+		if ( $wgBlockAllowsUTEdit && $title->equals( $user->getTalkPage() ) ) {
+			// Let a user edit their talk page
+			return true;
 		}
 
 		if ( $wgSFSEnableDeferredUpdates && !StopForumSpam::isBlacklistUpToDate() ) {
