@@ -1,7 +1,7 @@
 <?php
 
 class BlacklistUpdate implements DeferrableUpdate {
-	private $lineNo, $usedBuckets, $data, $skipLines;
+	private $lineNo, $usedBuckets, $data, $skipLines, $finished = false;
 
 	public function doUpdate() {
 		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgSFSValidateIPList, $wgSFSBlacklistCacheDuration, $wgMemc;
@@ -65,13 +65,20 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 		// End output buffering
 		ob_end_clean();
+
+		$this->finished = true;
 	}
 
 	/**
 	 * Saves the current progress in doUpdate() so we can pick it up at a later request
 	 */
-	private function saveState() {
-		global $wgMemc;
+	public function saveState() {
+		global $wgSFSBlacklistCacheDuration, $wgSFSIPListLocation, $wgMemc;
+
+		if ( $this->finished ) {
+			// Yay, we're done!
+			return;
+		}
 
 		// Save the buckets
 		foreach ( $this->data as $bucket => $bitfield ) {
