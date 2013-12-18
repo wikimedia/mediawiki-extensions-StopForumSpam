@@ -43,6 +43,16 @@ $messages['de'] = array(
 	'stopforumspam-is-blocked' => 'Die IP-Adresse <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> wurde aufgrund von Spamming gesperrt.',
 );
 
+/** French (français)
+ * @author Gomoko
+ */
+$messages['fr'] = array(
+	'stopforumspam-desc' => 'Permet aux administrateurs d’envoyer des données à [http://stopforumspam.com/ stopforumspam.com]',
+	'stopforumspam-checkbox' => 'Envoyer les informations utilisateur à stopforumspam.com',
+	'abusefilter-edit-builder-vars-sfs-confidence' => 'niveau de confiance de stopforumspam.com',
+	'stopforumspam-is-blocked' => 'L’adresse IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> a été bloquée pour cause d’envoi de pourriels.',
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
