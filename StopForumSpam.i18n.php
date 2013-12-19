@@ -71,6 +71,17 @@ $messages['lb'] = array(
 	'stopforumspam-checkbox' => 'Benotzerinformatiounen u stopforumspam.com schécken',
 );
 
+/** Polish (polski)
+ * @author Chrumps
+ */
+$messages['pl'] = array(
+	'stopforumspam-desc' => 'Umożliwia administratorom wysyłanie danych do [http://stopforumspam.com/ stopforumspam.com]',
+	'stopforumspam-checkbox' => 'Wyślij Informacje o użytkowniku do stopforumspam.com',
+	'abusefilter-edit-builder-vars-sfs-confidence' => 'poziom zaufania stopforumspam.com',
+	'stopforumspam-blocked' => 'Edycja z Twojego adresu IP ($1) została zablokowana, ponieważ ostatnio był on wykorzystany do spamu stron internetowych.',
+	'stopforumspam-is-blocked' => 'Adres IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> został zablokowany za rozsyłanie spamu.',
+);
+
 /** Russian (русский)
  * @author Okras
  */
