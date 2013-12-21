@@ -83,6 +83,7 @@ $wgHooks['AbuseFilter-generateUserVars'][] = 'SFSHooks::abuseFilterGenerateUserV
 $wgHooks['AbuseFilter-builder'][] = 'SFSHooks::abuseFilterBuilder';
 $wgHooks['getUserPermissionsErrorsExpensive'][] = 'SFSHooks::onGetUserPermissionsErrorsExpensive';
 $wgHooks['OtherBlockLogLink'][] = 'SFSHooks::onOtherBlockLogLink';
+$wgHooks['UnitTestsList'][] = 'SFSHooks::onUnitTestsList';
 
 $wgExtensionMessagesFiles['StopForumSpam'] = __DIR__ . '/StopForumSpam.i18n.php';
 

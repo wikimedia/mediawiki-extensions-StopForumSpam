@@ -189,4 +189,13 @@ class SFSHooks {
 
 		return true;
 	}
+
+	/**
+	 * Load our unit tests
+	 */
+	public static function onUnitTestsList( &$files ) {
+		$files += glob( __DIR__ . '/tests/*Test.php' );
+
+		return true;
+	}
 }
