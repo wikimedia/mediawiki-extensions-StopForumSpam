@@ -71,6 +71,15 @@ $messages['lb'] = array(
 	'stopforumspam-checkbox' => 'Benotzerinformatiounen u stopforumspam.com schécken',
 );
 
+/** Macedonian (македонски)
+ * @author Bjankuloski06
+ */
+$messages['mk'] = array(
+	'stopforumspam-desc' => 'Им овозможува на администраторите да испраќаат податоци на [http://stopforumspam.com/ stopforumspam.com]',
+	'stopforumspam-checkbox' => 'Испраќај кориснички информации на stopforumspam.com',
+	'abusefilter-edit-builder-vars-sfs-confidence' => 'степен на доверба во stopforumspam.com',
+);
+
 /** Polish (polski)
  * @author Chrumps
  */
