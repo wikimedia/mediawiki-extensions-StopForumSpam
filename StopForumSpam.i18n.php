@@ -45,11 +45,13 @@ $messages['de'] = array(
 
 /** French (français)
  * @author Gomoko
+ * @author Linedwell
  */
 $messages['fr'] = array(
 	'stopforumspam-desc' => 'Permet aux administrateurs d’envoyer des données à [http://stopforumspam.com/ stopforumspam.com]',
 	'stopforumspam-checkbox' => 'Envoyer les informations utilisateur à stopforumspam.com',
 	'abusefilter-edit-builder-vars-sfs-confidence' => 'niveau de confiance de stopforumspam.com',
+	'stopforumspam-blocked' => "L'édition à partir de votre adresse IP ($1) a été bloquée car elle a été récemment utilisée pour du spam de sites web.",
 	'stopforumspam-is-blocked' => 'L’adresse IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> a été bloquée pour cause d’envoi de pourriels.',
 );
 
@@ -78,6 +80,8 @@ $messages['mk'] = array(
 	'stopforumspam-desc' => 'Им овозможува на администраторите да испраќаат податоци на [http://stopforumspam.com/ stopforumspam.com]',
 	'stopforumspam-checkbox' => 'Испраќај кориснички информации на stopforumspam.com',
 	'abusefilter-edit-builder-vars-sfs-confidence' => 'степен на доверба во stopforumspam.com',
+	'stopforumspam-blocked' => 'Уредувањето од вашата IP-адреса ($1) е блокирано бидејќи неодамна се користела за спамирање.',
+	'stopforumspam-is-blocked' => 'IP-адресата <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> е блокирана поради спамирање.',
 );
 
 /** Polish (polski)
