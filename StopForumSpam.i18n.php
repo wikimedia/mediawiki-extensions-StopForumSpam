@@ -65,6 +65,17 @@ $messages['ja'] = array(
 	'stopforumspam-is-blocked' => 'IP アドレス <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> は、スパム攻撃を行なったためブロックされています。',
 );
 
+/** Korean (한국어)
+ * @author Hym411
+ */
+$messages['ko'] = array(
+	'stopforumspam-desc' => '관리자가 [http://stopforumspam.com stopforumspam.com]에 데이터를 보내도록 허용합니다.',
+	'stopforumspam-checkbox' => 'stopforumspam.com 에 사용자 정보 보내기',
+	'abusefilter-edit-builder-vars-sfs-confidence' => 'stopforumspam.com 신뢰 등급',
+	'stopforumspam-blocked' => '당신의 IP 주소($1)에서의 편집은 최근에 스팸 사이트에서 사용되었기 때문에 차단되었습니다.',
+	'stopforumspam-is-blocked' => 'IP 주소 [http://stopforumspam.com/ipcheck/$1 $1]은 스팸 때문에 차단되었습니다.',
+);
+
 /** Luxembourgish (Lëtzebuergesch)
  * @author Robby
  */
