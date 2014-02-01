@@ -77,6 +77,17 @@ $messages['fr'] = array(
 	'stopforumspam-is-blocked' => 'L’adresse IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> a été bloquée pour cause d’envoi de pourriels.',
 );
 
+/** Galician (galego)
+ * @author Toliño
+ */
+$messages['gl'] = array(
+	'stopforumspam-desc' => 'Permite aos administradores enviar datos a [http://stopforumspam.com/ stopforumspam.com]',
+	'stopforumspam-checkbox' => 'Enviar a información de usuario a stopforumspam.com',
+	'abusefilter-edit-builder-vars-sfs-confidence' => 'Nivel de confianza de stopforumspam.com',
+	'stopforumspam-blocked' => 'Bloqueouse a edición desde o seu enderezo IP ($1), dado que recentemente se utilizou para incluír spam a sitios web.',
+	'stopforumspam-is-blocked' => 'O enderezo IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> foi bloqueado por publicar spam.',
+);
+
 /** Japanese (日本語)
  * @author Shirayuki
  */
