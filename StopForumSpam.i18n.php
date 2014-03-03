@@ -65,6 +65,17 @@ $messages['es'] = array(
 	'stopforumspam-is-blocked' => 'La dirección IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> se ha bloqueado por publicar spam.',
 );
 
+/** Persian (فارسی)
+ * @author Armin1392
+ */
+$messages['fa'] = array(
+	'stopforumspam-desc' => 'اجازه به سرپرستان برای ارسال اطلاعات به [http://stopforumspam.com/ stopforumspam.com]',
+	'stopforumspam-checkbox' => 'ارسال اطلاعات کاربر به stopforumspam.com',
+	'abusefilter-edit-builder-vars-sfs-confidence' => 'سطح اعتماد به نفس stopforumspam.com',
+	'stopforumspam-blocked' => 'ویرایش از آدرس آی‌پی ($1) شما از زمانی که اخیراً برای وب‌سایت‌های اسپم استفاده شده‌است،مسدود شده‌است.',
+	'stopforumspam-is-blocked' => 'آدرس آی‌پی <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> برای اسپم شدن مسدود شده‌است.',
+);
+
 /** French (français)
  * @author Gomoko
  * @author Linedwell
