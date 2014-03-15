@@ -139,6 +139,17 @@ $messages['mk'] = array(
 	'stopforumspam-is-blocked' => 'IP-адресата <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> е блокирана поради спамирање.',
 );
 
+/** Occitan (occitan)
+ * @author Cedric31
+ */
+$messages['oc'] = array(
+	'stopforumspam-desc' => 'Permet als administrators de mandar de donadas a [http://stopforumspam.com/ stopforumspam.com]',
+	'stopforumspam-checkbox' => 'Mandar las informacions utilizaire a stopforumspam.com',
+	'abusefilter-edit-builder-vars-sfs-confidence' => 'nivèl de fisança de stopforumspam.com',
+	'stopforumspam-blocked' => "L'edicion a partir de vòstra adreça IP ($1) es estada blocada perque es estada utilizada recentament per de spam de sites web.",
+	'stopforumspam-is-blocked' => 'L’adreça IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> es estada blocada per causa de mandadís de corrièrs electronics.',
+);
+
 /** Polish (polski)
  * @author Chrumps
  */
