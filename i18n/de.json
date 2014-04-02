@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Kghbln",
+            "Metalhead64"
+        ]
+    },
+    "stopforumspam-desc": "Ermöglicht es Administratoren, Daten an [http://stopforumspam.com/ stopforumspam.com] zu senden",
+    "stopforumspam-checkbox": "Benutzerinformation an stopforumspam.com senden",
+    "abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com-Vertrauensstufe",
+    "stopforumspam-blocked": "Das Bearbeiten mit deiner IP-Adresse ($1) wurde gesperrt, da sie kürzlich zum Spammen auf Websites verwendet wurde.",
+    "stopforumspam-is-blocked": "Die IP-Adresse <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> wurde aufgrund von Spamming gesperrt."
+}

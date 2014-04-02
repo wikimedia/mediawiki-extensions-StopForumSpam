@@ -1,0 +1,13 @@
+{
+    "@metadata": {
+        "authors": [
+            "Gomoko",
+            "Linedwell"
+        ]
+    },
+    "stopforumspam-desc": "Permet aux administrateurs d’envoyer des données à [http://stopforumspam.com/ stopforumspam.com]",
+    "stopforumspam-checkbox": "Envoyer les informations utilisateur à stopforumspam.com",
+    "abusefilter-edit-builder-vars-sfs-confidence": "niveau de confiance de stopforumspam.com",
+    "stopforumspam-blocked": "L'édition à partir de votre adresse IP ($1) a été bloquée car elle a été récemment utilisée pour du spam de sites web.",
+    "stopforumspam-is-blocked": "L’adresse IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> a été bloquée pour cause d’envoi de pourriels."
+}

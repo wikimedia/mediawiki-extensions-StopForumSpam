@@ -68,7 +68,7 @@ $wgExtensionCredits['antispam'][] = array(
 	'author' => array( 'Kunal Mehta', 'Ryan Schmidt' ),
 	'url' => 'https://www.mediawiki.org/wiki/Extension:StopForumSpam',
 	'descriptionmsg' => 'stopforumspam-desc',
-	'version' => '0.1',
+	'version' => '0.2.0',
 );
 
 $wgAutoloadClasses['SFSHooks'] = __DIR__ . '/StopForumSpam.hooks.php';
@@ -85,6 +85,7 @@ $wgHooks['getUserPermissionsErrorsExpensive'][] = 'SFSHooks::onGetUserPermission
 $wgHooks['OtherBlockLogLink'][] = 'SFSHooks::onOtherBlockLogLink';
 $wgHooks['UnitTestsList'][] = 'SFSHooks::onUnitTestsList';
 
+$wgMessagesDirs['StopForumSpam'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['StopForumSpam'] = __DIR__ . '/StopForumSpam.i18n.php';
 
 
