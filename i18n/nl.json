@@ -1,0 +1,11 @@
+{
+    "@metadata": {
+        "authors": [
+            "Southparkfan"
+        ]
+    },
+    "stopforumspam-desc": "Geeft beheerders de mogelijkheid om gegevens te sturen naar [http://stopforumspam.com/ stopforumspam.com]",
+    "stopforumspam-checkbox": "Verzend gebruikersinformatie naar stopforumspam.com",
+    "stopforumspam-blocked": "Het bewerken vanaf uw IP-adres ($1) is geblokkeerd sinds het recent is gebruikt voor spam.",
+    "stopforumspam-is-blocked": "Het IP-adres <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> is geblokkeerd vanwege spammen."
+}
