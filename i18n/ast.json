@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Xuacu"
-        ]
-    },
-    "stopforumspam-desc": "Permite que los alministradores unvien datos a [http://stopforumspam.com/ stopforumspam.com]",
-    "stopforumspam-checkbox": "Unviar información del usuariu a stopforumspam.com",
-    "abusefilter-edit-builder-vars-sfs-confidence": "Nivel de confianza de stopforumspam.com",
-    "stopforumspam-blocked": "Bloquióse la edición dende la so direición IP ($1) porque de recién usóse pa facer spam en sitios web.",
-    "stopforumspam-is-blocked": "La direición IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> bloquióse por facer spam."
+	"@metadata": {
+		"authors": [
+			"Xuacu"
+		]
+	},
+	"stopforumspam-desc": "Permite que los alministradores unvien datos a [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "Unviar información del usuariu a stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-confidence": "Nivel de confianza de stopforumspam.com",
+	"stopforumspam-blocked": "Bloquióse la edición dende la so direición IP ($1) porque de recién usóse pa facer spam en sitios web.",
+	"stopforumspam-is-blocked": "La direición IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> bloquióse por facer spam."
 }

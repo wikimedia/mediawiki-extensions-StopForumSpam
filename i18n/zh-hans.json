@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Yfdyh000"
-        ]
-    },
-    "stopforumspam-desc": "允许管理员发送数据到[http://stopforumspam.com/ stopforumspam.com]",
-    "stopforumspam-checkbox": "发送用户信息到stopforumspam.com",
-    "abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com信任级别",
-    "stopforumspam-blocked": "已禁止从您的IP地址 ($1) 编辑，因为它最近被用于网站垃圾信息。",
-    "stopforumspam-is-blocked": "IP地址 <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> 已被封禁，以免垃圾信息侵袭。"
+	"@metadata": {
+		"authors": [
+			"Yfdyh000"
+		]
+	},
+	"stopforumspam-desc": "允许管理员发送数据到[http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "发送用户信息到stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com信任级别",
+	"stopforumspam-blocked": "已禁止从您的IP地址 ($1) 编辑，因为它最近被用于网站垃圾信息。",
+	"stopforumspam-is-blocked": "IP地址 <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> 已被封禁，以免垃圾信息侵袭。"
 }

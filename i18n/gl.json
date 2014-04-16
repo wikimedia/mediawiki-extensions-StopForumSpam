@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Toliño"
-        ]
-    },
-    "stopforumspam-desc": "Permite aos administradores enviar datos a [http://stopforumspam.com/ stopforumspam.com]",
-    "stopforumspam-checkbox": "Enviar a información de usuario a stopforumspam.com",
-    "abusefilter-edit-builder-vars-sfs-confidence": "Nivel de confianza de stopforumspam.com",
-    "stopforumspam-blocked": "Bloqueouse a edición desde o seu enderezo IP ($1), dado que recentemente se utilizou para incluír spam a sitios web.",
-    "stopforumspam-is-blocked": "O enderezo IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> foi bloqueado por publicar spam."
+	"@metadata": {
+		"authors": [
+			"Toliño"
+		]
+	},
+	"stopforumspam-desc": "Permite aos administradores enviar datos a [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "Enviar a información de usuario a stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-confidence": "Nivel de confianza de stopforumspam.com",
+	"stopforumspam-blocked": "Bloqueouse a edición desde o seu enderezo IP ($1), dado que recentemente se utilizou para incluír spam a sitios web.",
+	"stopforumspam-is-blocked": "O enderezo IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> foi bloqueado por publicar spam."
 }

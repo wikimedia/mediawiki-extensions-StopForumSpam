@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Andriykopanytsia"
-        ]
-    },
-    "stopforumspam-desc": "Дозволяє адміністраторам надсилати дані до [http://stopforumspam.com/ stopforumspam.com]",
-    "stopforumspam-checkbox": "Надсилати відомості про користувача до stopforumspam.com",
-    "abusefilter-edit-builder-vars-sfs-confidence": "рівень довіри stopforumspam.com",
-    "stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) вже заблоковане, позаяк вона нещодавно використовувалася для спам-сайтів.",
-    "stopforumspam-is-blocked": "IP-адреса <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> вже заблокована за розсилку спаму."
+	"@metadata": {
+		"authors": [
+			"Andriykopanytsia"
+		]
+	},
+	"stopforumspam-desc": "Дозволяє адміністраторам надсилати дані до [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "Надсилати відомості про користувача до stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-confidence": "рівень довіри stopforumspam.com",
+	"stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) вже заблоковане, позаяк вона нещодавно використовувалася для спам-сайтів.",
+	"stopforumspam-is-blocked": "IP-адреса <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> вже заблокована за розсилку спаму."
 }

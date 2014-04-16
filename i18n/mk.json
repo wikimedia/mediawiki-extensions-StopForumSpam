@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Bjankuloski06"
-        ]
-    },
-    "stopforumspam-desc": "Им овозможува на администраторите да испраќаат податоци на [http://stopforumspam.com/ stopforumspam.com]",
-    "stopforumspam-checkbox": "Испраќај кориснички информации на stopforumspam.com",
-    "abusefilter-edit-builder-vars-sfs-confidence": "степен на доверба во stopforumspam.com",
-    "stopforumspam-blocked": "Уредувањето од вашата IP-адреса ($1) е блокирано бидејќи неодамна се користела за спамирање.",
-    "stopforumspam-is-blocked": "IP-адресата <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> е блокирана поради спамирање."
+	"@metadata": {
+		"authors": [
+			"Bjankuloski06"
+		]
+	},
+	"stopforumspam-desc": "Им овозможува на администраторите да испраќаат податоци на [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "Испраќај кориснички информации на stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-confidence": "степен на доверба во stopforumspam.com",
+	"stopforumspam-blocked": "Уредувањето од вашата IP-адреса ($1) е блокирано бидејќи неодамна се користела за спамирање.",
+	"stopforumspam-is-blocked": "IP-адресата <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> е блокирана поради спамирање."
 }

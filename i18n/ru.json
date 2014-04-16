@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Okras"
-        ]
-    },
-    "stopforumspam-desc": "Позволяет администраторам отправлять данные на [http://stopforumspam.com/ stopforumspam.com]",
-    "stopforumspam-checkbox": "Отправить информацию об участнике на stopforumspam.com",
-    "abusefilter-edit-builder-vars-sfs-confidence": "уровень доверия stopforumspam.com",
-    "stopforumspam-blocked": "Внесение правок с вашего IP-адреса ($1) было заблокировано, так как он недавно был использован для спама веб-сайтов.",
-    "stopforumspam-is-blocked": "IP-адрес <strong>[http://stopforumspam.com/ipcheck/$1 $1] </strong> был заблокирован за спам."
+	"@metadata": {
+		"authors": [
+			"Okras"
+		]
+	},
+	"stopforumspam-desc": "Позволяет администраторам отправлять данные на [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "Отправить информацию об участнике на stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-confidence": "уровень доверия stopforumspam.com",
+	"stopforumspam-blocked": "Внесение правок с вашего IP-адреса ($1) было заблокировано, так как он недавно был использован для спама веб-сайтов.",
+	"stopforumspam-is-blocked": "IP-адрес <strong>[http://stopforumspam.com/ipcheck/$1 $1] </strong> был заблокирован за спам."
 }

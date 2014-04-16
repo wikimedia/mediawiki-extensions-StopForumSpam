@@ -1,12 +1,12 @@
 {
-    "@metadata": {
-        "authors": [
-            "Southparkfan",
-            "Siebrand"
-        ]
-    },
-    "stopforumspam-desc": "Geeft beheerders de mogelijkheid om gegevens te sturen naar [http://stopforumspam.com/ stopforumspam.com]",
-    "stopforumspam-checkbox": "Gebruikersinformatie naar stopforumspam.com verzenden",
-    "stopforumspam-blocked": "Bewerken vanaf uw IP-adres ($1) is geblokkeerd omdat het recent is gebruikt voor spammen.",
-    "stopforumspam-is-blocked": "Het IP-adres <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> is geblokkeerd vanwege spammen."
+	"@metadata": {
+		"authors": [
+			"Southparkfan",
+			"Siebrand"
+		]
+	},
+	"stopforumspam-desc": "Geeft beheerders de mogelijkheid om gegevens te sturen naar [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "Gebruikersinformatie naar stopforumspam.com verzenden",
+	"stopforumspam-blocked": "Bewerken vanaf uw IP-adres ($1) is geblokkeerd omdat het recent is gebruikt voor spammen.",
+	"stopforumspam-is-blocked": "Het IP-adres <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> is geblokkeerd vanwege spammen."
 }
