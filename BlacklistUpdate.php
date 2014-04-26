@@ -1,7 +1,7 @@
 <?php
 
 class BlacklistUpdate implements DeferrableUpdate {
-	private $lineNo, $usedBuckets, $data, $skipLines, $finished = false;
+	private $lineNo, $usedKeys, $data, $skipLines, $finished = false;
 
 	public function doUpdate() {
 		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgSFSValidateIPList, $wgSFSBlacklistCacheDuration, $wgMemc;
@@ -31,7 +31,7 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 		$this->data = array();
 		$this->lineNo = 0;
-		$this->usedBuckets = array();
+		$this->usedKeys = array();
 		$this->skipLines = 0;
 		$this->restoreState( $state );
 		$fh = fopen( $wgSFSIPListLocation, 'rb' );
@@ -47,19 +47,18 @@ class BlacklistUpdate implements DeferrableUpdate {
 				continue; // wasn't hit enough times
 			}
 			list( $bucket, $offset ) = StopForumSpam::getBucketAndOffset( $ip[0] );
-			if ( !isset( $this->data[$bucket] ) ) {
-				if ( in_array( $bucket, $this->usedBuckets ) ) {
-					$this->data[$bucket] = $wgMemc->get( StopForumSpam::getIPBlacklistKey( $bucket ) );
+			$key = StopForumSpam::getIPBlacklistKey( $bucket );
+			if ( !isset( $this->data[$key] ) ) {
+				if ( in_array( $key, $this->usedKeys ) ) {
+					$this->data[$key] = $wgMemc->get( $key );
 				} else {
-					$this->data[$bucket] = 0;
+					$this->data[$key] = 0;
 				}
 			}
-			$this->data[$bucket] |= ( 1 << $offset );
+			$this->data[$key] |= ( 1 << $offset );
 		}
 
-		foreach ( $this->data as $bucket => $bitfield ) {
-			$wgMemc->set( StopForumSpam::getIPBlacklistKey( $bucket ), $bitfield, $wgSFSBlacklistCacheDuration );
-		}
+		$this->saveData();
 
 		fclose( $fh );
 
@@ -69,11 +68,24 @@ class BlacklistUpdate implements DeferrableUpdate {
 		$this->finished = true;
 	}
 
+	private function saveData() {
+		global $wgMemc, $wgSFSBlacklistCacheDuration;
+		if ( is_callable( array( $wgMemc, 'setMulti' ) ) ) {
+			// Available since 1.24
+			$wgMemc->setMulti( $this->data, $wgSFSBlacklistCacheDuration );
+		} else {
+			foreach ( $this->data as $key => $val ) {
+				$wgMemc->set( $key, $val, $wgSFSBlacklistCacheDuration );
+			}
+		}
+
+	}
+
 	/**
 	 * Saves the current progress in doUpdate() so we can pick it up at a later request
 	 */
 	public function saveState() {
-		global $wgSFSBlacklistCacheDuration, $wgSFSIPListLocation, $wgMemc;
+		global $wgSFSIPListLocation, $wgMemc;
 
 		if ( $this->finished ) {
 			// Yay, we're done!
@@ -81,14 +93,12 @@ class BlacklistUpdate implements DeferrableUpdate {
 		}
 
 		// Save the buckets
-		foreach ( $this->data as $bucket => $bitfield ) {
-			$wgMemc->set( StopForumSpam::getIPBlacklistKey( $bucket ), $bitfield, $wgSFSBlacklistCacheDuration );
-		}
+		$this->saveData();
 
 		// Save where we left off
 		$wgMemc->set( StopForumSpam::getBlacklistUpdateStateKey(), array(
 				'skipLines' => $this->lineNo,
-				'usedBuckets' => array_keys( $this->data ),
+				'usedKeys' => array_keys( $this->data ),
 				'filemtime' => filemtime( $wgSFSIPListLocation )
 			), 0 );
 
@@ -108,6 +118,10 @@ class BlacklistUpdate implements DeferrableUpdate {
 			return; // file was modified since we last ran, so our state is invalid
 		}
 		$this->lineNo = $state['lineNo'];
-		$this->usedBuckets = $state['usedBuckets'];
+		if ( !isset( $state['usedKeys'] ) ) {
+			// Old code version, invalidate
+			return;
+		}
+		$this->usedKeys = $state['usedKeys'];
 	}
 }
