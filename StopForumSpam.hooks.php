@@ -5,11 +5,12 @@ class SFSHooks {
 
 	/**
 	 * Some JS to add our checkbox
+	 * @param string $name
 	 * @param HTMLForm $form
 	 * @return bool
 	 */
-	public static function onSpecialBlockBeforeFormDisplay( HTMLForm $form ) {
-		if ( $form->getUser()->isAllowed( 'stopforumspam' ) ) {
+	public static function onSpecialPageBeforeFormDisplay( $name, HTMLForm $form ) {
+		if ( $name === 'Block' && $form->getUser()->isAllowed( 'stopforumspam' ) ) {
 			$form->getOutput()->addModules( 'ext.SFS.formhack' );
 		}
 
