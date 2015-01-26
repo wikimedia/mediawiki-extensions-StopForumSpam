@@ -88,8 +88,6 @@ $wgHooks['OtherBlockLogLink'][] = 'SFSHooks::onOtherBlockLogLink';
 $wgHooks['UnitTestsList'][] = 'SFSHooks::onUnitTestsList';
 
 $wgMessagesDirs['StopForumSpam'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['StopForumSpam'] = __DIR__ . '/StopForumSpam.i18n.php';
-
 
 $wgResourceModules['ext.SFS.formhack'] = array(
 	'scripts' => array(
