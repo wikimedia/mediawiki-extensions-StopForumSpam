@@ -103,3 +103,6 @@ $wgResourceModules['ext.SFS.formhack'] = array(
 
 $wgGroupPermissions['sysop']['stopforumspam'] = true;
 $wgGroupPermissions['sysop']['sfsblock-bypass'] = true;
+$wgAvailableRights[] = 'sfsblock-bypass';
+$wgAvailableRights[] = 'stopforumspam';
+
