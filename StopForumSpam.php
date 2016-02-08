@@ -69,6 +69,7 @@ $wgExtensionCredits['antispam'][] = array(
 	'url' => 'https://www.mediawiki.org/wiki/Extension:StopForumSpam',
 	'descriptionmsg' => 'stopforumspam-desc',
 	'version' => '0.2.0',
+	'license-name' => 'GPL-2.0+',
 );
 
 $wgAutoloadClasses['SFSHooks'] = __DIR__ . '/StopForumSpam.hooks.php';
