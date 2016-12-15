@@ -4,7 +4,7 @@
 			"Kunal Mehta"
 		]
 	},
-	"stopforumspam-desc": "Allows administrators to send data to [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integration with [http://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-checkbox": "Send user information to stopforumspam.com",
 	"abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com confidence level",
 	"stopforumspam-blocked": "Editing from your IP address ($1) has been blocked since it has recently been used to spam websites.",
