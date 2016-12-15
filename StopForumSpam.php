@@ -77,8 +77,6 @@ $wgAutoloadClasses['StopForumSpam'] = __DIR__ . '/StopForumSpam.body.php';
 $wgAutoloadClasses['BlacklistUpdate'] = __DIR__ . '/BlacklistUpdate.php';
 
 $wgHooks['SpecialPageBeforeFormDisplay'][] = 'SFSHooks::onSpecialPageBeforeFormDisplay';
-$wgHooks['SpecialBlockBeforeFormDisplay'][] =
-	array( 'SFSHooks::onSpecialPageBeforeFormDisplay', 'Block' ); // 1.23 compat
 $wgHooks['SpecialBlockModifyFormFields'][] = 'SFSHooks::onSpecialBlockModifyFormFields';
 $wgHooks['BlockIpComplete'][] = 'SFSHooks::onBlockIpComplete';
 $wgHooks['AbuseFilter-computeVariable'][] = 'SFSHooks::abuseFilterComputeVariable';

@@ -70,15 +70,7 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 	private function saveData() {
 		global $wgMemc, $wgSFSBlacklistCacheDuration;
-		if ( is_callable( array( $wgMemc, 'setMulti' ) ) ) {
-			// Available since 1.24
-			$wgMemc->setMulti( $this->data, $wgSFSBlacklistCacheDuration );
-		} else {
-			foreach ( $this->data as $key => $val ) {
-				$wgMemc->set( $key, $val, $wgSFSBlacklistCacheDuration );
-			}
-		}
-
+		$wgMemc->setMulti( $this->data, $wgSFSBlacklistCacheDuration );
 	}
 
 	/**
