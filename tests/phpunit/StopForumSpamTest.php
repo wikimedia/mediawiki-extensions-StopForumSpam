@@ -15,13 +15,13 @@ class StopForumSpamTest extends MediaWikiTestCase {
 	}
 
 	public static function provideSimpleBlacklisting() {
-		return array(
-			array( '112.111.191.178', true ),
-			array( '127.0.0.1', false ),
-			array( 'not an IP address', false, 'Non-IP addresses' ),
-			array( '2001:0db8:0000:0000:0000:ff00:0042:8329', false, 'Long IPv6 address' ),
-			array( '2001:db8::ff00:42:8329', false, 'Shorter IPv6 address' ),
-		);
+		return [
+			[ '112.111.191.178', true ],
+			[ '127.0.0.1', false ],
+			[ 'not an IP address', false, 'Non-IP addresses' ],
+			[ '2001:0db8:0000:0000:0000:ff00:0042:8329', false, 'Long IPv6 address' ],
+			[ '2001:db8::ff00:42:8329', false, 'Shorter IPv6 address' ],
+		];
 	}
 	/**
 	 * @dataProvider provideSimpleBlacklisting
@@ -31,11 +31,11 @@ class StopForumSpamTest extends MediaWikiTestCase {
 		$this->assertEquals( StopForumSpam::isBlacklisted( $ip ), $res );
 	}
 	public static function provideThresholdBlacklisting() {
-		return array(
-			array( '99.7.75.101', false, 'IP with 1 hit' ),
-			array( '99.8.132.217', true, 'IP with 6 hits' ),
-			array( '127.0.0.1', false, 'IP address not on blacklist' ),
-		);
+		return [
+			[ '99.7.75.101', false, 'IP with 1 hit' ],
+			[ '99.8.132.217', true, 'IP with 6 hits' ],
+			[ '127.0.0.1', false, 'IP address not on blacklist' ],
+		];
 	}
 	/**
 	 * @dataProvider provideThresholdBlacklisting

@@ -22,7 +22,8 @@ class BlacklistUpdate implements DeferrableUpdate {
 	private $lineNo, $usedKeys, $data, $skipLines, $finished = false;
 
 	public function doUpdate() {
-		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgSFSValidateIPList, $wgSFSBlacklistCacheDuration, $wgMemc;
+		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgSFSValidateIPList,
+			$wgSFSBlacklistCacheDuration, $wgMemc;
 		if ( $wgSFSIPListLocation === false ) {
 			wfDebugLog( 'StopForumSpam', '$wgSFSIPListLocation has not been configured properly.' );
 			return;
@@ -41,15 +42,16 @@ class BlacklistUpdate implements DeferrableUpdate {
 			$wgMemc->delete( StopForumSpam::getBlacklistUpdateStateKey() );
 		}
 
-		// For batching purposes, this saves our current progress so we know where to pick up in case we run out of time
-		register_shutdown_function( array( $this, 'saveState' ) );
+		// For batching purposes, this saves our current progress so we
+		// know where to pick up in case we run out of time
+		register_shutdown_function( [ $this, 'saveState' ] );
 
 		// Try to keep this running even if the user hits the stop button
 		ignore_user_abort( true );
 
-		$this->data = array();
+		$this->data = [];
 		$this->lineNo = 0;
-		$this->usedKeys = array();
+		$this->usedKeys = [];
 		$this->skipLines = 0;
 		$this->restoreState( $state );
 		$fh = fopen( $wgSFSIPListLocation, 'rb' );
@@ -59,7 +61,10 @@ class BlacklistUpdate implements DeferrableUpdate {
 			$this->lineNo++;
 			if ( $this->lineNo < $this->skipLines ) {
 				continue;
-			} elseif ( $ip === array( null ) || ( $wgSFSValidateIPList && ( !IP::isValid( $ip[0] ) || IP::isIPv6( $ip[0] ) ) ) ) {
+			} elseif (
+				$ip === [ null ] ||
+				( $wgSFSValidateIPList && ( !IP::isValid( $ip[0] ) || IP::isIPv6( $ip[0] ) ) )
+			) {
 				continue; // discard invalid lines
 			} elseif ( isset( $ip[1] ) && $ip[1] < $wgSFSIPThreshold ) {
 				continue; // wasn't hit enough times
@@ -106,12 +111,15 @@ class BlacklistUpdate implements DeferrableUpdate {
 		$this->saveData();
 
 		// Save where we left off
-		$wgMemc->set( StopForumSpam::getBlacklistUpdateStateKey(), array(
+		$wgMemc->set(
+			StopForumSpam::getBlacklistUpdateStateKey(),
+			[
 				'skipLines' => $this->lineNo,
 				'usedKeys' => array_keys( $this->data ),
 				'filemtime' => filemtime( $wgSFSIPListLocation )
-			), 0 );
-
+			],
+			0
+		);
 		if ( ob_get_level() ) {
 			ob_end_clean();
 		}

@@ -41,11 +41,11 @@ class SFSHooks {
 	 */
 	public static function onSpecialBlockModifyFormFields( SpecialPage $sp, &$fields ) {
 		if ( $sp->getUser()->isAllowed( 'stopforumspam' ) ) {
-			$fields['SFS'] = array(
+			$fields['SFS'] = [
 				'type' => 'check',
 				'label-message' => 'stopforumspam-checkbox',
 				'default' => false,
-			);
+			];
 		}
 
 		return true;
@@ -107,7 +107,7 @@ class SFSHooks {
 	static function abuseFilterGenerateUserVars( $vars, $user ) {
 		global $wgSFSEnableConfidenceVariable;
 		if ( $wgSFSEnableConfidenceVariable ) {
-			$vars->setLazyLoadVar( 'sfs_confidence', 'sfs-confidence', array( 'user' => $user ) );
+			$vars->setLazyLoadVar( 'sfs_confidence', 'sfs-confidence', [ 'user' => $user ] );
 		}
 		return true;
 	}
@@ -169,7 +169,10 @@ class SFSHooks {
 		}
 
 		if ( StopForumSpam::isBlacklisted( $ip ) ) {
-			wfDebugLog( 'StopForumSpam', "{$user->getName()} tripped blacklist doing $action by using $ip on \"{$title->getPrefixedText()}\"." );
+			wfDebugLog( 'StopForumSpam',
+				"{$user->getName()} tripped blacklist doing $action "
+				. "by using $ip on \"{$title->getPrefixedText()}\"."
+			);
 			if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
 				wfDebugLog( 'StopForumSpam', "{$user->getName()} is exempt from SFS blocks." );
 				return true;
@@ -180,7 +183,7 @@ class SFSHooks {
 				return true;
 			}
 
-			$result = array( 'stopforumspam-blocked', $ip );
+			$result = [ 'stopforumspam-blocked', $ip ];
 			return false;
 		}
 
@@ -200,7 +203,7 @@ class SFSHooks {
 		if ( IP::isIPAddress( $ip ) && StopForumSpam::isBlacklisted( $ip ) ) {
 			$msg[] = Html::rawElement(
 				'span',
-				array( 'class' => 'mw-stopforumspam-blacklisted' ),
+				[ 'class' => 'mw-stopforumspam-blacklisted' ],
 				wfMessage( 'stopforumspam-is-blocked', $ip )->parse()
 			);
 		}

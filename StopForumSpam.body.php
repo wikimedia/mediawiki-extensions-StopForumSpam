@@ -52,26 +52,29 @@ class StopForumSpam {
 
 		$ips = self::getUserIPs( $user );
 		if ( $ips === false ) {
-			wfDebugLog( 'StopForumSpam', 'IP info is not stored in recentchanges nor CheckUser extension, bailing' );
+			wfDebugLog( 'StopForumSpam',
+				'IP info is not stored in recentchanges nor CheckUser extension, bailing'
+			);
 			return false;
-		} elseif( !$ips ) {
-			wfDebugLog( 'StopForumSpam', "Couldn't find any IPs for \"{$user->getName()}\"");
+		} elseif ( !$ips ) {
+			wfDebugLog( 'StopForumSpam', "Couldn't find any IPs for \"{$user->getName()}\"" );
 			return false;
 		}
 
 		$email = $user->getEmail();
 		if ( !$email ) {
-			wfDebugLog( 'StopForumSpam', "User:{$user->getName()} does not have an email associated with the account.");
+			wfDebugLog( 'StopForumSpam',
+				"User:{$user->getName()} does not have an email associated with the account."
+			);
 			return false;
 		}
 
-
-		$params = array(
+		$params = [
 			'username' => $user->getName(),
 			'email' => $email,
 			'evidence' => self::getUserEvidenceLink( $user ),
 			'api_key' => $wgSFSAPIKey,
-		);
+		];
 		// Each IP must be submitted separately I guess.
 		// @todo find a way to batch submit.
 		foreach ( $ips as $ip ) {
@@ -122,12 +125,12 @@ class StopForumSpam {
 		$dbr = wfGetDB( DB_SLAVE );
 		$rows = $dbr->select(
 			'recentchanges',
-			array( 'DISTINCT(rc_ip)' ),
-			array( 'rc_user' => $user->getId() ),
+			[ 'DISTINCT(rc_ip)' ],
+			[ 'rc_user' => $user->getId() ],
 			__METHOD__
 		);
 
-		$ips = array();
+		$ips = [];
 		foreach ( $rows as $row ) {
 			if ( !in_array( $row->rc_ip, $ips ) ) {
 				$ips[] = $row->rc_ip;
@@ -146,12 +149,12 @@ class StopForumSpam {
 		$dbr = wfGetDB( DB_SLAVE );
 		$rows = $dbr->select(
 			'cu_changes',
-			array( 'DISTINCT(cuc_ip)' ),
-			array( 'cuc_user' => $user->getId() ),
+			[ 'DISTINCT(cuc_ip)' ],
+			[ 'cuc_user' => $user->getId() ],
 			__METHOD__
 		);
 
-		$ips = array();
+		$ips = [];
 		foreach ( $rows as $row ) {
 			if ( !in_array( $row->cuc_ip, $ips ) ) {
 				$ips[] = $row->cuc_ip;
@@ -180,7 +183,7 @@ class StopForumSpam {
 		}
 		$div = 0;
 		$total = 0;
-		foreach( array( 'email', 'ip', 'username' ) as $key ) {
+		foreach ( [ 'email', 'ip', 'username' ] as $key ) {
 			if ( isset( $params[$key] ) && isset( $json[$key] ) ) {
 				if ( isset( $json[$key]['confidence'] ) ) {
 					$total += $json[$key]['confidence'];
@@ -227,7 +230,9 @@ class StopForumSpam {
 			}
 			if ( $limit > 20000 ) {
 				// We're over, so return 0 to be safe, but don't cache this failure
-				wfDebugLog( 'StopForumSpam', "Skipped fetching confidence for {$user->getName()}, already over over 20k limit");
+				wfDebugLog( 'StopForumSpam',
+					"Skipped fetching confidence for {$user->getName()}, already over over 20k limit"
+				);
 				$conf = 0.0;
 			} else {
 				$conf = self::getConfidenceInternal( $params );
@@ -305,6 +310,6 @@ class StopForumSpam {
 		$ip = ip2long( $ip );
 		$bucket = ( $ip >> self::$SHIFT_AMOUNT ) & self::$BUCKET_MASK;
 		$offset = $ip & self::$OFFSET_MASK;
-		return array( $bucket, $offset );
+		return [ $bucket, $offset ];
 	}
 }

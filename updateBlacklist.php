@@ -23,7 +23,7 @@ if ( $IP === false ) {
 	$IP = __DIR__ . '/../..';
 }
 
-require_once( "$IP/maintenance/Maintenance.php" );
+require_once "$IP/maintenance/Maintenance.php";
 
 /**
  * Reads the blacklist file and sticks it in memcache
@@ -50,6 +50,4 @@ class SFSBlacklistUpdate extends Maintenance {
 }
 
 $maintClass = 'SFSBlacklistUpdate';
-require_once( RUN_MAINTENANCE_IF_MAIN );
-
-
+require_once RUN_MAINTENANCE_IF_MAIN;
