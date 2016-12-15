@@ -52,8 +52,7 @@
 		"AbuseFilter-generateUserVars": "SFSHooks::abuseFilterGenerateUserVars",
 		"AbuseFilter-builder": "SFSHooks::abuseFilterBuilder",
 		"getUserPermissionsErrorsExpensive": "SFSHooks::onGetUserPermissionsErrorsExpensive",
-		"OtherBlockLogLink": "SFSHooks::onOtherBlockLogLink",
-		"UnitTestsList": "SFSHooks::onUnitTestsList"
+		"OtherBlockLogLink": "SFSHooks::onOtherBlockLogLink"
 	},
 	"config": {
 		"SFSAPIKey": {
