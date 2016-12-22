@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Andriykopanytsia"
+			"Andriykopanytsia",
+			"Piramidion"
 		]
 	},
-	"stopforumspam-desc": "Дозволяє адміністраторам надсилати дані до [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Інтеграція із [http://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-checkbox": "Надсилати відомості про користувача до stopforumspam.com",
 	"abusefilter-edit-builder-vars-sfs-confidence": "рівень довіри stopforumspam.com",
 	"stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) вже заблоковане, позаяк вона нещодавно використовувалася для спам-сайтів.",

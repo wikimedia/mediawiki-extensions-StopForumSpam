@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Beta16"
+			"Beta16",
+			"Margherita.mignanelli"
 		]
 	},
-	"stopforumspam-desc": "Consente agli amministratori di inviare dati a [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integrazione con [http://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-checkbox": "Invia informazioni utente a stopforumspam.com",
 	"abusefilter-edit-builder-vars-sfs-confidence": "livello di confidenza stopforumspam.com",
 	"stopforumspam-blocked": "La modifica dal tuo indirizzo IP ($1) è stata bloccata poiché recentemente è stato utilizzato per inviare spam a siti web.",
