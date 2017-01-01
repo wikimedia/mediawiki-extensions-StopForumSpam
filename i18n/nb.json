@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Jon Harald Søby"
+		]
+	},
+	"stopforumspam-desc": "Integrering med [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-checkbox": "Send brukerinfo til stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com-konfidensgrad",
+	"stopforumspam-blocked": "Redigering fra din IP-adresse ($1) har blitt blokkert siden den nylig har blitt brukt til å spamme nettsteder.",
+	"stopforumspam-is-blocked": "IP-adressa <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> har blitt blokkert for spamming."
+}
