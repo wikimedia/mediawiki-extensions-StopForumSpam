@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Fitoschido"
+			"Fitoschido",
+			"Macofe"
 		]
 	},
-	"stopforumspam-desc": "Permite a los administradores enviar datos a [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integración con [http://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-checkbox": "Enviar información del usuario a stopforumspam.com",
 	"abusefilter-edit-builder-vars-sfs-confidence": "Nivel de confianza de stopforumspam.com",
 	"stopforumspam-blocked": "Se ha bloqueado la edición para tu dirección IP ($1) porque esta se ha usado recientemente para publicar contenido no deseado en sitios web.",
