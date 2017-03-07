@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño"
+			"Toliño",
+			"Elisardojm"
 		]
 	},
-	"stopforumspam-desc": "Permite aos administradores enviar datos a [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integración con [http://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-checkbox": "Enviar a información de usuario a stopforumspam.com",
 	"abusefilter-edit-builder-vars-sfs-confidence": "Nivel de confianza de stopforumspam.com",
 	"stopforumspam-blocked": "Bloqueouse a edición desde o seu enderezo IP ($1), dado que recentemente se utilizou para incluír spam a sitios web.",
