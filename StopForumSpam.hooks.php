@@ -21,67 +21,6 @@
 class SFSHooks {
 
 	/**
-	 * Some JS to add our checkbox
-	 * @param string $name
-	 * @param HTMLForm $form
-	 * @return bool
-	 */
-	public static function onSpecialPageBeforeFormDisplay( $name, HTMLForm $form ) {
-		if ( $name === 'Block' && $form->getUser()->isAllowed( 'stopforumspam' ) ) {
-			$form->getOutput()->addModules( 'ext.SFS.formhack' );
-		}
-
-		return true;
-	}
-
-	/**
-	 * @param SpecialPage $sp
-	 * @param array $fields
-	 * @return bool
-	 */
-	public static function onSpecialBlockModifyFormFields( SpecialPage $sp, &$fields ) {
-		if ( $sp->getUser()->isAllowed( 'stopforumspam' ) ) {
-			$fields['SFS'] = [
-				'type' => 'check',
-				'label-message' => 'stopforumspam-checkbox',
-				'default' => false,
-			];
-		}
-
-		return true;
-	}
-
-	/**
-	 * Triggers the data submission process
-	 * @param Block $block
-	 * @param User $user who made the block
-	 * @return bool
-	 */
-	public static function onBlockIpComplete( Block $block, User $user ) {
-		$context = RequestContext::getMain();
-		$title = $context->getTitle();
-		$request = $context->getRequest();
-		if ( $title && $title->isSpecial( 'Block' ) ) {
-			if ( $user->isAllowed( 'stopforumspam' ) && $request->getBool( 'wpSFS' ) ) {
-				$target = $block->getTarget();
-				if ( $target instanceof User ) {
-					StopForumSpam::submit( $target );
-				} else {
-					$target = User::newFromName( $target );
-					if ( $target && $target->exists() ) {
-						StopForumSpam::submit( $target );
-					} else {
-						wfDebugLog( 'StopForumSpam', "Could not detect valid user from \"{$block->getTarget()}\"" );
-					}
-				}
-
-			}
-		}
-
-		return true;
-	}
-
-	/**
 	 * Computes the sfs-confidence variable
 	 * @param string $method
 	 * @param AbuseFilterVariableHolder $vars

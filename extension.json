@@ -1,6 +1,6 @@
 {
 	"name": "StopForumSpam",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"author": [
 		"Kunal Mehta",
 		"Ryan Schmidt"
@@ -29,25 +29,7 @@
 		"StopForumSpam": "StopForumSpam.body.php",
 		"BlacklistUpdate": "BlacklistUpdate.php"
 	},
-	"ResourceModules": {
-		"ext.SFS.formhack": {
-			"scripts": [
-				"ext.SFS.formhack.js"
-			],
-			"dependencies": [
-				"mediawiki.jqueryMsg",
-				"mediawiki.special.block"
-			]
-		}
-	},
-	"ResourceFileModulePaths": {
-		"localBasePath": "",
-		"remoteExtPath": "StopForumSpam"
-	},
 	"Hooks": {
-		"SpecialPageBeforeFormDisplay": "SFSHooks::onSpecialPageBeforeFormDisplay",
-		"SpecialBlockModifyFormFields": "SFSHooks::onSpecialBlockModifyFormFields",
-		"BlockIpComplete": "SFSHooks::onBlockIpComplete",
 		"AbuseFilter-computeVariable": "SFSHooks::abuseFilterComputeVariable",
 		"AbuseFilter-generateUserVars": "SFSHooks::abuseFilterGenerateUserVars",
 		"AbuseFilter-builder": "SFSHooks::abuseFilterBuilder",
@@ -55,9 +37,6 @@
 		"OtherBlockLogLink": "SFSHooks::onOtherBlockLogLink"
 	},
 	"config": {
-		"SFSAPIKey": {
-			"value": ""
-		},
 		"SFSIPListLocation": {
 			"value": false
 		},

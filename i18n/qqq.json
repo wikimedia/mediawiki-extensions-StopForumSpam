@@ -7,7 +7,6 @@
 		]
 	},
 	"stopforumspam-desc": "{{desc|name=StopForumSpam|url=https://www.mediawiki.org/wiki/Extension:StopForumSpam}}",
-	"stopforumspam-checkbox": "Used as label for checkbox on [[Special:Block]] for administrators to submit a user's information.",
 	"abusefilter-edit-builder-vars-sfs-confidence": "Abuse filter syntax option in a dropdown from the group {{msg-mw|abusefilter-edit-builder-group-vars}}.",
 	"stopforumspam-blocked": "Message a user sees when their IP address is blacklisted and they cannot edit.\n\nParameters:\n* $1 - the user's current IP address",
 	"stopforumspam-is-blocked": "Shown when going to block an IP address that is currently blacklisted.\n\nParameters:\n* $1 - the IP address"
