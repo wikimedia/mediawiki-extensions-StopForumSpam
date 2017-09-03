@@ -21,7 +21,7 @@
 class SFSHooks {
 
 	/**
-	 * Computes the sfs-confidence variable
+	 * Computes the sfs-blocked variable
 	 * @param string $method
 	 * @param AbuseFilterVariableHolder $vars
 	 * @param array $parameters
@@ -29,8 +29,9 @@ class SFSHooks {
 	 * @return bool
 	 */
 	static function abuseFilterComputeVariable( $method, $vars, $parameters, &$result ) {
-		if ( $method == 'sfs-confidence' ) {
-			$result = StopForumSpam::getConfidence( $parameters['user'] );
+		if ( $method == 'sfs-blocked' ) {
+			$ip = self::getIPFromUser( $parameters['user'] );
+			$result = $ip !== false ? StopForumSpam::isBlacklisted( $ip ) : false;
 			return false;
 		} else {
 			return true;
@@ -38,7 +39,7 @@ class SFSHooks {
 	}
 
 	/**
-	 * Load our confidence variable
+	 * Load our blocked variable
 	 * @param AbuseFilterVariableHolder $vars
 	 * @param User $user
 	 * @return bool
@@ -46,23 +47,45 @@ class SFSHooks {
 	static function abuseFilterGenerateUserVars( $vars, $user ) {
 		global $wgSFSEnableConfidenceVariable;
 		if ( $wgSFSEnableConfidenceVariable ) {
-			$vars->setLazyLoadVar( 'sfs_confidence', 'sfs-confidence', [ 'user' => $user ] );
+			$vars->setLazyLoadVar( 'sfs_blocked', 'sfs-blocked', [ 'user' => $user ] );
 		}
 		return true;
 	}
 
 	/**
-	 * Tell AbuseFilter about our sfs-confidence variable
+	 * Tell AbuseFilter about our sfs-blocked variable
 	 * @param array &$builderValues
 	 * @return bool
 	 */
 	static function abuseFilterBuilder( &$builderValues ) {
-		global $wgSFSEnableConfidenceVariable;
-		if ( $wgSFSEnableConfidenceVariable ) {
-			// Uses: 'abusefilter-edit-builder-vars-sfs-confidence'
-			$builderValues['vars']['sfs_confidence'] = 'sfs-confidence';
+		global $wgSFSIPListLocation;
+		if ( $wgSFSIPListLocation ) {
+			// Uses: 'abusefilter-edit-builder-vars-sfs-blocked'
+			$builderValues['vars']['sfs_blocked'] = 'sfs-blocked';
 		}
+
 		return true;
+	}
+
+	/**
+	 * Get an IP address for a User if possible
+	 *
+	 * @param User $user
+	 * @return bool|string IP address or false
+	 */
+	private static function getIPFromUser( User $user ) {
+		if ( $user->isAnon() ) {
+			return $user->getName();
+		}
+
+		$context = RequestContext::getMain();
+		if ( $context->getUser()->getName() === $user->getName() ) {
+			// Only use the main context if the users are the same
+			return $context->getRequest()->getIP();
+		}
+
+		// Couln't figure out an IP address
+		return false;
 	}
 
 	/**
@@ -84,16 +107,9 @@ class SFSHooks {
 			return true;
 		}
 
-		if ( $user->isAnon() ) {
-			$ip = $user->getName();
-		} else {
-			$context = RequestContext::getMain();
-			if ( $context->getUser()->getName() === $user->getName() ) {
-				$ip = $context->getRequest()->getIP();
-			} else {
-				// Some other user is making an action, stay on the safe side
-				return true;
-			}
+		$ip = self::getIPFromUser( $user );
+		if ( $ip === false ) {
+			return true;
 		}
 
 		if ( $wgBlockAllowsUTEdit && $title->equals( $user->getTalkPage() ) ) {

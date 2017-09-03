@@ -51,9 +51,6 @@
 		},
 		"SFSBlacklistCacheDuration": {
 			"value": 432000
-		},
-		"SFSEnableConfidenceVariable": {
-			"value": true
 		}
 	},
 	"manifest_version": 2

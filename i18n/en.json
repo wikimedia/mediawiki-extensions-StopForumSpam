@@ -5,7 +5,7 @@
 		]
 	},
 	"stopforumspam-desc": "Integration with [http://stopforumspam.com/ stopforumspam.com]",
-	"abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com confidence level",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Whether the IP address is blocked using the stopforumspam.com list",
 	"stopforumspam-blocked": "Editing from your IP address ($1) has been blocked since it has recently been used to spam websites.",
 	"stopforumspam-is-blocked": "The IP address <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> has been blocked for spamming."
 }
