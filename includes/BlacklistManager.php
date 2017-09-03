@@ -18,7 +18,11 @@
  * @file
  */
 
-class StopForumSpam {
+namespace MediaWiki\StopForumSpam;
+
+use IP;
+
+class BlacklistManager {
 
 	/**
 	 * How long the confidence level should be cached for (1 day)
@@ -38,6 +42,7 @@ class StopForumSpam {
 	 */
 	public static function isBlacklistUpToDate() {
 		global $wgMemc;
+
 		return $wgMemc->get( self::getBlacklistKey() ) !== false
 			&& $wgMemc->get( self::getBlacklistUpdateStateKey() ) === false;
 	}
@@ -81,6 +86,7 @@ class StopForumSpam {
 		}
 		list( $bucket, $offset ) = self::getBucketAndOffset( $ip );
 		$bitfield = $wgMemc->get( self::getIPBlacklistKey( $bucket ) );
+
 		return (bool)( $bitfield & ( 1 << $offset ) );
 	}
 
@@ -99,6 +105,7 @@ class StopForumSpam {
 		$ip = ip2long( $ip );
 		$bucket = ( $ip >> self::$SHIFT_AMOUNT ) & self::$BUCKET_MASK;
 		$offset = $ip & self::$OFFSET_MASK;
+
 		return [ $bucket, $offset ];
 	}
 }

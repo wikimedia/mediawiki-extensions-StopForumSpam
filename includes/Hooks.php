@@ -18,7 +18,18 @@
  * @file
  */
 
-class SFSHooks {
+namespace MediaWiki\StopForumSpam;
+
+use AbuseFilterVariableHolder;
+use Block;
+use DeferredUpdates;
+use Html;
+use IP;
+use RequestContext;
+use Title;
+use User;
+
+class Hooks {
 
 	/**
 	 * Computes the sfs-blocked variable
@@ -31,7 +42,8 @@ class SFSHooks {
 	static function abuseFilterComputeVariable( $method, $vars, $parameters, &$result ) {
 		if ( $method == 'sfs-blocked' ) {
 			$ip = self::getIPFromUser( $parameters['user'] );
-			$result = $ip !== false ? StopForumSpam::isBlacklisted( $ip ) : false;
+			$result = $ip !== false ? BlacklistManager::isBlacklisted( $ip ) : false;
+
 			return false;
 		} else {
 			return true;
@@ -49,6 +61,7 @@ class SFSHooks {
 		if ( $wgSFSEnableConfidenceVariable ) {
 			$vars->setLazyLoadVar( 'sfs_blocked', 'sfs-blocked', [ 'user' => $user ] );
 		}
+
 		return true;
 	}
 
@@ -117,28 +130,31 @@ class SFSHooks {
 			return true;
 		}
 
-		if ( $wgSFSEnableDeferredUpdates && !StopForumSpam::isBlacklistUpToDate() ) {
+		if ( $wgSFSEnableDeferredUpdates && !BlacklistManager::isBlacklistUpToDate() ) {
 			// Note that this doesn't necessarily mean our blacklist
 			// is out of date, that it just needs updating.
 			DeferredUpdates::addUpdate( new BlacklistUpdate() );
 		}
 
-		if ( StopForumSpam::isBlacklisted( $ip ) ) {
+		if ( BlacklistManager::isBlacklisted( $ip ) ) {
 			wfDebugLog( 'StopForumSpam',
 				"{$user->getName()} tripped blacklist doing $action "
 				. "by using $ip on \"{$title->getPrefixedText()}\"."
 			);
 			if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
 				wfDebugLog( 'StopForumSpam', "{$user->getName()} is exempt from SFS blocks." );
+
 				return true;
 			}
 			// I just copied this from TorBlock, not sure if it actually makes sense.
 			if ( Block::isWhitelistedFromAutoblocks( $ip ) ) {
 				wfDebugLog( 'StopForumSpam', "$ip is in autoblock whitelist. Exempting from SFS blocks." );
+
 				return true;
 			}
 
 			$result = [ 'stopforumspam-blocked', $ip ];
+
 			return false;
 		}
 
@@ -155,7 +171,7 @@ class SFSHooks {
 		if ( !$wgSFSIPListLocation ) {
 			return true;
 		}
-		if ( IP::isIPAddress( $ip ) && StopForumSpam::isBlacklisted( $ip ) ) {
+		if ( IP::isIPAddress( $ip ) && BlacklistManager::isBlacklisted( $ip ) ) {
 			$msg[] = Html::rawElement(
 				'span',
 				[ 'class' => 'mw-stopforumspam-blacklisted' ],

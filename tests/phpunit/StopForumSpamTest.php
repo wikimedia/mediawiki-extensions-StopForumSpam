@@ -1,5 +1,8 @@
 <?php
 
+use MediaWiki\StopForumSpam\BlacklistManager;
+use MediaWiki\StopForumSpam\BlacklistUpdate;
+
 class StopForumSpamTest extends MediaWikiTestCase {
 
 	protected function setUp() {
@@ -28,7 +31,7 @@ class StopForumSpamTest extends MediaWikiTestCase {
 	 */
 	public function testSimpleBlacklisting( $ip, $res ) {
 		$this->loadBlacklist( 'sample_blacklist.txt' );
-		$this->assertEquals( StopForumSpam::isBlacklisted( $ip ), $res );
+		$this->assertEquals( BlacklistManager::isBlacklisted( $ip ), $res );
 	}
 	public static function provideThresholdBlacklisting() {
 		return [
@@ -43,6 +46,6 @@ class StopForumSpamTest extends MediaWikiTestCase {
 	public function testThresholdBlacklisting( $ip, $res ) {
 		$this->setMwGlobals( 'wgSFSIPThreshold', 5 );
 		$this->loadBlacklist( 'sample_blacklist_all.txt' );
-		$this->assertEquals( StopForumSpam::isBlacklisted( $ip ), $res );
+		$this->assertEquals( BlacklistManager::isBlacklisted( $ip ), $res );
 	}
 }

@@ -25,16 +25,16 @@
 		]
 	},
 	"AutoloadClasses": {
-		"SFSHooks": "StopForumSpam.hooks.php",
-		"StopForumSpam": "StopForumSpam.body.php",
-		"BlacklistUpdate": "BlacklistUpdate.php"
+		"MediaWiki\\StopForumSpam\\Hooks": "includes/Hooks.php",
+		"MediaWiki\\StopForumSpam\\BlacklistManager": "includes/BlacklistManager.php",
+		"MediaWiki\\StopForumSpam\\BlacklistUpdate": "includes/BlacklistUpdate.php"
 	},
 	"Hooks": {
-		"AbuseFilter-computeVariable": "SFSHooks::abuseFilterComputeVariable",
-		"AbuseFilter-generateUserVars": "SFSHooks::abuseFilterGenerateUserVars",
-		"AbuseFilter-builder": "SFSHooks::abuseFilterBuilder",
-		"getUserPermissionsErrorsExpensive": "SFSHooks::onGetUserPermissionsErrorsExpensive",
-		"OtherBlockLogLink": "SFSHooks::onOtherBlockLogLink"
+		"AbuseFilter-computeVariable": "MediaWiki\\StopForumSpam\\Hooks::abuseFilterComputeVariable",
+		"AbuseFilter-generateUserVars": "MediaWiki\\StopForumSpam\\Hooks::abuseFilterGenerateUserVars",
+		"AbuseFilter-builder": "MediaWiki\\StopForumSpam\\Hooks::abuseFilterBuilder",
+		"getUserPermissionsErrorsExpensive": "MediaWiki\\StopForumSpam\\Hooks::onGetUserPermissionsErrorsExpensive",
+		"OtherBlockLogLink": "MediaWiki\\StopForumSpam\\Hooks::onOtherBlockLogLink"
 	},
 	"config": {
 		"SFSIPListLocation": {

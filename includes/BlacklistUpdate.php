@@ -18,14 +18,20 @@
  * @file
  */
 
+namespace MediaWiki\StopForumSpam;
+
+use DeferrableUpdate;
+use IP;
+
 class BlacklistUpdate implements DeferrableUpdate {
 	private $lineNo, $usedKeys, $data, $skipLines, $finished = false;
 
 	public function doUpdate() {
 		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgSFSValidateIPList,
-			$wgSFSBlacklistCacheDuration, $wgMemc;
+			   $wgSFSBlacklistCacheDuration, $wgMemc;
 		if ( $wgSFSIPListLocation === false ) {
 			wfDebugLog( 'StopForumSpam', '$wgSFSIPListLocation has not been configured properly.' );
+
 			return;
 		}
 
@@ -34,12 +40,12 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 		// So that we don't start other concurrent updates
 		// Have the key expire an hour early so we hopefully don't have a time where there is no blacklist
-		$wgMemc->set( StopForumSpam::getBlacklistKey(), 1, $wgSFSBlacklistCacheDuration - 3600 );
+		$wgMemc->set( BlacklistManager::getBlacklistKey(), 1, $wgSFSBlacklistCacheDuration - 3600 );
 
 		// Grab and then clear any update state
-		$state = $wgMemc->get( StopForumSpam::getBlacklistUpdateStateKey() );
+		$state = $wgMemc->get( BlacklistManager::getBlacklistUpdateStateKey() );
 		if ( $state !== false ) {
-			$wgMemc->delete( StopForumSpam::getBlacklistUpdateStateKey() );
+			$wgMemc->delete( BlacklistManager::getBlacklistUpdateStateKey() );
 		}
 
 		// For batching purposes, this saves our current progress so we
@@ -69,8 +75,8 @@ class BlacklistUpdate implements DeferrableUpdate {
 			} elseif ( isset( $ip[1] ) && $ip[1] < $wgSFSIPThreshold ) {
 				continue; // wasn't hit enough times
 			}
-			list( $bucket, $offset ) = StopForumSpam::getBucketAndOffset( $ip[0] );
-			$key = StopForumSpam::getIPBlacklistKey( $bucket );
+			list( $bucket, $offset ) = BlacklistManager::getBucketAndOffset( $ip[0] );
+			$key = BlacklistManager::getIPBlacklistKey( $bucket );
 			if ( !isset( $this->data[$key] ) ) {
 				if ( in_array( $key, $this->usedKeys ) ) {
 					$this->data[$key] = $wgMemc->get( $key );
@@ -112,11 +118,11 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 		// Save where we left off
 		$wgMemc->set(
-			StopForumSpam::getBlacklistUpdateStateKey(),
+			BlacklistManager::getBlacklistUpdateStateKey(),
 			[
 				'skipLines' => $this->lineNo,
 				'usedKeys' => array_keys( $this->data ),
-				'filemtime' => filemtime( $wgSFSIPListLocation )
+				'filemtime' => filemtime( $wgSFSIPListLocation ),
 			],
 			0
 		);
