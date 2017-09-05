@@ -6,8 +6,7 @@
 		]
 	},
 	"stopforumspam-desc": "Integration mit [http://stopforumspam.com/ stopforumspam.com]",
-	"stopforumspam-checkbox": "Benutzerinformation an stopforumspam.com senden",
-	"abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com-Vertrauensstufe",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Ob die IP-Adresse mittels der Liste von stopforumspam.com gesperrt ist",
 	"stopforumspam-blocked": "Das Bearbeiten mit deiner IP-Adresse ($1) wurde gesperrt, da sie kürzlich zum Spammen auf Websites verwendet wurde.",
 	"stopforumspam-is-blocked": "Die IP-Adresse <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> wurde aufgrund von Spamming gesperrt."
 }
