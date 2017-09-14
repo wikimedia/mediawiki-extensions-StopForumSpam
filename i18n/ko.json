@@ -3,12 +3,12 @@
 		"authors": [
 			"Hym411",
 			"Revi",
-			"아라"
+			"아라",
+			"Ykhwong"
 		]
 	},
 	"stopforumspam-desc": "관리자가 [http://stopforumspam.com stopforumspam.com]에 데이터를 보내도록 허용합니다.",
-	"stopforumspam-checkbox": "stopforumspam.com 에 사용자 정보 보내기",
-	"abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com 신뢰 등급",
+	"abusefilter-edit-builder-vars-sfs-blocked": "stopforumspam.com 목록을 사용하여 IP 주소가 차단되었는지의 여부",
 	"stopforumspam-blocked": "당신의 IP 주소($1)에서의 편집은 최근에 스팸 사이트에서 사용되었기 때문에 차단되었습니다.",
 	"stopforumspam-is-blocked": "<strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> IP 주소는 스팸을 넣었으므로 차단되었습니다."
 }
