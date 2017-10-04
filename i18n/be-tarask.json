@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Red Winged Duck"
+		]
+	},
+	"stopforumspam-desc": "Інтэграцыя з [http://stopforumspam.com/ stopforumspam.com]",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Ці заблякаваны гэты IP-адрас з дапамогай сьпісу stopforumspam.com"
+}
