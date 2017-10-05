@@ -5,5 +5,6 @@
 		]
 	},
 	"stopforumspam-desc": "Інтэграцыя з [http://stopforumspam.com/ stopforumspam.com]",
-	"abusefilter-edit-builder-vars-sfs-blocked": "Ці заблякаваны гэты IP-адрас з дапамогай сьпісу stopforumspam.com"
+	"abusefilter-edit-builder-vars-sfs-blocked": "Ці заблякаваны гэты IP-адрас з дапамогай сьпісу stopforumspam.com",
+	"stopforumspam-blocked": "Рэдагаваньне з вашага IP-адрасу ($1) было заблякаванае, бо ён нядаўна выкарыстоўваўся для спаму вэбсайтаў."
 }
