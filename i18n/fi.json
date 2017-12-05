@@ -4,7 +4,5 @@
 			"Pyscowicz"
 		]
 	},
-	"stopforumspam-checkbox": "Lähetä käyttäjätiedot stopforumspam.comiin",
-	"abusefilter-edit-builder-vars-sfs-confidence": "stopforumspam.com luottamustaso",
 	"stopforumspam-blocked": "Muokkaaminen IP-osoitteestasi ($1) on estetty, koska sitä on viime aikoina käytetty nettisivustojen spämmäämiseen."
 }
