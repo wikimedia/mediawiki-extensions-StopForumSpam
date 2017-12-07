@@ -5,8 +5,8 @@
 			"Metalhead64"
 		]
 	},
-	"stopforumspam-desc": "Integration mit [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integration mit [https://stopforumspam.com/ stopforumspam.com]",
 	"abusefilter-edit-builder-vars-sfs-blocked": "Ob die IP-Adresse mittels der Liste von stopforumspam.com gesperrt ist",
 	"stopforumspam-blocked": "Das Bearbeiten mit deiner IP-Adresse ($1) wurde gesperrt, da sie kürzlich zum Spammen auf Websites verwendet wurde.",
-	"stopforumspam-is-blocked": "Die IP-Adresse <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> wurde aufgrund von Spamming gesperrt."
+	"stopforumspam-is-blocked": "Die IP-Adresse <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> wurde aufgrund von Spamming gesperrt."
 }

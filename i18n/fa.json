@@ -4,7 +4,7 @@
 			"Armin1392"
 		]
 	},
-	"stopforumspam-desc": "اجازه به سرپرستان برای ارسال اطلاعات به [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "اجازه به سرپرستان برای ارسال اطلاعات به [https://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-blocked": "ویرایش از آدرس آی‌پی ($1) شما از زمانی که اخیراً برای وب‌سایت‌های اسپم استفاده شده‌است،مسدود شده‌است.",
-	"stopforumspam-is-blocked": "آدرس آی‌پی <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> برای اسپم شدن مسدود شده‌است."
+	"stopforumspam-is-blocked": "آدرس آی‌پی <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> برای اسپم شدن مسدود شده‌است."
 }

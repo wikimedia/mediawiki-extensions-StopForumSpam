@@ -4,8 +4,8 @@
 			"Jon Harald Søby"
 		]
 	},
-	"stopforumspam-desc": "Integrering med [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integrering med [https://stopforumspam.com/ stopforumspam.com]",
 	"abusefilter-edit-builder-vars-sfs-blocked": "Hvorvidt IP-adressen er blokkert med stopforumspam.com-listen",
 	"stopforumspam-blocked": "Redigering fra din IP-adresse ($1) har blitt blokkert siden den nylig har blitt brukt til å spamme nettsteder.",
-	"stopforumspam-is-blocked": "IP-adressa <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> har blitt blokkert for spamming."
+	"stopforumspam-is-blocked": "IP-adressa <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> har blitt blokkert for spamming."
 }

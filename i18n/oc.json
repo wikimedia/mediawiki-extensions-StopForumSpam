@@ -4,7 +4,7 @@
 			"Cedric31"
 		]
 	},
-	"stopforumspam-desc": "Permet als administrators de mandar de donadas a [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Permet als administrators de mandar de donadas a [https://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-blocked": "L'edicion a partir de vòstra adreça IP ($1) es estada blocada perque es estada utilizada recentament per de spam de sites web.",
-	"stopforumspam-is-blocked": "L’adreça IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> es estada blocada per causa de mandadís de corrièrs electronics."
+	"stopforumspam-is-blocked": "L’adreça IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> es estada blocada per causa de mandadís de corrièrs electronics."
 }

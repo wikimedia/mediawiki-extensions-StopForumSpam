@@ -5,8 +5,8 @@
 			"Piramidion"
 		]
 	},
-	"stopforumspam-desc": "Інтеграція із [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Інтеграція із [https://stopforumspam.com/ stopforumspam.com]",
 	"abusefilter-edit-builder-vars-sfs-blocked": "Чи заблокована ця IP-адреса за допомогою списку stopforumspam.com",
 	"stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) вже заблоковане, позаяк вона нещодавно використовувалася для спам-сайтів.",
-	"stopforumspam-is-blocked": "IP-адреса <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> вже заблокована за розсилку спаму."
+	"stopforumspam-is-blocked": "IP-адреса <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> вже заблокована за розсилку спаму."
 }

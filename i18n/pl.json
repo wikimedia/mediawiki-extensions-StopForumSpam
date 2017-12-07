@@ -4,7 +4,7 @@
 			"Chrumps"
 		]
 	},
-	"stopforumspam-desc": "Umożliwia administratorom wysyłanie danych do [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Umożliwia administratorom wysyłanie danych do [https://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-blocked": "Edycja z Twojego adresu IP ($1) została zablokowana, ponieważ ostatnio był on wykorzystany do spamu stron internetowych.",
-	"stopforumspam-is-blocked": "Adres IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> został zablokowany za rozsyłanie spamu."
+	"stopforumspam-is-blocked": "Adres IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> został zablokowany za rozsyłanie spamu."
 }

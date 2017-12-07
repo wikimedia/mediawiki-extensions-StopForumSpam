@@ -5,7 +5,7 @@
 			"Macofe"
 		]
 	},
-	"stopforumspam-desc": "Integración con [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integración con [https://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-blocked": "Se ha bloqueado la edición para tu dirección IP ($1) porque esta se ha usado recientemente para publicar contenido no deseado en sitios web.",
-	"stopforumspam-is-blocked": "La dirección IP <strong>[http://stopforumspam.com/ipcheck/$1 $1]</strong> se ha bloqueado por publicar spam."
+	"stopforumspam-is-blocked": "La dirección IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> se ha bloqueado por publicar spam."
 }

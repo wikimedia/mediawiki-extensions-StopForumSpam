@@ -4,7 +4,7 @@
 			"Okras"
 		]
 	},
-	"stopforumspam-desc": "Интеграция с [http://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Интеграция с [https://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-blocked": "Внесение правок с вашего IP-адреса ($1) было заблокировано, так как он недавно был использован для спама веб-сайтов.",
-	"stopforumspam-is-blocked": "IP-адрес <strong>[http://stopforumspam.com/ipcheck/$1 $1] </strong> был заблокирован за спам."
+	"stopforumspam-is-blocked": "IP-адрес <strong>[https://stopforumspam.com/ipcheck/$1 $1] </strong> был заблокирован за спам."
 }
