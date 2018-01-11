@@ -104,8 +104,8 @@ class Hooks {
 	/**
 	 * If an IP address is blacklisted, don't let them edit.
 	 *
-	 * @param Title $title Title being acted upon
-	 * @param User $user User performing the action
+	 * @param Title &$title Title being acted upon
+	 * @param User &$user User performing the action
 	 * @param string $action Action being performed
 	 * @param array &$result Will be filled with block status if blocked
 	 * @return bool
@@ -162,7 +162,7 @@ class Hooks {
 	}
 
 	/**
-	 * @param array $msg
+	 * @param array &$msg
 	 * @param string $ip
 	 * @return bool
 	 */
