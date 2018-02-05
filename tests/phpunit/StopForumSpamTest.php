@@ -3,6 +3,10 @@
 use MediaWiki\StopForumSpam\BlacklistManager;
 use MediaWiki\StopForumSpam\BlacklistUpdate;
 
+/**
+ * @covers \MediaWiki\StopForumSpam\BlacklistManager
+ * @covers \MediaWiki\StopForumSpam\BlacklistUpdate
+ */
 class StopForumSpamTest extends MediaWikiTestCase {
 
 	protected function setUp() {
