@@ -124,7 +124,7 @@ class BlacklistUpdate implements DeferrableUpdate {
 				'usedKeys' => array_keys( $this->data ),
 				'filemtime' => filemtime( $wgSFSIPListLocation ),
 			],
-			0
+			30 * 86400
 		);
 		if ( ob_get_level() ) {
 			ob_end_clean();
