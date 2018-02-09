@@ -32,6 +32,12 @@ require_once "$IP/maintenance/Maintenance.php";
  */
 class SFSBlacklistUpdate extends Maintenance {
 
+	function __construct() {
+		parent::__construct();
+
+		$this->requireExtension( 'StopForumSpam' );
+	}
+
 	public function execute() {
 		global $wgSFSIPListLocation;
 		if ( $wgSFSIPListLocation === false ) {
