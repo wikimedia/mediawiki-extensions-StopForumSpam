@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"Laundry Machine"
+		]
+	},
+	"stopforumspam-desc": "整合[https://stopforumspam.com/ stopforumspam.com]",
+	"abusefilter-edit-builder-vars-sfs-blocked": "IP位址是否已經透過stopforumspam.com列表封禁",
+	"stopforumspam-blocked": "您的IP位址（$1）已被封禁無法編輯，原因是此IP最近用於發布垃圾信息。",
+	"stopforumspam-is-blocked": "這個IP位址已被封禁<strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>，原因為發布垃圾訊息。"
+}
