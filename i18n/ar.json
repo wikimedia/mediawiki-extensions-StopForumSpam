@@ -1,0 +1,11 @@
+{
+	"@metadata": {
+		"authors": [
+			"ديفيد"
+		]
+	},
+	"stopforumspam-desc": "التكامل مع [https://stopforumspam.com/ stopforumspam.com]",
+	"abusefilter-edit-builder-vars-sfs-blocked": "ما إذا كان عنوان الآيبي ممنوعا باستخدام قائمة stopforumspam.com",
+	"stopforumspam-blocked": "تم منع التحرير من عنوان الآيبي الخاص بك ($1) لأنه تم استخدامه مؤخرا لمواقع السخام.",
+	"stopforumspam-is-blocked": "تم منع عنوان الآيبي <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> بسبب السخام."
+}
