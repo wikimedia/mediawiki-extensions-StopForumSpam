@@ -5,6 +5,8 @@
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Se o endereço IP está bloqueado usando a lista stopforumspam.com",
+	"action-sfsblock-bypass": "contornar os bloqueios de endereços IP na lista negra realizados pela extensão StopForumSpam",
+	"action-stopforumspam": "enviar dados sobre os utilizadores bloqueados para stopforumspam.com",
 	"right-sfsblock-bypass": "Contornar os bloqueios de endereços IP na lista negra realizados pela extensão StopForumSpam",
 	"right-stopforumspam": "Enviar dados sobre os utilizadores bloqueados para stopforumspam.com",
 	"stopforumspam-blocked": "A edição a partir do seu endereço IP ($1) foi bloqueada porque este foi usado recentemente para publicar spam.",
