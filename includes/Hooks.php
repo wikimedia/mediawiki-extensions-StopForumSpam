@@ -57,8 +57,8 @@ class Hooks {
 	 * @return bool
 	 */
 	static function abuseFilterGenerateUserVars( $vars, $user ) {
-		global $wgSFSEnableConfidenceVariable;
-		if ( $wgSFSEnableConfidenceVariable ) {
+		global $wgSFSIPListLocation;
+		if ( $wgSFSIPListLocation ) {
 			$vars->setLazyLoadVar( 'sfs_blocked', 'sfs-blocked', [ 'user' => $user ] );
 		}
 
