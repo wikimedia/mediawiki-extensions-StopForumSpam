@@ -94,7 +94,7 @@ class BlacklistManager {
 	 * Gets the bucket (cache key) and offset (bit within the cache)
 	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 * @param string $ip
-	 * @return array of two ints (bucket and offset)
+	 * @return int[]
 	 */
 	public static function getBucketAndOffset( $ip ) {
 		if ( self::$SHIFT_AMOUNT === null ) {

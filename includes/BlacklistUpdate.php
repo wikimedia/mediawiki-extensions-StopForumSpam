@@ -64,11 +64,15 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 		while ( !feof( $fh ) ) {
 			$ip = fgetcsv( $fh, 4096, ',', '"' );
+			if ( $ip === false ) {
+				break; // EOF
+			}
 			$this->lineNo++;
 			if ( $this->lineNo < $this->skipLines ) {
 				continue;
 			} elseif (
-				$ip === [ null ] ||
+				$ip === null || // errors with $fh
+				$ip === [ null ] || // empty line
 				( $wgSFSValidateIPList && ( !IP::isValid( $ip[0] ) || IP::isIPv6( $ip[0] ) ) )
 			) {
 				continue; // discard invalid lines
