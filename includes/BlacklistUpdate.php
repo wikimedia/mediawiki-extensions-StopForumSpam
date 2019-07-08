@@ -35,9 +35,6 @@ class BlacklistUpdate implements DeferrableUpdate {
 			return;
 		}
 
-		// Set up output buffering so we don't accidentally try to send stuff
-		ob_start();
-
 		// So that we don't start other concurrent updates
 		// Have the key expire an hour early so we hopefully don't have a time where there is no blacklist
 		$wgMemc->set( BlacklistManager::getBlacklistKey(), 1, $wgSFSBlacklistCacheDuration - 3600 );
@@ -61,6 +58,13 @@ class BlacklistUpdate implements DeferrableUpdate {
 		$this->skipLines = 0;
 		$this->restoreState( $state );
 		$fh = fopen( $wgSFSIPListLocation, 'rb' );
+
+		if ( !$fh ) {
+			return;
+		}
+
+		// Set up output buffering so we don't accidentally try to send stuff
+		ob_start();
 
 		while ( !feof( $fh ) ) {
 			$ip = fgetcsv( $fh, 4096, ',', '"' );
