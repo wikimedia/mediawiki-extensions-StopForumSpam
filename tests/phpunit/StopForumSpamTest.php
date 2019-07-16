@@ -30,6 +30,7 @@ class StopForumSpamTest extends MediaWikiTestCase {
 			[ '2001:db8::ff00:42:8329', false, 'Shorter IPv6 address' ],
 		];
 	}
+
 	/**
 	 * @dataProvider provideSimpleBlacklisting
 	 */
@@ -37,6 +38,7 @@ class StopForumSpamTest extends MediaWikiTestCase {
 		$this->loadBlacklist( 'sample_blacklist.txt' );
 		$this->assertEquals( BlacklistManager::isBlacklisted( $ip ), $res );
 	}
+
 	public static function provideThresholdBlacklisting() {
 		return [
 			[ '99.7.75.101', false, 'IP with 1 hit' ],
@@ -44,6 +46,7 @@ class StopForumSpamTest extends MediaWikiTestCase {
 			[ '127.0.0.1', false, 'IP address not on blacklist' ],
 		];
 	}
+
 	/**
 	 * @dataProvider provideThresholdBlacklisting
 	 */
