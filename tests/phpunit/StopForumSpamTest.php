@@ -9,7 +9,7 @@ use MediaWiki\StopForumSpam\BlacklistUpdate;
  */
 class StopForumSpamTest extends MediaWikiTestCase {
 
-	protected function setUp() {
+	protected function setUp() : void {
 		parent::setUp();
 		// Setup a fake cache
 		$this->setMwGlobals( 'wgMemc', new HashBagOStuff() );
