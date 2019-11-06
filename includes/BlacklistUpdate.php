@@ -72,6 +72,7 @@ class BlacklistUpdate implements DeferrableUpdate {
 				break; // EOF
 			}
 			$this->lineNo++;
+			// @phan-suppress-next-line PhanSuspiciousValueComparisonInLoop
 			if ( $this->lineNo < $this->skipLines ) {
 				continue;
 			} elseif (
