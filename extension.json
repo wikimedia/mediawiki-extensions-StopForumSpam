@@ -40,6 +40,9 @@
 		"OtherBlockLogLink": "MediaWiki\\StopForumSpam\\Hooks::onOtherBlockLogLink"
 	},
 	"config": {
+		"SFSReportOnly": {
+			"value": false
+		},
 		"SFSIPListLocation": {
 			"value": false
 		},

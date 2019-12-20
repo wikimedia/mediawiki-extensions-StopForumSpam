@@ -25,6 +25,7 @@ use Block;
 use DeferredUpdates;
 use Html;
 use IP;
+use MediaWiki\Logger\LoggerFactory;
 use RequestContext;
 use Title;
 use User;
@@ -111,7 +112,8 @@ class Hooks {
 	 * @return bool
 	 */
 	public static function onGetUserPermissionsErrorsExpensive( &$title, &$user, $action, &$result ) {
-		global $wgSFSIPListLocation, $wgSFSEnableDeferredUpdates, $wgBlockAllowsUTEdit;
+		global $wgSFSIPListLocation, $wgSFSEnableDeferredUpdates,
+			$wgBlockAllowsUTEdit, $wgSFSReportOnly;
 		if ( !$wgSFSIPListLocation ) {
 			// Not configured
 			return true;
@@ -137,21 +139,57 @@ class Hooks {
 		}
 
 		if ( BlacklistManager::isBlacklisted( $ip ) ) {
-			wfDebugLog( 'StopForumSpam',
-				"{$user->getName()} tripped blacklist doing $action "
-				. "by using $ip on \"{$title->getPrefixedText()}\"."
+			$logger = LoggerFactory::getInstance( 'StopForumSpam' );
+
+			$logger->info(
+				"{user} tripped blacklist doing {action} "
+				. "by using {clientip} on \"{title}\".",
+				[
+					'action' => $action,
+					'clientip' => $ip,
+					'reportonly' => $wgSFSReportOnly,
+					'title' => $title->getPrefixedText(),
+					'user' => $user->getName()
+				]
 			);
 			if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
-				wfDebugLog( 'StopForumSpam', "{$user->getName()} is exempt from SFS blocks." );
+				$logger->info(
+					"{user} is exempt from SFS blocks.",
+					[
+						'clientip' => $ip,
+						'reportonly' => $wgSFSReportOnly,
+						'user' => $user->getName()
+					]
+				);
 
 				return true;
 			}
 			// I just copied this from TorBlock, not sure if it actually makes sense.
 			if ( Block::isWhitelistedFromAutoblocks( $ip ) ) {
-				wfDebugLog( 'StopForumSpam', "$ip is in autoblock whitelist. Exempting from SFS blocks." );
+				$logger->info(
+					"{clientip} is in autoblock whitelist. Exempting from SFS blocks.",
+					[ 'clientip' => $ip, 'reportonly' => $wgSFSReportOnly ]
+				);
 
 				return true;
 			}
+
+			// never block in report-only mode
+			if ( $wgSFSReportOnly ) {
+				return true;
+			}
+
+			// log info when action blocked
+			$logger->info(
+				"{user} was blocked from doing {action} "
+				. "by using {clientip} on \"{title}\".",
+				[
+					'action' => $action,
+					'clientip' => $ip,
+					'title' => $title->getPrefixedText(),
+					'user' => $user->getName()
+				]
+			);
 
 			$result = [ 'stopforumspam-blocked', $ip ];
 
