@@ -78,15 +78,18 @@ class BlacklistUpdate implements DeferrableUpdate {
 			} elseif (
 				$ip === null || // errors with $fh
 				$ip === [ null ] || // empty line
+				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 				( $wgSFSValidateIPList && ( !IP::isValid( $ip[0] ) || IP::isIPv6( $ip[0] ) ) )
 			) {
 				continue; // discard invalid lines
 			} elseif ( isset( $ip[1] ) && $ip[1] < $wgSFSIPThreshold ) {
 				continue; // wasn't hit enough times
 			}
+			// @phan-suppress-next-line PhanTypeMismatchArgument
 			list( $bucket, $offset ) = BlacklistManager::getBucketAndOffset( $ip[0] );
 			$key = BlacklistManager::getIPBlacklistKey( $bucket );
 			if ( !isset( $this->data[$key] ) ) {
+				// @phan-suppress-next-line PhanSuspiciousWeakTypeComparisonInLoop
 				if ( in_array( $key, $this->usedKeys ) ) {
 					$this->data[$key] = $wgMemc->get( $key );
 				} else {
