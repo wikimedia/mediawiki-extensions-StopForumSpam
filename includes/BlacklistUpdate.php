@@ -21,7 +21,7 @@
 namespace MediaWiki\StopForumSpam;
 
 use DeferrableUpdate;
-use IP;
+use Wikimedia\IPUtils;
 
 class BlacklistUpdate implements DeferrableUpdate {
 	private $lineNo, $usedKeys, $data, $skipLines, $finished = false;
@@ -78,7 +78,7 @@ class BlacklistUpdate implements DeferrableUpdate {
 				$ip === null || // errors with $fh
 				$ip === [ null ] || // empty line
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
-				( $wgSFSValidateIPList && ( !IP::isValid( $ip[0] ) || IP::isIPv6( $ip[0] ) ) )
+				( $wgSFSValidateIPList && ( !IPUtils::isValid( $ip[0] ) || IPUtils::isIPv6( $ip[0] ) ) )
 			) {
 				continue; // discard invalid lines
 			} elseif ( isset( $ip[1] ) && $ip[1] < $wgSFSIPThreshold ) {

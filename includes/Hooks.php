@@ -24,11 +24,11 @@ use AbuseFilterVariableHolder;
 use Block;
 use DeferredUpdates;
 use Html;
-use IP;
 use MediaWiki\Logger\LoggerFactory;
 use RequestContext;
 use Title;
 use User;
+use Wikimedia\IPUtils;
 
 class Hooks {
 
@@ -209,7 +209,7 @@ class Hooks {
 		if ( !$wgSFSIPListLocation ) {
 			return true;
 		}
-		if ( IP::isIPAddress( $ip ) && BlacklistManager::isBlacklisted( $ip ) ) {
+		if ( IPUtils::isIPAddress( $ip ) && BlacklistManager::isBlacklisted( $ip ) ) {
 			$msg[] = Html::rawElement(
 				'span',
 				[ 'class' => 'mw-stopforumspam-blacklisted' ],

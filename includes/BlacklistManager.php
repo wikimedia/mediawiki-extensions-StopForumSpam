@@ -20,7 +20,7 @@
 
 namespace MediaWiki\StopForumSpam;
 
-use IP;
+use Wikimedia\IPUtils;
 
 class BlacklistManager {
 
@@ -81,7 +81,7 @@ class BlacklistManager {
 	 */
 	public static function isBlacklisted( $ip ) {
 		global $wgMemc;
-		if ( !IP::isValid( $ip ) || IP::isIPv6( $ip ) ) {
+		if ( !IPUtils::isValid( $ip ) || IPUtils::isIPv6( $ip ) ) {
 			return false;
 		}
 		list( $bucket, $offset ) = self::getBucketAndOffset( $ip );
