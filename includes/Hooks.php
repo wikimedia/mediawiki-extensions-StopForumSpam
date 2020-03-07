@@ -40,7 +40,7 @@ class Hooks {
 	 * @param null &$result
 	 * @return bool
 	 */
-	static function abuseFilterComputeVariable( $method, $vars, $parameters, &$result ) {
+	public static function abuseFilterComputeVariable( $method, $vars, $parameters, &$result ) {
 		if ( $method == 'sfs-blocked' ) {
 			$ip = self::getIPFromUser( $parameters['user'] );
 			$result = $ip !== false ? BlacklistManager::isBlacklisted( $ip ) : false;
@@ -57,7 +57,7 @@ class Hooks {
 	 * @param User $user
 	 * @return bool
 	 */
-	static function abuseFilterGenerateUserVars( $vars, $user ) {
+	public static function abuseFilterGenerateUserVars( $vars, $user ) {
 		global $wgSFSIPListLocation;
 		if ( $wgSFSIPListLocation ) {
 			$vars->setLazyLoadVar( 'sfs_blocked', 'sfs-blocked', [ 'user' => $user ] );
@@ -71,7 +71,7 @@ class Hooks {
 	 * @param array &$builderValues
 	 * @return bool
 	 */
-	static function abuseFilterBuilder( &$builderValues ) {
+	public static function abuseFilterBuilder( &$builderValues ) {
 		global $wgSFSIPListLocation;
 		if ( $wgSFSIPListLocation ) {
 			// Uses: 'abusefilter-edit-builder-vars-sfs-blocked'

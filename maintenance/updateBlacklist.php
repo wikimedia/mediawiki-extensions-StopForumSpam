@@ -32,7 +32,7 @@ require_once "$IP/maintenance/Maintenance.php";
  */
 class SFSBlacklistUpdate extends Maintenance {
 
-	function __construct() {
+	public function __construct() {
 		parent::__construct();
 
 		$this->requireExtension( 'StopForumSpam' );
