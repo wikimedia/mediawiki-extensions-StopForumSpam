@@ -9,7 +9,7 @@
 	"action-sfsblock-bypass": "обхід блокувань IP-адрес, що перебувають у чорному списку, які видає розширення StopForumSpam,",
 	"action-stopforumspam": "надсилання даних про заблокованих користувачів на stopforumspam.com",
 	"right-sfsblock-bypass": "обхід блокувань IP-адрес, що перебувають у чорному списку, які видає розширення StopForumSpam",
-	"right-stopforumspam": "надсилання даних про заблокованих користувачів на stopforumspam.com",
+	"right-stopforumspam": "Надсилання даних про заблокованих користувачів на stopforumspam.com",
 	"stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) вже заблоковане, позаяк вона нещодавно використовувалася для спам-сайтів.",
 	"stopforumspam-desc": "Інтеграція із [https://stopforumspam.com/ stopforumspam.com]",
 	"stopforumspam-is-blocked": "IP-адреса <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> вже заблокована за розсилку спаму."
