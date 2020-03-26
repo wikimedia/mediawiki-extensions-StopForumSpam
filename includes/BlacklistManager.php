@@ -57,9 +57,9 @@ class BlacklistManager {
 
 	/**
 	 * Get memcached key
-	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 * @param int $bucket
 	 * @return string
+	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 */
 	public static function getIPBlacklistKey( $bucket ) {
 		return 'sfs:blacklisted:' . $bucket;
@@ -67,8 +67,8 @@ class BlacklistManager {
 
 	/**
 	 * Returns key for BlacklistUpdate state
-	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 * @return string
+	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 */
 	public static function getBlacklistUpdateStateKey() {
 		return 'sfs:blacklist:updatestate';
@@ -92,9 +92,9 @@ class BlacklistManager {
 
 	/**
 	 * Gets the bucket (cache key) and offset (bit within the cache)
-	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 * @param string $ip
 	 * @return int[]
+	 * @private This is only public so SFSBlacklistUpdate::execute can access it
 	 */
 	public static function getBucketAndOffset( $ip ) {
 		if ( self::$SHIFT_AMOUNT === null ) {
