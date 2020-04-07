@@ -1,8 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Southparkfan",
-			"Siebrand"
+			"Siebrand",
+			"Southparkfan"
 		]
 	},
 	"stopforumspam-blocked": "Bewerken vanaf uw IP-adres ($1) is geblokkeerd omdat het recent is gebruikt voor spammen.",

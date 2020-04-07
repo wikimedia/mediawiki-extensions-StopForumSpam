@@ -2,10 +2,10 @@
 	"@metadata": {
 		"authors": [
 			"Kunal Mehta",
-			"Shirayuki",
-			"Umherirrender",
 			"Liuxinyu970226",
-			"MarcoAurelio"
+			"MarcoAurelio",
+			"Shirayuki",
+			"Umherirrender"
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Abuse filter syntax option in a dropdown from the group {{msg-mw|abusefilter-edit-builder-group-vars}}.",

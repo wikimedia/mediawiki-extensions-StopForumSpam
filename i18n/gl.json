@@ -1,9 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Toliño",
 			"Elisardojm",
-			"Maria zaos"
+			"Maria zaos",
+			"Toliño"
 		]
 	},
 	"action-stopforumspam": "Enviar datos sobre usuarios bloqueados a stopforumspam.com",
