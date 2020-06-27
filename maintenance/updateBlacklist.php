@@ -47,7 +47,8 @@ class SFSBlacklistUpdate extends Maintenance {
 		$before = microtime( true );
 
 		$update = new BlacklistUpdate();
-		$update->doUpdate(); // Where the magic happens!
+		// Where the magic happens!
+		$update->doUpdate();
 
 		$diff = microtime( true ) - $before;
 

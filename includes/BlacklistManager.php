@@ -27,7 +27,7 @@ class BlacklistManager {
 	/**
 	 * How long the confidence level should be cached for (1 day)
 	 */
-	const CACHE_DURATION = 86400;
+	private const CACHE_DURATION = 86400;
 
 	/**
 	 * Used in determining cache keys

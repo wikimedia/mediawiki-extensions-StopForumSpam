@@ -28,7 +28,7 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 	public function doUpdate() {
 		global $wgSFSIPListLocation, $wgSFSIPThreshold, $wgSFSValidateIPList,
-			   $wgSFSBlacklistCacheDuration, $wgMemc;
+			$wgSFSBlacklistCacheDuration, $wgMemc;
 		if ( $wgSFSIPListLocation === false ) {
 			wfDebugLog( 'StopForumSpam', '$wgSFSIPListLocation has not been configured properly.' );
 
@@ -69,20 +69,24 @@ class BlacklistUpdate implements DeferrableUpdate {
 		while ( !feof( $fh ) ) {
 			$ip = fgetcsv( $fh, 4096, ',', '"' );
 			if ( $ip === false ) {
-				break; // EOF
+				break;
 			}
 			$this->lineNo++;
 			if ( $this->lineNo < $this->skipLines ) {
 				continue;
 			} elseif (
-				$ip === null || // errors with $fh
-				$ip === [ null ] || // empty line
+				// errors with $fh
+				$ip === null ||
+				// empty line
+				$ip === [ null ] ||
 				// @phan-suppress-next-line PhanTypeMismatchArgumentNullable
 				( $wgSFSValidateIPList && ( !IPUtils::isValid( $ip[0] ) || IPUtils::isIPv6( $ip[0] ) ) )
 			) {
-				continue; // discard invalid lines
+				// discard invalid lines
+				continue;
 			} elseif ( isset( $ip[1] ) && $ip[1] < $wgSFSIPThreshold ) {
-				continue; // wasn't hit enough times
+				// wasn't hit enough times
+				continue;
 			}
 			// @phan-suppress-next-line PhanTypeMismatchArgument
 			list( $bucket, $offset ) = BlacklistManager::getBucketAndOffset( $ip[0] );
@@ -148,9 +152,13 @@ class BlacklistUpdate implements DeferrableUpdate {
 	private function restoreState( $state ) {
 		global $wgSFSIPListLocation;
 		if ( $state === false ) {
-			return; // no state to restore
-		} elseif ( filemtime( $wgSFSIPListLocation ) != $state['filemtime'] ) {
-			return; // file was modified since we last ran, so our state is invalid
+			// no state to restore
+			return;
+		}
+
+		if ( filemtime( $wgSFSIPListLocation ) != $state['filemtime'] ) {
+			// file was modified since we last ran, so our state is invalid
+			return;
 		}
 		$this->lineNo = $state['lineNo'];
 		if ( !isset( $state['usedKeys'] ) ) {

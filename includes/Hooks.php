@@ -46,9 +46,9 @@ class Hooks {
 			$result = $ip !== false ? BlacklistManager::isBlacklisted( $ip ) : false;
 
 			return false;
-		} else {
-			return true;
 		}
+
+		return true;
 	}
 
 	/**

@@ -2,9 +2,9 @@
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="MediaWiki.Commenting.FunctionComment.MissingParamTag" />
-		<exclude name="MediaWiki.Files.ClassMatchesFilename.NotMatch" />
-		<exclude name="MediaWiki.WhiteSpace.SpaceBeforeSingleLineComment.NewLineComment" />
-		<exclude name="PSR12.Properties.ConstantVisibility.NotFound" />
+	</rule>
+	<rule ref="MediaWiki.Files.ClassMatchesFilename.NotMatch">
+		<exclude-pattern>*/maintenance/*</exclude-pattern>
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>
