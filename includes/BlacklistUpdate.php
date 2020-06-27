@@ -148,6 +148,8 @@ class BlacklistUpdate implements DeferrableUpdate {
 
 	/**
 	 * Restores the state of doUpdate() to when the script exited the previous time
+	 *
+	 * @param bool|array $state
 	 */
 	private function restoreState( $state ) {
 		global $wgSFSIPListLocation;
