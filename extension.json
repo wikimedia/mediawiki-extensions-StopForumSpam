@@ -1,9 +1,10 @@
 {
 	"name": "StopForumSpam",
-	"version": "0.3.0",
+	"version": "0.4.0",
 	"author": [
 		"Kunal Mehta",
-		"Ryan Schmidt"
+		"Ryan Schmidt",
+		"Scott Bassett"
 	],
 	"url": "https://www.mediawiki.org/wiki/Extension:StopForumSpam",
 	"descriptionmsg": "stopforumspam-desc",
@@ -29,8 +30,8 @@
 	},
 	"AutoloadClasses": {
 		"MediaWiki\\StopForumSpam\\Hooks": "includes/Hooks.php",
-		"MediaWiki\\StopForumSpam\\BlacklistManager": "includes/BlacklistManager.php",
-		"MediaWiki\\StopForumSpam\\BlacklistUpdate": "includes/BlacklistUpdate.php"
+		"MediaWiki\\StopForumSpam\\DenyListManager": "includes/DenyListManager.php",
+		"MediaWiki\\StopForumSpam\\DenyListUpdate": "includes/DenyListUpdate.php"
 	},
 	"Hooks": {
 		"AbuseFilter-computeVariable": "MediaWiki\\StopForumSpam\\Hooks::abuseFilterComputeVariable",
@@ -46,6 +47,9 @@
 		"SFSIPListLocation": {
 			"value": false
 		},
+		"SFSIPListLocationMD5": {
+			"value": false
+		},
 		"SFSValidateIPList": {
 			"value": true
 		},
@@ -55,7 +59,10 @@
 		"SFSIPThreshold": {
 			"value": 5
 		},
-		"SFSBlacklistCacheDuration": {
+		"SFSDenyListKey": {
+			"value": "sfs:denylist:set"
+		},
+		"SFSDenyListCacheDuration": {
 			"value": 432000
 		}
 	},
