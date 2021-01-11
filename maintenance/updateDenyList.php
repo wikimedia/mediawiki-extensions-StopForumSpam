@@ -95,12 +95,14 @@ class SFSDenyListUpdate extends Maintenance {
 
 		// Where the magic happens!
 		$dlu = new DenyListUpdate();
-		$dlu->doUpdate();
+		if ( $dlu->doUpdate() ) {
+			$diff = microtime( true ) - $before;
 
-		$diff = microtime( true ) - $before;
-
-		$this->output( "Done!\n" );
-		$this->output( "Took {$diff} seconds\n" );
+			$this->output( "Done!\n" );
+			$this->output( "Took {$diff} seconds\n" );
+		} else {
+			$this->fatalError( "Failed!\n" );
+		}
 	}
 
 }
