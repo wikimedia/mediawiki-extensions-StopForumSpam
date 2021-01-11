@@ -53,18 +53,19 @@ class DenyListManager {
 		}
 
 		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
-		$wanCacheResults = $wanCache->get(
+		$results = $wanCache->get(
 			$wanCache->makeGlobalKey( $wgSFSDenyListKey )
 		);
-		if ( $wanCacheResults == false ) {
+		if ( $results === false ) {
 			// attempt to rebuild in cache
 			$dlu = new DenyListUpdate();
-			if ( !$dlu->doUpdate() ) {
+			$results = $dlu->doUpdate();
+			if ( $results === false ) {
 				throw new \Exception( "Cache not updated with SFS Data." );
 			}
 		}
 
-		$set = new IPSet( $wanCacheResults );
+		$set = new IPSet( $results );
 		return $set->match( $ip );
 	}
 }
