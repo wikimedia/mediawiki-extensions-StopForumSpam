@@ -64,6 +64,9 @@
 		},
 		"SFSDenyListCacheDuration": {
 			"value": 432000
+		},
+		"SFSProxy": {
+			"value": false
 		}
 	},
 	"manifest_version": 2

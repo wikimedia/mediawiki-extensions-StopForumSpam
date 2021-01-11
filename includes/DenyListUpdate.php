@@ -172,7 +172,7 @@ class DenyListUpdate implements DeferrableUpdate {
 	 * @return string[] list of SFS denylisted IP addresses
 	 */
 	private static function fetchDenyListIPsRemote() {
-		global $wgSFSIPListLocation, $wgSFSIPListLocationMD5;
+		global $wgSFSIPListLocation, $wgSFSIPListLocationMD5, $wgSFSProxy;
 
 		// check for zlib function for later processing
 		if ( !function_exists( 'gzdecode' ) ) {
@@ -185,14 +185,23 @@ class DenyListUpdate implements DeferrableUpdate {
 
 		// fetch vendor http resources
 		$reqFac = MediaWikiServices::getInstance()->getHttpRequestFactory();
+
+		$options = [
+			'followRedirects' => true,
+		];
+
+		if ( $wgSFSProxy !== false ) {
+			$options['proxy'] = $wgSFSProxy;
+		}
+
 		$fileData = self::fetchRemoteFile(
 			$reqFac,
-			[ 'followRedirects' => true ],
+			$options,
 			$wgSFSIPListLocation
 		);
 		$fileDataMD5 = self::fetchRemoteFile(
 			$reqFac,
-			[ 'followRedirects' => true ],
+			$options,
 			$wgSFSIPListLocationMD5
 		);
 
