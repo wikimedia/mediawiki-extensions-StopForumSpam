@@ -215,16 +215,21 @@ class DenyListUpdate implements DeferrableUpdate {
 		array_walk( $fileDataProcessed, function ( &$item, $key ) {
 			global $wgSFSValidateIPList, $wgSFSIPThreshold;
 			$ipData = str_getcsv( $item );
+
+			$ip = (string)$ipData[0];
+
 			if ( $wgSFSValidateIPList
-				&& IPUtils::sanitizeIP( (string)$ipData[0] ) === null ) {
+				&& IPUtils::sanitizeIP( $ip ) === null
+			) {
 				$item = '';
 				return;
 			}
-			if ( !( $ipData[1] ) && $ipData[1] < $wgSFSIPThreshold ) {
+			$score = (int)$ipData[1];
+			if ( $score && ( $score < $wgSFSIPThreshold ) ) {
 				$item = '';
 				return;
 			}
-			$item = !( $ipData[0] ) ? $ipData[0] : '';
+			$item = $ip;
 		} );
 		return array_filter( $fileDataProcessed );
 	}
