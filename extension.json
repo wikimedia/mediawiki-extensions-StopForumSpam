@@ -14,12 +14,10 @@
 		"MediaWiki": ">= 1.35.0"
 	},
 	"AvailableRights": [
-		"sfsblock-bypass",
-		"stopforumspam"
+		"sfsblock-bypass"
 	],
 	"GroupPermissions": {
 		"sysop": {
-			"stopforumspam": true,
 			"sfsblock-bypass": true
 		}
 	},
