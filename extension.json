@@ -26,10 +26,8 @@
 			"i18n"
 		]
 	},
-	"AutoloadClasses": {
-		"MediaWiki\\StopForumSpam\\Hooks": "includes/Hooks.php",
-		"MediaWiki\\StopForumSpam\\DenyListManager": "includes/DenyListManager.php",
-		"MediaWiki\\StopForumSpam\\DenyListUpdate": "includes/DenyListUpdate.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\StopForumSpam\\": "includes/"
 	},
 	"Hooks": {
 		"AbuseFilter-computeVariable": "MediaWiki\\StopForumSpam\\Hooks::abuseFilterComputeVariable",
