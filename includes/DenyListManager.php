@@ -30,13 +30,20 @@ use Wikimedia\IPUtils;
 class DenyListManager {
 
 	/**
+	 * Returns key for primary deny list
+	 * @return string
+	 */
+	public static function getDenyListKey() {
+		return 'sfs-denylist-set';
+	}
+
+	/**
 	 * @return bool true if denylist has not expired
 	 */
 	public static function isDenyListUpToDate() {
-		global $wgSFSDenyListKey;
 		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		return $wanCache->get(
-			$wanCache->makeGlobalKey( $wgSFSDenyListKey )
+			$wanCache->makeGlobalKey( self::getDenyListKey() )
 		) !== false;
 	}
 
@@ -46,15 +53,13 @@ class DenyListManager {
 	 * @return void|bool
 	 */
 	public static function isDenyListed( $ip ) {
-		global $wgSFSDenyListKey;
-
 		if ( IPUtils::sanitizeIP( $ip ) === null ) {
 			return;
 		}
 
 		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		$results = $wanCache->get(
-			$wanCache->makeGlobalKey( $wgSFSDenyListKey )
+			$wanCache->makeGlobalKey( self::getDenyListKey() )
 		);
 		if ( $results === false ) {
 			// attempt to rebuild in cache
