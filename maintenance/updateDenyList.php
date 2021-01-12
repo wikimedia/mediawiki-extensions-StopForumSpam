@@ -100,7 +100,7 @@ class SFSDenyListUpdate extends Maintenance {
 			$diff = microtime( true ) - $before;
 
 			$numIPs = count( $results );
-			$this->output( "Done! Loaded {$numIPs} IPs.}\n" );
+			$this->output( "Done! Loaded {$numIPs} IPs.\n" );
 			$this->output( "Took {$diff} seconds\n" );
 		} else {
 			$this->fatalError( "Failed!\n" );
