@@ -21,9 +21,10 @@
 namespace MediaWiki\StopForumSpam;
 
 use DeferrableUpdate;
-use Exception;
+use DomainException;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\MediaWikiServices;
+use RuntimeException;
 use Wikimedia\IPUtils;
 
 class DenyListUpdate implements DeferrableUpdate {
@@ -36,8 +37,9 @@ class DenyListUpdate implements DeferrableUpdate {
 	public function doUpdate() {
 		global $wgSFSIPListLocation;
 		if ( $wgSFSIPListLocation === false ) {
-			wfDebugLog( 'StopForumSpam', '$wgSFSIPListLocation has not been configured properly.' );
-			return false;
+			throw new DomainException(
+				'$wgSFSIPListLocation has not been configured properly.'
+			);
 		}
 		return self::loadDenyListIPs();
 	}
@@ -94,7 +96,7 @@ class DenyListUpdate implements DeferrableUpdate {
 	/**
 	 * Fetch gunzipped/unzipped SFS deny list from local file
 	 *
-	 * @return void|string[] list of SFS denylisted IP addresses
+	 * @return string[] list of SFS denylisted IP addresses
 	 */
 	private static function fetchDenyListIPsLocal() {
 		global $wgSFSIPListLocation,
@@ -102,14 +104,14 @@ class DenyListUpdate implements DeferrableUpdate {
 			$wgSFSIPThreshold;
 
 		if ( !is_file( $wgSFSIPListLocation ) ) {
-			throw new Exception( "wgSFSIPListLocation does not appear to be a valid file path." );
+			throw new DomainException( "wgSFSIPListLocation does not appear to be a valid file path." );
 		}
 
 		$ipList = [];
 		$fh = fopen( $wgSFSIPListLocation, 'rb' );
 
 		if ( !$fh ) {
-			return;
+			throw new DomainException( "wgSFSIPListLocation file handle could not be obtained." );
 		}
 
 		// Set up output buffering so we don't accidentally try to send stuff
@@ -155,10 +157,10 @@ class DenyListUpdate implements DeferrableUpdate {
 	) {
 		$req = $factory->create( $fileUrl, $httpOptions );
 		if ( !$req->execute()->isOK() ) {
-			throw new Exception( "Failed to download resource at {$fileUrl}" );
+			throw new RuntimeException( "Failed to download resource at {$fileUrl}" );
 		}
 		if ( $req->getStatus() !== 200 ) {
-			throw new Exception( "Unexpected HTTP {$req->getStatus()} response from {$fileUrl}" );
+			throw new RuntimeException( "Unexpected HTTP {$req->getStatus()} response from {$fileUrl}" );
 		}
 		return $req->getContent();
 	}
@@ -174,11 +176,11 @@ class DenyListUpdate implements DeferrableUpdate {
 
 		// check for zlib function for later processing
 		if ( !function_exists( 'gzdecode' ) ) {
-			throw new Exception( "Zlib does not appear to be configured for php!" );
+			throw new RuntimeException( "Zlib does not appear to be configured for php!" );
 		}
 
 		if ( !filter_var( $wgSFSIPListLocation, FILTER_VALIDATE_URL ) ) {
-			throw new Exception( "wgSFSIPListLocation does not appear to be a valid URL." );
+			throw new DomainException( "wgSFSIPListLocation does not appear to be a valid URL." );
 		}
 
 		// fetch vendor http resources
@@ -205,7 +207,7 @@ class DenyListUpdate implements DeferrableUpdate {
 
 		// check vendor-provided md5
 		if ( $fileData == null || md5( $fileData ) !== $fileDataMD5 ) {
-			throw new Exception( "SFS IP file contents and file md5 do not match!" );
+			throw new RuntimeException( "SFS IP file contents and file md5 do not match!" );
 		}
 
 		// ungzip and process vendor file
