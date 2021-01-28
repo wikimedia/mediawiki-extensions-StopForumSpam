@@ -48,10 +48,9 @@ class DenyListUpdate implements DeferrableUpdate {
 	 * @return string[] List of denylisted IP addresses
 	 */
 	public static function getDenyListIPs() {
-		global $wgSFSDenyListKey;
 		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		return $wanCache->get(
-			$wanCache->makeGlobalKey( $wgSFSDenyListKey )
+			$wanCache->makeGlobalKey( DenyListManager::getDenyListKey() )
 		);
 	}
 
@@ -61,10 +60,9 @@ class DenyListUpdate implements DeferrableUpdate {
 	 * @return bool
 	 */
 	public static function purgeDenyListIPs() {
-		global $wgSFSDenyListKey;
 		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		return $wanCache->delete(
-			$wanCache->makeGlobalKey( $wgSFSDenyListKey )
+			$wanCache->makeGlobalKey( DenyListManager::getDenyListKey() )
 		);
 	}
 
@@ -74,10 +72,10 @@ class DenyListUpdate implements DeferrableUpdate {
 	 * @return string[] List of denylisted IP addresses
 	 */
 	public static function loadDenyListIPs() {
-		global $wgSFSDenyListCacheDuration, $wgSFSDenyListKey;
+		global $wgSFSDenyListCacheDuration;
 		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		return $wanCache->getWithSetCallback(
-			$wanCache->makeGlobalKey( $wgSFSDenyListKey ),
+			$wanCache->makeGlobalKey( DenyListManager::getDenyListKey() ),
 			$wgSFSDenyListCacheDuration,
 			function () {
 				global $wgSFSIPListLocation;

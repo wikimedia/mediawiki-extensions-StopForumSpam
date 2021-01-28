@@ -55,9 +55,6 @@
 		"SFSIPThreshold": {
 			"value": 5
 		},
-		"SFSDenyListKey": {
-			"value": "sfs:denylist:set"
-		},
 		"SFSDenyListCacheDuration": {
 			"value": 432000
 		},

@@ -27,10 +27,12 @@ use MediaWiki\StopForumSpam\DenyListUpdate;
  */
 class StopForumSpamTest extends MediaWikiIntegrationTestCase {
 
+	private const DENY_LIST_KEY = 'sfs-denylist-unit-tests';
+
 	protected function setUp() : void {
 		parent::setUp();
 		// Set up mock wancache as an MW service
-		$this->setMwGlobals( 'wgSFSDenyListKey', 'sfs:denylist:unit:tests' );
+		$this->setMwGlobals( 'wgSFSDenyListKey', self::DENY_LIST_KEY );
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$this->setService( 'MainWANObjectCache', $cache );
 	}
