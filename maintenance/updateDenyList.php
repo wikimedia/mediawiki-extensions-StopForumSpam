@@ -62,8 +62,9 @@ class SFSDenyListUpdate extends Maintenance {
 			$this->output( "List of SFS IPs...\n\n" );
 			$IPs = DenyListUpdate::getDenyListIPs();
 			$this->output(
-				is_array( $IPs ) ? implode( "\n", $IPs ) :
-				"No denylisted IPs found in cache.\n"
+				is_array( $IPs )
+				? implode( "\n", $IPs ) . "\n"
+				: "No denylisted IPs found in cache.\n"
 			);
 			return;
 		}
