@@ -21,7 +21,6 @@
 namespace MediaWiki\StopForumSpam;
 
 use MediaWiki\MediaWikiServices;
-use RuntimeException;
 use Wikimedia\IPSet;
 use Wikimedia\IPUtils;
 
@@ -66,9 +65,6 @@ class DenyListManager {
 			// attempt to rebuild in cache
 			$dlu = new DenyListUpdate();
 			$results = $dlu->doUpdate();
-			if ( $results === false ) {
-				throw new RuntimeException( "Cache not updated with SFS Data." );
-			}
 		}
 
 		$set = new IPSet( $results );

@@ -32,9 +32,9 @@ class DenyListUpdate implements DeferrableUpdate {
 	/**
 	 * perform update (get deny list, load into cache)
 	 *
-	 * @return bool|string[] List of denylisted IP addresses
+	 * @return string[] List of denylisted IP addresses
 	 */
-	public function doUpdate() {
+	public function doUpdate() : array {
 		global $wgSFSIPListLocation;
 		if ( $wgSFSIPListLocation === false ) {
 			throw new DomainException(
@@ -73,7 +73,7 @@ class DenyListUpdate implements DeferrableUpdate {
 	 *
 	 * @return string[] List of denylisted IP addresses
 	 */
-	public static function loadDenyListIPs() {
+	public static function loadDenyListIPs() : array {
 		global $wgSFSDenyListCacheDuration;
 		$wanCache = MediaWikiServices::getInstance()->getMainWANObjectCache();
 		return $wanCache->getWithSetCallback(
@@ -98,7 +98,7 @@ class DenyListUpdate implements DeferrableUpdate {
 	 *
 	 * @return string[] list of SFS denylisted IP addresses
 	 */
-	private static function fetchDenyListIPsLocal() {
+	private static function fetchDenyListIPsLocal() : array {
 		global $wgSFSIPListLocation,
 			$wgSFSValidateIPList,
 			$wgSFSIPThreshold;
@@ -171,7 +171,7 @@ class DenyListUpdate implements DeferrableUpdate {
 	 *
 	 * @return string[] list of SFS denylisted IP addresses
 	 */
-	private static function fetchDenyListIPsRemote() {
+	private static function fetchDenyListIPsRemote() : array {
 		global $wgSFSIPListLocation, $wgSFSIPListLocationMD5, $wgSFSProxy;
 
 		// check for zlib function for later processing
