@@ -43,10 +43,6 @@ class StopForumSpamTest extends MediaWikiIntegrationTestCase {
 		$upd->doUpdate();
 	}
 
-	protected function loadDenyListUrl( $url ) {
-		$this->setMwGlobals( 'wgSFSIPListLocation', __DIR__ . '/' . $list );
-	}
-
 	public static function provideSimpleDenyListing() {
 		return [
 			'IPv4 in list' => [ '112.111.191.178', true ],
