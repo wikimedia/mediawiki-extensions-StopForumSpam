@@ -31,8 +31,10 @@ class StopForumSpamTest extends MediaWikiIntegrationTestCase {
 
 	protected function setUp() : void {
 		parent::setUp();
-		// Set up mock wancache as an MW service
+
 		$this->setMwGlobals( 'wgSFSDenyListKey', self::DENY_LIST_KEY );
+
+		// Set up mock wancache as an MW service
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$this->setService( 'MainWANObjectCache', $cache );
 	}
