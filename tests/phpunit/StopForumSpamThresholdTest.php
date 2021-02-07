@@ -18,14 +18,13 @@
  */
 
 use MediaWiki\StopForumSpam\DenyListManager;
-use MediaWiki\StopForumSpam\DenyListUpdate;
 
 /**
  * @group StopForumSpam
  * @covers \MediaWiki\StopForumSpam\DenyListManager
  * @covers \MediaWiki\StopForumSpam\DenyListUpdate
  */
-class StopForumSpamTest extends MediaWikiIntegrationTestCase {
+class StopForumSpamThresholdTest extends MediaWikiIntegrationTestCase {
 
 	private const DENY_LIST_KEY = 'sfs-denylist-unit-tests';
 
@@ -33,36 +32,12 @@ class StopForumSpamTest extends MediaWikiIntegrationTestCase {
 		parent::setUp();
 
 		$this->setMwGlobals( 'wgSFSDenyListKey', self::DENY_LIST_KEY );
+		$this->setMwGlobals( 'wgSFSIPThreshold', 5 );
+		$this->setMwGlobals( 'wgSFSIPListLocation', __DIR__ . '/sample_denylist_all.txt' );
 
 		// Set up mock wancache as an MW service
 		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$this->setService( 'MainWANObjectCache', $cache );
-	}
-
-	protected function loadDenyListFile( $list ) {
-		$this->setMwGlobals( 'wgSFSIPListLocation', __DIR__ . '/' . $list );
-		$upd = new DenyListUpdate();
-		$upd->doUpdate();
-	}
-
-	public static function provideSimpleDenyListing() {
-		return [
-			'IPv4 in list' => [ '112.111.191.178', true ],
-			'IPv4 not in list' => [ '127.0.0.1', false ],
-			'Non-IP addresses' => [ 'not an IP address', false ],
-			'Long IPv6' => [ '2001:0db8:0000:0000:0000:ff00:0042:8329', false ],
-			'Shorter IPv6' => [ '2001:db8::ff00:42:8329', false ],
-			'Long IPv6 in list' => [ '2001:0db8:0000:0000:0000:ff00:0042:8330', true ],
-			'Shorter IPv6 in list' => [ '2001:db8::ff00:42:8330', true ],
-		];
-	}
-
-	/**
-	 * @dataProvider provideSimpleDenyListing
-	 */
-	public function testSimpleDenyListing( $ip, $res ) {
-		$this->loadDenyListFile( 'sample_denylist.txt' );
-		$this->assertSame( $res, DenyListManager::isDenyListed( $ip ) );
 	}
 
 	public static function provideThresholdDenyListing() {
@@ -80,8 +55,6 @@ class StopForumSpamTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideThresholdDenyListing
 	 */
 	public function testThresholdDenyListing( $ip, $res ) {
-		$this->setMwGlobals( 'wgSFSIPThreshold', 5 );
-		$this->loadDenyListFile( 'sample_denylist_all.txt' );
 		$this->assertSame( $res, DenyListManager::isDenyListed( $ip ) );
 	}
 }
