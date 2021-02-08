@@ -1,7 +1,8 @@
 {
 	"@metadata": {
 		"authors": [
-			"Eduardo Addad de Oliveira"
+			"Eduardo Addad de Oliveira",
+			"Eduardoaddad"
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Se o endereço IP está bloqueado usando a lista stopforumspam.com",
