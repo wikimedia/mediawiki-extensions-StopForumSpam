@@ -81,8 +81,9 @@ class DenyListUpdate implements DeferrableUpdate {
 			$wgSFSDenyListCacheDuration,
 			function () {
 				global $wgSFSIPListLocation;
-				$IPs = is_file( $wgSFSIPListLocation ) ?
-					self::fetchDenyListIPsLocal() : self::fetchDenyListIPsRemote();
+				$IPs = is_file( $wgSFSIPListLocation )
+					? self::fetchDenyListIPsLocal()
+					: self::fetchDenyListIPsRemote();
 				return $IPs;
 			},
 			[
@@ -173,6 +174,17 @@ class DenyListUpdate implements DeferrableUpdate {
 	 */
 	private static function fetchDenyListIPsRemote() : array {
 		global $wgSFSIPListLocation, $wgSFSIPListLocationMD5, $wgSFSProxy;
+
+		// Hacky, but neededed to keep a sensible default value of $wgSFSIPListLocation for
+		// users, whilst also preventing HTTP requests for other extension when they call
+		// permission related hooks that mean the code here gets executed too...
+		// So, if we have a URL, and try and do a HTTP request whilst in MW_PHPUNIT_TEST,
+		// just fallback to loading sample_denylist_all.txt as a file...
+		// See also: T262443, T265628.
+		if ( defined( 'MW_PHPUNIT_TEST' ) ) {
+			$wgSFSIPListLocation = dirname( __DIR__ ) . '/tests/phpunit/sample_denylist_all.txt';
+			return self::fetchDenyListIPsLocal();
+		}
 
 		// check for zlib function for later processing
 		if ( !function_exists( 'gzdecode' ) ) {
