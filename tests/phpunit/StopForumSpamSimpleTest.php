@@ -17,26 +17,19 @@
  *
  */
 
+use MediaWiki\MediaWikiServices;
 use MediaWiki\StopForumSpam\DenyListManager;
 
 /**
  * @group StopForumSpam
  * @covers \MediaWiki\StopForumSpam\DenyListManager
- * @covers \MediaWiki\StopForumSpam\DenyListUpdate
  */
 class StopForumSpamSimpleTest extends MediaWikiIntegrationTestCase {
-
-	private const DENY_LIST_KEY = 'sfs-denylist-unit-tests';
 
 	protected function setUp() : void {
 		parent::setUp();
 
-		$this->setMwGlobals( 'wgSFSDenyListKey', self::DENY_LIST_KEY );
 		$this->setMwGlobals( 'wgSFSIPListLocation', __DIR__ . '/sample_denylist.txt' );
-
-		// Set up mock wancache as an MW service
-		$cache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
-		$this->setService( 'MainWANObjectCache', $cache );
 	}
 
 	public static function provideSimpleDenyListing() {
@@ -55,6 +48,11 @@ class StopForumSpamSimpleTest extends MediaWikiIntegrationTestCase {
 	 * @dataProvider provideSimpleDenyListing
 	 */
 	public function testSimpleDenyListing( $ip, $res ) {
-		$this->assertSame( $res, DenyListManager::isDenyListed( $ip ) );
+		$srvCache = new HashBagOStuff();
+		$wanCache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
+		$http = MediaWikiServices::getInstance()->getHttpRequestFactory();
+
+		$denyListManager = new DenyListManager( $http, $srvCache, $wanCache, null );
+		$this->assertSame( $res, $denyListManager->isIpDenyListed( $ip ) );
 	}
 }
