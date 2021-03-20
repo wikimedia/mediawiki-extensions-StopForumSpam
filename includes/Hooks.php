@@ -21,9 +21,9 @@
 namespace MediaWiki\StopForumSpam;
 
 use AbuseFilterVariableHolder;
-use Block;
 use DeferredUpdates;
 use Html;
+use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Logger\LoggerFactory;
 use RequestContext;
 use Title;
@@ -166,9 +166,9 @@ class Hooks {
 				return true;
 			}
 			// I just copied this from TorBlock, not sure if it actually makes sense.
-			if ( Block::isWhitelistedFromAutoblocks( $ip ) ) {
+			if ( DatabaseBlock::isExemptedFromAutoblocks( $ip ) ) {
 				$logger->info(
-					"{clientip} is in autoblock whitelist. Exempting from SFS blocks.",
+					"{clientip} is in autoblock exemption list. Exempting from SFS blocks.",
 					[ 'clientip' => $ip, 'reportonly' => $wgSFSReportOnly ]
 				);
 
