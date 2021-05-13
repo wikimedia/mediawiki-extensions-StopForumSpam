@@ -228,7 +228,7 @@ class DenyListUpdate implements DeferrableUpdate {
 
 		// ungzip and process vendor file
 		$fileDataProcessed = explode( "\n", gzdecode( $fileData ) );
-		array_walk( $fileDataProcessed, function ( &$item, $key ) {
+		array_walk( $fileDataProcessed, static function ( &$item, $key ) {
 			global $wgSFSValidateIPList, $wgSFSIPThreshold;
 			$ipData = str_getcsv( $item );
 
