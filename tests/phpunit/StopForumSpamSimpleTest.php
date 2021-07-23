@@ -26,7 +26,7 @@ use MediaWiki\StopForumSpam\DenyListManager;
  */
 class StopForumSpamSimpleTest extends MediaWikiIntegrationTestCase {
 
-	protected function setUp() : void {
+	protected function setUp(): void {
 		parent::setUp();
 
 		$this->setMwGlobals( 'wgSFSIPListLocation', __DIR__ . '/sample_denylist.txt' );

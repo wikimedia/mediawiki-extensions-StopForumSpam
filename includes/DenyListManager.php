@@ -124,7 +124,7 @@ class DenyListManager {
 	 * @param string|null $recache Use 'recache' to force a recache
 	 * @return string[] List of denylisted IP addresses
 	 */
-	public function getIpDenyList( $recache = null ) : array {
+	public function getIpDenyList( $recache = null ): array {
 		global $wgSFSDenyListCacheDuration;
 
 		$srvCache = $this->srvCache;
@@ -196,7 +196,7 @@ class DenyListManager {
 	/**
 	 * @return string Newline separated list of SFS denylisted IP addresses
 	 */
-	private function fetchFlatDenyListHexIps() : string {
+	private function fetchFlatDenyListHexIps(): string {
 		global $wgSFSIPListLocation, $wgSFSValidateIPListLocationMD5;
 
 		if ( $wgSFSIPListLocation === false ) {
@@ -221,7 +221,7 @@ class DenyListManager {
 	 * @param string $listFilePath Local file path
 	 * @return string Newline separated list of SFS denylisted IP addresses
 	 */
-	private function fetchFlatDenyListHexIpsLocal( string $listFilePath ) : string {
+	private function fetchFlatDenyListHexIpsLocal( string $listFilePath ): string {
 		global $wgSFSIPThreshold;
 
 		$fh = fopen( $listFilePath, 'rb' );
@@ -264,7 +264,7 @@ class DenyListManager {
 	 * @param string|null $md5uri SFS vendor URL to the MD5 of the list
 	 * @return string Newline-separted list of SFS denylisted IP addresses
 	 */
-	private function fetchFlatDenyListHexIpsRemote( string $uri, ?string $md5uri ) : string {
+	private function fetchFlatDenyListHexIpsRemote( string $uri, ?string $md5uri ): string {
 		global $wgSFSProxy, $wgSFSIPThreshold;
 
 		// Hacky, but needed to keep a sensible default value of $wgSFSIPListLocation for
@@ -352,7 +352,7 @@ class DenyListManager {
 	 * @param array $httpOptions
 	 * @return string
 	 */
-	private function fetchRemoteFile( string $fileUrl, array $httpOptions ) : string {
+	private function fetchRemoteFile( string $fileUrl, array $httpOptions ): string {
 		$req = $this->http->create( $fileUrl, $httpOptions );
 
 		$status = $req->execute();
