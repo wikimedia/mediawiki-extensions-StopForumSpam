@@ -37,6 +37,9 @@ use Wikimedia\IPUtils;
  * @internal
  */
 class DenyListManager {
+
+	private const CACHE_VERSION = 1;
+
 	/** @var HttpRequestFactory */
 	private $http;
 	/** @var BagOStuff */
@@ -190,7 +193,7 @@ class DenyListManager {
 	 * @return string Cache key for primary deny list
 	 */
 	private function getDenyListKey( IStoreKeyEncoder $cache ) {
-		return $cache->makeGlobalKey( 'sfs-denylist-set' );
+		return $cache->makeGlobalKey( 'sfs-denylist-set', self::CACHE_VERSION );
 	}
 
 	/**
