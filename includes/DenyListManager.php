@@ -63,7 +63,7 @@ class DenyListManager {
 		BagOStuff $srvCache,
 		WANObjectCache $wanCache,
 		?LoggerInterface $logger
-	 ) {
+	) {
 		$this->http = $http;
 		$this->srvCache = $srvCache;
 		$this->wanCache = $wanCache;
@@ -105,8 +105,6 @@ class DenyListManager {
 	 * @return string[]|false List of denylisted IP addresses; false if uncached
 	 */
 	public function getCachedIpDenyList() {
-		$wanCache = $this->wanCache;
-
 		return $this->getIpDenyList();
 	}
 
