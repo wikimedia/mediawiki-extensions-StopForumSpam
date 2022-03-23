@@ -126,77 +126,81 @@ class Hooks {
 		if ( $action === 'read' ) {
 			return true;
 		}
-
-		$ip = self::getIPFromUser( $user );
-		if ( $ip === false ) {
-			return true;
-		}
-
 		if ( $wgBlockAllowsUTEdit && $title->equals( $user->getTalkPage() ) ) {
 			// Let a user edit their talk page
 			return true;
 		}
 
-		$denyListManager = DenyListManager::singleton();
-		if ( $denyListManager->isIpDenyListed( $ip ) ) {
-			$logger = LoggerFactory::getInstance( 'StopForumSpam' );
+		$logger = LoggerFactory::getInstance( 'StopForumSpam' );
+		$ip = self::getIPFromUser( $user );
 
+		// attempt to get ip from user
+		if ( $ip === false ) {
 			$logger->info(
-				"{user} tripped SFS deny list doing {action} "
-				. "by using {clientip} on \"{title}\".",
-				[
-					'action' => $action,
-					'clientip' => $ip,
-					'reportonly' => $wgSFSReportOnly,
-					'title' => $title->getPrefixedText(),
-					'user' => $user->getName()
-				]
+				"Unable to obtain IP information for {user}.",
+				[ 'user' => $user->getName() ]
 			);
-			if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
-				$logger->info(
-					"{user} is exempt from SFS blocks.",
-					[
-						'clientip' => $ip,
-						'reportonly' => $wgSFSReportOnly,
-						'user' => $user->getName()
-					]
-				);
-
-				return true;
-			}
-			// I just copied this from TorBlock, not sure if it actually makes sense.
-			if ( DatabaseBlock::isExemptedFromAutoblocks( $ip ) ) {
-				$logger->info(
-					"{clientip} is in autoblock exemption list. Exempting from SFS blocks.",
-					[ 'clientip' => $ip, 'reportonly' => $wgSFSReportOnly ]
-				);
-
-				return true;
-			}
-
-			// never block in report-only mode
-			if ( $wgSFSReportOnly ) {
-				return true;
-			}
-
-			// log info when action blocked
-			$logger->info(
-				"{user} was blocked by SFS from doing {action} "
-				. "by using {clientip} on \"{title}\".",
-				[
-					'action' => $action,
-					'clientip' => $ip,
-					'title' => $title->getPrefixedText(),
-					'user' => $user->getName()
-				]
-			);
-
-			$result = [ 'stopforumspam-blocked', $ip ];
-
-			return false;
+			return true;
 		}
 
-		return true;
+		// allow if user has sfsblock-bypass
+		if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
+			$logger->info(
+				"{user} is exempt from SFS blocks.",
+				[
+					'clientip' => $ip,
+					'reportonly' => $wgSFSReportOnly,
+					'user' => $user->getName()
+				]
+			);
+			return true;
+		}
+
+		// allow if user is exempted from autoblocks (borrowed from TorBlock)
+		if ( DatabaseBlock::isExemptedFromAutoblocks( $ip ) ) {
+			$logger->info(
+				"{clientip} is in autoblock exemption list. Exempting from SFS blocks.",
+				[ 'clientip' => $ip, 'reportonly' => $wgSFSReportOnly ]
+			);
+			return true;
+		}
+
+		// log "tripped" action and never block in report-only mode
+		if ( $wgSFSReportOnly ) {
+			$logger->info(
+				"Report Only: {user} tripped SFS deny list doing {action} "
+				. "by using {clientip} on \"{title}\".",
+				[
+					'action' => $action,
+					'clientip' => $ip,
+					'title' => $title->getPrefixedText(),
+					'user' => $user->getName()
+				]
+			);
+			return true;
+		}
+
+		// ip NOT in SFS deny list
+		$denyListManager = DenyListManager::singleton();
+		if ( !$denyListManager->isIpDenyListed( $ip ) ) {
+			return true;
+		}
+
+		// log action when blocked, return error msg
+		$logger->info(
+			"{user} was blocked by SFS from doing {action} "
+			. "by using {clientip} on \"{title}\".",
+			[
+				'action' => $action,
+				'clientip' => $ip,
+				'title' => $title->getPrefixedText(),
+				'user' => $user->getName()
+			]
+		);
+
+		// default: set error msg result and return false
+		$result = [ 'stopforumspam-blocked', $ip ];
+		return false;
 	}
 
 	/**
