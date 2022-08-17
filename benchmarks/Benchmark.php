@@ -41,10 +41,24 @@ class Benchmark extends Benchmarker {
 
 	public function execute() {
 		$manager = DenyListManager::singleton();
-		$benches = [ [
-			'function' => [ $manager, 'getIpDenyList' ],
-			'args' => [ 'recache' ],
-		] ];
+		$benches = [
+			// Fresh list loading from the internet
+			[
+				'function' => [ $manager, 'getIpDenyList' ],
+				'args' => [ 'recache' ],
+			],
+
+			// Loading SFS dataset from cache
+			[
+				'function' => [ $manager, 'getIpDenyList' ],
+			],
+
+			// Testing if IP is in SFS dataset; uses 127.0.0.1 as that shouldn't be listed...
+			[
+				'function' => [ $manager, 'isIpDenyListed' ],
+				'args' => [ '127.0.0.1' ],
+			]
+		];
 		$this->bench( $benches );
 	}
 }
