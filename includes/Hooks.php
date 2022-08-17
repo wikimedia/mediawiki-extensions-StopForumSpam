@@ -148,72 +148,67 @@ class Hooks implements
 			return true;
 		}
 
+		$exemptReasons = [];
 		$logger = LoggerFactory::getInstance( 'StopForumSpam' );
 		$ip = self::getIPFromUser( $user );
 
 		// attempt to get ip from user
 		if ( $ip === false ) {
-			$logger->info(
-				"Unable to obtain IP information for {user}.",
-				[ 'user' => $user->getName() ]
-			);
-			return true;
+			$exemptReasons[] = "Unable to obtain IP information for {user}";
 		}
 
 		// allow if user has sfsblock-bypass
 		if ( $user->isAllowed( 'sfsblock-bypass' ) ) {
-			$logger->info(
-				"{user} is exempt from SFS blocks.",
-				[
-					'clientip' => $ip,
-					'reportonly' => $wgSFSReportOnly,
-					'user' => $user->getName()
-				]
-			);
-			return true;
+			$exemptReasons[] = "{user} is exempt from SFS blocks";
 		}
 
 		// allow if user is exempted from autoblocks (borrowed from TorBlock)
 		if ( DatabaseBlock::isExemptedFromAutoblocks( $ip ) ) {
-			$logger->info(
-				"{clientip} is in autoblock exemption list. Exempting from SFS blocks.",
-				[ 'clientip' => $ip, 'reportonly' => $wgSFSReportOnly ]
-			);
-			return true;
+			$exemptReasons[] = "{clientip} is in autoblock exemption list, exempting from SFS blocks";
 		}
 
-		// log "tripped" action and never block in report-only mode
-		if ( $wgSFSReportOnly ) {
-			$logger->info(
-				"Report Only: {user} tripped SFS deny list doing {action} "
-				. "by using {clientip} on \"{title}\".",
-				[
-					'action' => $action,
-					'clientip' => $ip,
-					'title' => $title->getPrefixedText(),
-					'user' => $user->getName()
-				]
-			);
-			return true;
-		}
-
-		// ip NOT in SFS deny list
 		$denyListManager = DenyListManager::singleton();
-		if ( !$denyListManager->isIpDenyListed( $ip ) ) {
-			return true;
+		if ( !$wgSFSReportOnly ) {
+			// enforce mode + ip not deny-listed = allow action
+			if ( !$denyListManager->isIpDenyListed( $ip ) || count( $exemptReasons ) > 0 ) {
+				return true;
+			}
+		} else {
+			// report-only mode + ip deny-listed = allow action and log
+			if ( $denyListManager->isIpDenyListed( $ip ) &&
+				 count( $exemptReasons ) > 0 ) {
+					$exemptReasonsStr = implode( ', ', $exemptReasons );
+					$logger->info(
+						$exemptReasonsStr,
+						[
+							'action' => $action,
+							'clientip' => $ip,
+							'title' => $title->getPrefixedText(),
+							'user' => $user->getName(),
+							'reportonly' => $wgSFSReportOnly
+						]
+					);
+			}
 		}
 
-		// log action when blocked, return error msg
+		// log blocked action, regardless of report-only mode
+		$blockVerb = ( $wgSFSReportOnly ) ? 'would have been' : 'was';
 		$logger->info(
-			"{user} was blocked by SFS from doing {action} "
+			"{user} {$blockVerb} blocked by SFS from doing {action} "
 			. "by using {clientip} on \"{title}\".",
 			[
 				'action' => $action,
 				'clientip' => $ip,
 				'title' => $title->getPrefixedText(),
-				'user' => $user->getName()
+				'user' => $user->getName(),
+				'reportonly' => $wgSFSReportOnly
 			]
 		);
+
+		// final catch-all for report-only mode
+		if ( $wgSFSReportOnly ) {
+			return true;
+		}
 
 		// default: set error msg result and return false
 		$result = [ 'stopforumspam-blocked', $ip ];
