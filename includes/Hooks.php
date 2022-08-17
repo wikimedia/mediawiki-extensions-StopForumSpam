@@ -18,20 +18,29 @@
  * @file
  */
 
+// phpcs:disable MediaWiki.NamingConventions.LowerCamelFunctionsName.FunctionName
+
 namespace MediaWiki\StopForumSpam;
 
 use Html;
 use MediaWiki\Block\DatabaseBlock;
+use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterBuilderHook;
+use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterComputeVariableHook;
+use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterGenerateUserVarsHook;
 use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
 use MediaWiki\Hook\OtherBlockLogLinkHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsExpensiveHook;
+use RecentChange;
 use RequestContext;
 use Title;
 use User;
 use Wikimedia\IPUtils;
 
 class Hooks implements
+	AbuseFilterBuilderHook,
+	AbuseFilterComputeVariableHook,
+	AbuseFilterGenerateUserVarsHook,
 	GetUserPermissionsErrorsExpensiveHook,
 	OtherBlockLogLinkHook
 {
@@ -41,10 +50,12 @@ class Hooks implements
 	 * @param string $method
 	 * @param VariableHolder $vars
 	 * @param array $parameters
-	 * @param null|bool &$result
+	 * @param ?string &$result
 	 * @return bool
 	 */
-	public static function abuseFilterComputeVariable( $method, $vars, $parameters, &$result ) {
+	public function onAbuseFilter_computeVariable(
+		string $method, VariableHolder $vars, array $parameters, ?string &$result
+	) {
 		if ( $method === 'sfs-blocked' ) {
 			$ip = self::getIPFromUser( $parameters['user'] );
 			if ( $ip === false ) {
@@ -63,9 +74,10 @@ class Hooks implements
 	 * Load our blocked variable
 	 * @param VariableHolder $vars
 	 * @param User $user
+	 * @param ?RecentChange $rc
 	 * @return bool
 	 */
-	public static function abuseFilterGenerateUserVars( $vars, $user ) {
+	public function onAbuseFilter_generateUserVars( VariableHolder $vars, User $user, ?RecentChange $rc ) {
 		global $wgSFSIPListLocation;
 
 		if ( $wgSFSIPListLocation ) {
@@ -80,7 +92,7 @@ class Hooks implements
 	 * @param array &$builderValues
 	 * @return bool
 	 */
-	public static function abuseFilterBuilder( &$builderValues ) {
+	public function onAbuseFilter_builder( &$builderValues ) {
 		global $wgSFSIPListLocation;
 
 		if ( $wgSFSIPListLocation ) {
