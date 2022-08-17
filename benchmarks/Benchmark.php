@@ -42,13 +42,13 @@ class Benchmark extends Benchmarker {
 	public function execute() {
 		$manager = DenyListManager::singleton();
 		$benches = [
-			// Fresh list loading from the internet
+			// Fresh IPSet, loading from the internet
 			[
 				'function' => [ $manager, 'getIpDenyListSet' ],
 				'args' => [ 'recache' ],
 			],
 
-			// Loading SFS dataset from cache
+			// Loading IPSet of SFS data from cache
 			[
 				'function' => [ $manager, 'getIpDenyListSet' ],
 			],

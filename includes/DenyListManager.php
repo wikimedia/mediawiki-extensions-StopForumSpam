@@ -179,11 +179,7 @@ class DenyListManager {
 	 * @return IPSet
 	 */
 	public function getIpDenyListSet( $recache = null ) {
-		if ( $recache === "recache" ) {
-			$this->denyListIPSet = null;
-		}
-
-		if ( $this->denyListIPSet === null ) {
+		if ( $this->denyListIPSet === null || $recache === "recache" ) {
 			$this->denyListIPSet = new IPSet( $this->getIpDenyList( $recache ) );
 		}
 
