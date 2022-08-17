@@ -36,11 +36,11 @@ class Hooks {
 	 * @param string $method
 	 * @param VariableHolder $vars
 	 * @param array $parameters
-	 * @param null &$result
+	 * @param null|bool &$result
 	 * @return bool
 	 */
 	public static function abuseFilterComputeVariable( $method, $vars, $parameters, &$result ) {
-		if ( $method == 'sfs-blocked' ) {
+		if ( $method === 'sfs-blocked' ) {
 			$ip = self::getIPFromUser( $parameters['user'] );
 			if ( $ip === false ) {
 				$result = false;
@@ -108,7 +108,7 @@ class Hooks {
 	}
 
 	/**
-	 * If an IP address is denylisted, don't let them edit.
+	 * If an IP address is deny-listed, don't let them edit.
 	 *
 	 * @param Title &$title Title being acted upon
 	 * @param User &$user User performing the action
