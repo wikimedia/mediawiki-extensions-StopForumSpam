@@ -44,13 +44,13 @@ class Benchmark extends Benchmarker {
 		$benches = [
 			// Fresh list loading from the internet
 			[
-				'function' => [ $manager, 'getIpDenyList' ],
+				'function' => [ $manager, 'getIpDenyListSet' ],
 				'args' => [ 'recache' ],
 			],
 
 			// Loading SFS dataset from cache
 			[
-				'function' => [ $manager, 'getIpDenyList' ],
+				'function' => [ $manager, 'getIpDenyListSet' ],
 			],
 
 			// Testing if IP is in SFS dataset; uses 127.0.0.1 as that shouldn't be listed...

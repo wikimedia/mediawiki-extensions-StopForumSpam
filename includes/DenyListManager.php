@@ -175,11 +175,16 @@ class DenyListManager {
 	}
 
 	/**
+	 * @param string|null $recache Use 'recache' to force a recache
 	 * @return IPSet
 	 */
-	private function getIpDenyListSet() {
+	public function getIpDenyListSet( $recache = null ) {
+		if ( $recache === "recache" ) {
+			$this->denyListIPSet = null;
+		}
+
 		if ( $this->denyListIPSet === null ) {
-			$this->denyListIPSet = new IPSet( $this->getIpDenyList() );
+			$this->denyListIPSet = new IPSet( $this->getIpDenyList( $recache ) );
 		}
 
 		return $this->denyListIPSet;
