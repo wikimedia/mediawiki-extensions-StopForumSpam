@@ -23,13 +23,18 @@ namespace MediaWiki\StopForumSpam;
 use Html;
 use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
+use MediaWiki\Hook\OtherBlockLogLinkHook;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsExpensiveHook;
 use RequestContext;
 use Title;
 use User;
 use Wikimedia\IPUtils;
 
-class Hooks {
+class Hooks implements
+	GetUserPermissionsErrorsExpensiveHook,
+	OtherBlockLogLinkHook
+{
 
 	/**
 	 * Computes the sfs-blocked variable
@@ -110,13 +115,13 @@ class Hooks {
 	/**
 	 * If an IP address is deny-listed, don't let them edit.
 	 *
-	 * @param Title &$title Title being acted upon
-	 * @param User &$user User performing the action
+	 * @param Title $title Title being acted upon
+	 * @param User $user User performing the action
 	 * @param string $action Action being performed
 	 * @param array &$result Will be filled with block status if blocked
 	 * @return bool
 	 */
-	public static function onGetUserPermissionsErrorsExpensive( &$title, &$user, $action, &$result ) {
+	public function onGetUserPermissionsErrorsExpensive( $title, $user, $action, &$result ) {
 		global $wgSFSIPListLocation, $wgBlockAllowsUTEdit, $wgSFSReportOnly;
 
 		if ( !$wgSFSIPListLocation ) {
@@ -208,7 +213,7 @@ class Hooks {
 	 * @param string $ip
 	 * @return bool
 	 */
-	public static function onOtherBlockLogLink( &$msg, $ip ) {
+	public function onOtherBlockLogLink( &$msg, $ip ) {
 		global $wgSFSIPListLocation;
 
 		if ( !$wgSFSIPListLocation ) {
