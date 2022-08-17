@@ -18,7 +18,9 @@
  * @file
  */
 
-use MediaWiki\StopForumSpam\DenyListManager;
+namespace MediaWiki\StopForumSpam;
+
+use Maintenance;
 use Wikimedia\IPUtils;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false
@@ -28,7 +30,7 @@ require_once getenv( 'MW_INSTALL_PATH' ) !== false
 /**
  * Reads the denylist file and sticks it in the wancache
  */
-class SFSDenyListUpdate extends Maintenance {
+class UpdateDenyList extends Maintenance {
 
 	public function __construct() {
 		parent::__construct();
@@ -109,5 +111,5 @@ class SFSDenyListUpdate extends Maintenance {
 
 }
 
-$maintClass = SFSDenyListUpdate::class;
+$maintClass = UpdateDenyList::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
