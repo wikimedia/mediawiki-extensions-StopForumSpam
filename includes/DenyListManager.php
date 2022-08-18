@@ -52,6 +52,9 @@ class DenyListManager {
 	/** @var IPSet|null */
 	private $denyListIPSet;
 
+	/** @var self */
+	private static $instance = null;
+
 	/**
 	 * @param HttpRequestFactory $http
 	 * @param BagOStuff $srvCache
@@ -75,14 +78,18 @@ class DenyListManager {
 	 * @return DenyListManager
 	 */
 	public static function singleton() {
-		$services = MediaWikiServices::getInstance();
+		if ( self::$instance == null ) {
+			$services = MediaWikiServices::getInstance();
 
-		$srvCache = $services->getLocalServerObjectCache();
-		$wanCache = $services->getMainWANObjectCache();
-		$http = $services->getHttpRequestFactory();
-		$logger = LoggerFactory::getInstance( 'DenyList' );
+			$srvCache = $services->getLocalServerObjectCache();
+			$wanCache = $services->getMainWANObjectCache();
+			$http = $services->getHttpRequestFactory();
+			$logger = LoggerFactory::getInstance( 'DenyList' );
 
-		return new self( $http, $srvCache, $wanCache, $logger );
+			self::$instance = new self( $http, $srvCache, $wanCache, $logger );
+		}
+
+		return self::$instance;
 	}
 
 	/**
