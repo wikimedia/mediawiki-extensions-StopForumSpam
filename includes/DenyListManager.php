@@ -330,13 +330,19 @@ class DenyListManager {
 		}
 
 		$ipList = [];
+		$scoreSkipped = 0;
+		$rows = 0;
 
 		for ( $line = strtok( $csvTable, "\n" ); $line !== false; $line = strtok( "\n" ) ) {
+
+			$rows++;
+
 			$ipData = str_getcsv( $line );
 			$ip = (string)$ipData[0];
 			$score = (int)$ipData[1];
 
 			if ( $score && ( $score < $wgSFSIPThreshold ) ) {
+				$scoreSkipped++;
 				continue;
 			}
 
@@ -347,6 +353,13 @@ class DenyListManager {
 			}
 
 			$ipList[] = $hex;
+		}
+
+		if ( $scoreSkipped > 0 ) {
+			$this->logger->info(
+				__METHOD__ . ": {$rows} rows were processed. "
+				. "{$scoreSkipped} were skipped because their score was less than {$wgSFSIPThreshold}."
+			);
 		}
 
 		return implode( "\n", $ipList );
