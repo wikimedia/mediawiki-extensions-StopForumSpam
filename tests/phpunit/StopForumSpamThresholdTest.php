@@ -17,8 +17,13 @@
  *
  */
 
+namespace MediaWiki\StopForumSpam\Tests;
+
+use HashBagOStuff;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\StopForumSpam\DenyListManager;
+use MediaWikiIntegrationTestCase;
+use WANObjectCache;
 
 /**
  * @group StopForumSpam

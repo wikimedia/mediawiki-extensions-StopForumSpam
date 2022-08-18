@@ -17,8 +17,13 @@
  *
  */
 
+namespace MediaWiki\StopForumSpam\Tests;
+
+use HashBagOStuff;
 use MediaWiki\MediaWikiServices;
 use MediaWiki\StopForumSpam\DenyListManager;
+use MediaWikiIntegrationTestCase;
+use WANObjectCache;
 
 /**
  * @group StopForumSpam
@@ -51,8 +56,8 @@ class StopForumSpamSimpleTest extends MediaWikiIntegrationTestCase {
 		$srvCache = new HashBagOStuff();
 		$wanCache = new WANObjectCache( [ 'cache' => new HashBagOStuff() ] );
 		$http = MediaWikiServices::getInstance()->getHttpRequestFactory();
-
 		$denyListManager = new DenyListManager( $http, $srvCache, $wanCache, null );
+
 		$this->assertSame( $res, $denyListManager->isIpDenyListed( $ip ) );
 	}
 }
