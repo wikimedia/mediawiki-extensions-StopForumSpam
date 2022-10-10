@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Eleassar"
+		]
+	},
+	"action-sfsblock-bypass": "izognitev blokiranjem IP-jev, ki jih izvede razširitev StopForumSpam",
+	"right-sfsblock-bypass": "Izognitev blokiranjem IP-jev, ki jih izvede razširitev StopForumSpam"
+}
