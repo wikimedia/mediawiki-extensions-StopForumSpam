@@ -104,22 +104,22 @@ class Hooks implements
 			if ( !$denyListManager->isIpDenyListed( $ip ) || count( $exemptReasons ) > 0 ) {
 				return true;
 			}
-		} else {
+		} elseif (
+			$denyListManager->isIpDenyListed( $ip ) &&
+			count( $exemptReasons ) > 0
+		) {
 			// report-only mode + ip deny-listed = allow action and log
-			if ( $denyListManager->isIpDenyListed( $ip ) &&
-				 count( $exemptReasons ) > 0 ) {
-					$exemptReasonsStr = implode( ', ', $exemptReasons );
-					$logger->info(
-						$exemptReasonsStr,
-						[
-							'action' => $action,
-							'clientip' => $ip,
-							'title' => $title->getPrefixedText(),
-							'user' => $user->getName(),
-							'reportonly' => $wgSFSReportOnly
-						]
-					);
-			}
+			$exemptReasonsStr = implode( ', ', $exemptReasons );
+			$logger->info(
+				$exemptReasonsStr,
+				[
+					'action' => $action,
+					'clientip' => $ip,
+					'title' => $title->getPrefixedText(),
+					'user' => $user->getName(),
+					'reportonly' => $wgSFSReportOnly
+				]
+			);
 		}
 
 		// log blocked action, regardless of report-only mode
