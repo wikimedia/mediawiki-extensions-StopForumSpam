@@ -18,7 +18,7 @@
  * @file
  */
 
-namespace MediaWiki\StopForumSpam;
+namespace MediaWiki\Extension\StopForumSpam;
 
 use BagOStuff;
 use DomainException;

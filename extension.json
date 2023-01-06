@@ -27,14 +27,14 @@
 		]
 	},
 	"AutoloadNamespaces": {
-		"MediaWiki\\StopForumSpam\\": "includes/"
+		"MediaWiki\\Extension\\StopForumSpam\\": "includes/"
 	},
 	"HookHandlers": {
 		"abusefilter": {
-			"class": "MediaWiki\\StopForumSpam\\AbuseFilterHookHandler"
+			"class": "MediaWiki\\Extension\\StopForumSpam\\AbuseFilterHookHandler"
 		},
 		"hooks": {
-			"class": "MediaWiki\\StopForumSpam\\Hooks"
+			"class": "MediaWiki\\Extension\\StopForumSpam\\Hooks"
 		}
 	},
 	"Hooks": {
