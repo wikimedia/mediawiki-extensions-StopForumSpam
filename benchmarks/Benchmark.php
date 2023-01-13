@@ -15,7 +15,7 @@
  * along with this program.  If not, see <https://www.gnu.org/licenses/>.
  */
 
-namespace MediaWiki\StopForumSpam;
+namespace MediaWiki\Extension\StopForumSpam;
 
 use Benchmarker;
 use const RUN_MAINTENANCE_IF_MAIN;

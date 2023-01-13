@@ -18,7 +18,7 @@
  * @file
  */
 
-namespace MediaWiki\StopForumSpam;
+namespace MediaWiki\Extension\StopForumSpam;
 
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterBuilderHook;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterComputeVariableHook;

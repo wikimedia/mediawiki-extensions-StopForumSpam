@@ -18,9 +18,10 @@
  * @file
  */
 
-namespace MediaWiki\StopForumSpam;
+namespace MediaWiki\Extension\StopForumSpam\Maintenance;
 
 use Maintenance;
+use MediaWiki\Extension\StopForumSpam\DenyListManager;
 use Wikimedia\IPUtils;
 
 require_once getenv( 'MW_INSTALL_PATH' ) !== false

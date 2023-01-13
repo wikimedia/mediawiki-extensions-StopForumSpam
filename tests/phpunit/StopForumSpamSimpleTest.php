@@ -17,17 +17,17 @@
  *
  */
 
-namespace MediaWiki\StopForumSpam\Tests;
+namespace MediaWiki\Extension\StopForumSpam\Tests;
 
 use HashBagOStuff;
+use MediaWiki\Extension\StopForumSpam\DenyListManager;
 use MediaWiki\MediaWikiServices;
-use MediaWiki\StopForumSpam\DenyListManager;
 use MediaWikiIntegrationTestCase;
 use WANObjectCache;
 
 /**
  * @group StopForumSpam
- * @covers \MediaWiki\StopForumSpam\DenyListManager
+ * @covers \MediaWiki\Extension\StopForumSpam\DenyListManager
  */
 class StopForumSpamSimpleTest extends MediaWikiIntegrationTestCase {
 
