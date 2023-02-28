@@ -31,10 +31,16 @@
 	},
 	"HookHandlers": {
 		"abusefilter": {
-			"class": "MediaWiki\\Extension\\StopForumSpam\\AbuseFilterHookHandler"
+			"class": "MediaWiki\\Extension\\StopForumSpam\\AbuseFilterHookHandler",
+			"services": [
+				"MainConfig"
+			]
 		},
 		"hooks": {
-			"class": "MediaWiki\\Extension\\StopForumSpam\\Hooks"
+			"class": "MediaWiki\\Extension\\StopForumSpam\\Hooks",
+			"services": [
+				"MainConfig"
+			]
 		}
 	},
 	"Hooks": {

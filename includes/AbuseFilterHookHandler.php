@@ -20,6 +20,7 @@
 
 namespace MediaWiki\Extension\StopForumSpam;
 
+use Config;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterBuilderHook;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterComputeVariableHook;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterGenerateUserVarsHook;
@@ -32,6 +33,16 @@ class AbuseFilterHookHandler implements
 	AbuseFilterComputeVariableHook,
 	AbuseFilterGenerateUserVarsHook
 {
+
+	/** @var Config */
+	private Config $config;
+
+	/**
+	 * @param Config $config
+	 */
+	public function __construct( Config $config ) {
+		$this->config = $config;
+	}
 
 	/**
 	 * Computes the sfs-blocked variable
@@ -68,9 +79,7 @@ class AbuseFilterHookHandler implements
 	 */
 	// phpcs:ignore
 	public function onAbuseFilter_generateUserVars( VariableHolder $vars, User $user, ?RecentChange $rc ) {
-		global $wgSFSIPListLocation;
-
-		if ( $wgSFSIPListLocation ) {
+		if ( $this->config->get( 'SFSIPListLocation' ) ) {
 			$vars->setLazyLoadVar( 'sfs_blocked', 'sfs-blocked', [ 'user' => $user ] );
 		}
 
@@ -84,9 +93,7 @@ class AbuseFilterHookHandler implements
 	 */
 	// phpcs:ignore
 	public function onAbuseFilter_builder( &$builderValues ) {
-		global $wgSFSIPListLocation;
-
-		if ( $wgSFSIPListLocation ) {
+		if ( $this->config->get( 'SFSIPListLocation' ) ) {
 			// Uses: 'abusefilter-edit-builder-vars-sfs-blocked'
 			$builderValues['vars']['sfs_blocked'] = 'sfs-blocked';
 		}

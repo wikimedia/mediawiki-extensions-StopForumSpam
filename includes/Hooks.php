@@ -20,6 +20,7 @@
 
 namespace MediaWiki\Extension\StopForumSpam;
 
+use Config;
 use Html;
 use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Hook\OtherBlockLogLinkHook;
@@ -34,6 +35,17 @@ class Hooks implements
 	GetUserPermissionsErrorsExpensiveHook,
 	OtherBlockLogLinkHook
 {
+
+	/** @var Config */
+	private Config $config;
+
+	/**
+	 * @param Config $config
+	 */
+	public function __construct( Config $config ) {
+		$this->config = $config;
+	}
+
 	/**
 	 * Get an IP address for a User if possible
 	 *
@@ -65,16 +77,14 @@ class Hooks implements
 	 * @return bool
 	 */
 	public function onGetUserPermissionsErrorsExpensive( $title, $user, $action, &$result ) {
-		global $wgSFSIPListLocation, $wgBlockAllowsUTEdit, $wgSFSReportOnly;
-
-		if ( !$wgSFSIPListLocation ) {
+		if ( !$this->config->get( 'SFSIPListLocation' ) ) {
 			// Not configured
 			return true;
 		}
 		if ( $action === 'read' ) {
 			return true;
 		}
-		if ( $wgBlockAllowsUTEdit && $title->equals( $user->getTalkPage() ) ) {
+		if ( $this->config->get( 'BlockAllowsUTEdit' ) && $title->equals( $user->getTalkPage() ) ) {
 			// Let a user edit their talk page
 			return true;
 		}
@@ -99,7 +109,7 @@ class Hooks implements
 		}
 
 		$denyListManager = DenyListManager::singleton();
-		if ( !$wgSFSReportOnly ) {
+		if ( !$this->config->get( 'SFSReportOnly' ) ) {
 			// enforce mode + ip not deny-listed = allow action
 			if ( !$denyListManager->isIpDenyListed( $ip ) || count( $exemptReasons ) > 0 ) {
 				return true;
@@ -117,13 +127,13 @@ class Hooks implements
 					'clientip' => $ip,
 					'title' => $title->getPrefixedText(),
 					'user' => $user->getName(),
-					'reportonly' => $wgSFSReportOnly
+					'reportonly' => $this->config->get( 'SFSReportOnly' )
 				]
 			);
 		}
 
 		// log blocked action, regardless of report-only mode
-		$blockVerb = ( $wgSFSReportOnly ) ? 'would have been' : 'was';
+		$blockVerb = ( $this->config->get( 'SFSReportOnly' ) ) ? 'would have been' : 'was';
 		$logger->info(
 			"{user} {$blockVerb} blocked by SFS from doing {action} "
 			. "by using {clientip} on \"{title}\".",
@@ -132,12 +142,12 @@ class Hooks implements
 				'clientip' => $ip,
 				'title' => $title->getPrefixedText(),
 				'user' => $user->getName(),
-				'reportonly' => $wgSFSReportOnly
+				'reportonly' => $this->config->get( 'SFSReportOnly' )
 			]
 		);
 
 		// final catch-all for report-only mode
-		if ( $wgSFSReportOnly ) {
+		if ( $this->config->get( 'SFSReportOnly' ) ) {
 			return true;
 		}
 
@@ -152,9 +162,7 @@ class Hooks implements
 	 * @return bool
 	 */
 	public function onOtherBlockLogLink( &$msg, $ip ) {
-		global $wgSFSIPListLocation;
-
-		if ( !$wgSFSIPListLocation ) {
+		if ( !$this->config->get( 'SFSIPListLocation' ) ) {
 			return true;
 		}
 
