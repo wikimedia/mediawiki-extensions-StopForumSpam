@@ -162,7 +162,10 @@ class Hooks implements
 	 * @return bool
 	 */
 	public function onOtherBlockLogLink( &$msg, $ip ) {
-		if ( !$this->config->get( 'SFSIPListLocation' ) ) {
+		if (
+			!$this->config->get( 'SFSIPListLocation' ) ||
+			$this->config->get( 'SFSReportOnly' )
+		) {
 			return true;
 		}
 
