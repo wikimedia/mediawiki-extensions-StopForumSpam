@@ -9,6 +9,6 @@
 	"action-sfsblock-bypass": "bypass IP restrictions issued by the StopForumSpam extension",
 	"right-sfsblock-bypass": "Bypass IP restrictions issued by the StopForumSpam extension",
 	"stopforumspam-blocked": "Editing from your IP address ($1) has been restricted since it has recently been used to spam websites.",
-	"stopforumspam-desc": "Integration with [https://stopforumspam.com/ stopforumspam.com]",
-	"stopforumspam-is-blocked": "The IP address <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> has been blocked for spamming."
+	"stopforumspam-desc": "Integration with stopforumspam.com",
+	"stopforumspam-is-blocked": "The IP address ($1) has been restricted for spamming. For more information, you may click on the following <strong>external</strong> link: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. By doing so, you will leave {{SITENAME}} to visit stopforumspam.com, which may receive data from your device. Please review their [https://www.stopforumspam.com/privacy privacy policy], [https://www.stopforumspam.com/gdpr GDPR notice], and [https://www.stopforumspam.com/legal terms of use]."
 }
