@@ -26,6 +26,9 @@
 			"i18n"
 		]
 	},
+	"RawHtmlMessages": [
+		"stopforumspam-is-blocked"
+	],
 	"AutoloadNamespaces": {
 		"MediaWiki\\Extension\\StopForumSpam\\": "includes/"
 	},
