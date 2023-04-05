@@ -8,6 +8,6 @@
 	"action-sfsblock-bypass": "zaobilaženje blokova IP adresa datih od dodatka StopForumSpam",
 	"right-sfsblock-bypass": "Zaobići blokove IP adresa datih od dodatka StopForumSpam",
 	"stopforumspam-blocked": "Uređivanje s vaše IP-adrese ($1) blokirano je jer je nedavno koristila za spamiranje.",
-	"stopforumspam-desc": "Kretanje uz [https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Kretanje uz stopforumspam.com",
 	"stopforumspam-is-blocked": "IP-adresa <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> blokirana je zbog spamiranja."
 }

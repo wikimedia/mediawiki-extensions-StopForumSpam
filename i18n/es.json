@@ -10,6 +10,6 @@
 	"action-sfsblock-bypass": "eludir restricciones a direcciones IP efectuadas por la extensión StopForumSpam",
 	"right-sfsblock-bypass": "Eludir restricciones a direcciones IP efectuadas por la extensión StopForumSpam",
 	"stopforumspam-blocked": "Se ha bloqueado la edición para tu dirección IP ($1) porque esta se ha usado recientemente para publicar contenido no deseado en sitios web.",
-	"stopforumspam-desc": "Integración con [https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integración con stopforumspam.com",
 	"stopforumspam-is-blocked": "La dirección IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> se ha bloqueado por publicar spam."
 }

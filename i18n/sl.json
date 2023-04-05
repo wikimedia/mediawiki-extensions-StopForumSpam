@@ -8,6 +8,6 @@
 	"action-sfsblock-bypass": "izognitev oemjitvam IP-jev, ki jih izvede razširitev StopForumSpam",
 	"right-sfsblock-bypass": "Izognitev omejitvam IP-jev, ki jih izvede razširitev StopForumSpam",
 	"stopforumspam-blocked": "Urejanje z vašega IP-naslova ($1) je bilo omejeno, ker je bil ta pred kratkim uporabljen za smetenje.",
-	"stopforumspam-desc": "Integracija z [https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integracija z stopforumspam.com",
 	"stopforumspam-is-blocked": "IP-naslov <strong>[https://stopforumspam.com/ipcheck/ $1 $1]</strong> je blokiran zaradi smetenja."
 }

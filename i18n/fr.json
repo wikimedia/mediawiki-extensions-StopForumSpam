@@ -13,6 +13,6 @@
 	"action-sfsblock-bypass": "contourner les restrictions d’adresse IP provenant de l’extension StopForumSpam",
 	"right-sfsblock-bypass": "Contourner les restrictions d’adresses IP provenant de l’extension StopForumSpam",
 	"stopforumspam-blocked": "Les modifications à partir de votre adresse IP ($1) ont été restreintes car elle a été récemment utilisée pour pourrir des sites web.",
-	"stopforumspam-desc": "Integration avec [https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integration avec stopforumspam.com",
 	"stopforumspam-is-blocked": "L’adresse IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> a été bloquée pour cause d’envoi de pourriels."
 }

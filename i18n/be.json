@@ -7,5 +7,5 @@
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Ці заблакаваны гэты IP-адрас з дапамогай спісу stopforumspam.com",
 	"right-sfsblock-bypass": "Абыход IP-блакіровак, выдадзеных пашырэннем StopForumSpam",
-	"stopforumspam-desc": "Інтэграцыя з [https://stopforumspam.com/ stopforumspam.com]"
+	"stopforumspam-desc": "Інтэграцыя з stopforumspam.com"
 }

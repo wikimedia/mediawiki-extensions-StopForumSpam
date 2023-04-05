@@ -12,6 +12,6 @@
 	"action-sfsblock-bypass": "绕过来自StopForumSpam扩展的IP限制",
 	"right-sfsblock-bypass": "绕过来自StopForumSpam扩展的IP限制",
 	"stopforumspam-blocked": "已限制从您的IP地址（$1）编辑，因为它最近被用于网站垃圾信息。",
-	"stopforumspam-desc": "集成[https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "集成stopforumspam.com",
 	"stopforumspam-is-blocked": "IP地址<strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>已被封禁，以免垃圾信息侵袭。"
 }

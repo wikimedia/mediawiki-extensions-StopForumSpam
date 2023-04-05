@@ -8,6 +8,6 @@
 	"action-sfsblock-bypass": "לעקוף הגבלות IP שנעשו באמצעות ההרחבה StopForumSpam",
 	"right-sfsblock-bypass": "עקיפת הגבלות IP שנעשו באמצעות ההרחבה StopForumSpam",
 	"stopforumspam-blocked": "העריכה מכתובת ה־IP שלך ($1) הוגבלה מכיוון שלאחרונה היא שימשה לשליחת זבל לאתרים.",
-	"stopforumspam-desc": "אינטגרציה עם [https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "אינטגרציה עם stopforumspam.com",
 	"stopforumspam-is-blocked": "כתובת ה־IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> נחסמה בשל שליחת זבל."
 }

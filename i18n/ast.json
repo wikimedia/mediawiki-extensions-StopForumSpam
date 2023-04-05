@@ -8,6 +8,6 @@
 	"action-sfsblock-bypass": "saltar los bloqueos d'IP de la llista prieta puestos pola estensión StopForumSpam",
 	"right-sfsblock-bypass": "Saltar los bloqueos d'IP de la llista prieta puestos pola estensión StopForumSpam",
 	"stopforumspam-blocked": "Bloquióse la edición dende la so direición IP ($1) porque de recién usóse pa facer spam en sitios web.",
-	"stopforumspam-desc": "Integración con [https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Integración con stopforumspam.com",
 	"stopforumspam-is-blocked": "La direición IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> bloquióse por facer spam."
 }

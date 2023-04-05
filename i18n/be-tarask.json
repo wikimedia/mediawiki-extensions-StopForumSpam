@@ -9,6 +9,6 @@
 	"action-sfsblock-bypass": "абыход блякаваньняў IP-адрасоў з чорнага сьпісу, зробленых пашырэньнем StopForumSpam",
 	"right-sfsblock-bypass": "Абыход блякаваньняў IP-адрасоў, зробленых пашырэньнем StopForumSpam",
 	"stopforumspam-blocked": "Рэдагаваньне з вашага IP-адрасу ($1) было заблякаванае, бо ён нядаўна выкарыстоўваўся для спаму вэбсайтаў.",
-	"stopforumspam-desc": "Інтэграцыя з [https://stopforumspam.com/ stopforumspam.com]",
+	"stopforumspam-desc": "Інтэграцыя з stopforumspam.com",
 	"stopforumspam-is-blocked": "IP-адрас <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> быў заблякаваны за спам."
 }
