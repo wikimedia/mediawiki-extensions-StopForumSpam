@@ -11,5 +11,5 @@
 	"right-sfsblock-bypass": "Eludir restricciones a direcciones IP efectuadas por la extensión StopForumSpam",
 	"stopforumspam-blocked": "Se ha bloqueado la edición para tu dirección IP ($1) porque esta se ha usado recientemente para publicar contenido no deseado en sitios web.",
 	"stopforumspam-desc": "Integración con stopforumspam.com",
-	"stopforumspam-is-blocked": "La dirección IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> se ha bloqueado por publicar spam."
+	"stopforumspam-is-blocked": "Esta dirección IP ($1) tiene restricciones pues ha sido identificada como fuente de spam. Para más información puedes acceder al siguiente <strong>enlace externo</strong>: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Ten en cuenta que, al hacerlo, abandonarás {{SITENAME}} para visitar stopforumspam.com, que puede recibir datos acerca de tu dispositivo. Revisa su [https://www.stopforumspam.com/privacy política de protección de datos], [https://www.stopforumspam.com/gdpr aviso RGPD] y sus [https://www.stopforumspam.com/legal términos de uso]."
 }

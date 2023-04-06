@@ -13,5 +13,5 @@
 	"right-sfsblock-bypass": "{{doc-right|sfsblock-bypass}}",
 	"stopforumspam-blocked": "Message a user sees when their IP address is denylisted and they cannot edit.\n\nParameters:\n* $1 - the user's current IP address",
 	"stopforumspam-desc": "{{desc|name=StopForumSpam|url=https://www.mediawiki.org/wiki/Special:MyLanguage/Extension:StopForumSpam}}",
-	"stopforumspam-is-blocked": "Shown when going to block an IP address that is currently denylisted.\n\nParameters:\n* $1 - the IP address"
+	"stopforumspam-is-blocked": "{{doc-important|1=Do not change/translate the <code><nowiki>{{SITENAME}}</nowiki></code> magic word.}}\nShown in [[Special:Block]] when the IP address to be blocked already has restrictions issued by the StopForumSpam extension.\n\nGDPR stands for the European Union's [[:w:General Data Protection Regulation|General Data Protection Regulation]]. You may use the acronym that is common for your language. See also [[:d:Q1172506|this Wikidata item]] for a list short names used for this legal instrument by different languages.\n\nParameters:\n* $1 - the IP address."
 }
