@@ -9,5 +9,5 @@
 	"right-sfsblock-bypass": "Izognitev omejitvam IP-jev, ki jih izvede razširitev StopForumSpam",
 	"stopforumspam-blocked": "Urejanje z vašega IP-naslova ($1) je bilo omejeno, ker je bil ta pred kratkim uporabljen za smetenje.",
 	"stopforumspam-desc": "Integracija z stopforumspam.com",
-	"stopforumspam-is-blocked": "IP-naslov ($1) je bil omejen zaradi pošiljanja neželene pošte. Za več informacij lahko kliknete naslednjo <strong>zunanjo</strong> povezavo: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. S tem boste zapustili projekt {{SITENAME}} in obiskali stopforumspam.com, ki lahko prejema podatke iz vaše naprave. Preglejte njihov [https://www.stopforumspam.com/privacy pravilnik o zasebnosti], [https://www.stopforumspam.com/gdpr obvestilo GDPR] in [https://www.stopforumspam.com/pravne pogoje uporabe]."
+	"stopforumspam-is-blocked": "IP-naslov $1 je bil omejen zaradi pošiljanja neželene pošte. Za več informacij lahko kliknete naslednjo <strong>zunanjo</strong> povezavo: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. S tem boste zapustili projekt {{SITENAME}} in obiskali stopforumspam.com, ki lahko prejema podatke iz vaše naprave. Preglejte njihov [https://www.stopforumspam.com/privacy pravilnik o zasebnosti], [https://www.stopforumspam.com/gdpr obvestilo GDPR] in [https://www.stopforumspam.com/pravne pogoje uporabe]."
 }

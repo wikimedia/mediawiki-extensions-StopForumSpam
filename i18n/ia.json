@@ -9,5 +9,5 @@
 	"right-sfsblock-bypass": "Contornar le restrictiones de adresses IP emittite per le extension StopForumSpam",
 	"stopforumspam-blocked": "Le modification desde tu adresse IP ($1) ha essite restringite perque illo ha recentemente essite usate pro inviar spam a sitos web.",
 	"stopforumspam-desc": "Integration con stopforumspam.com",
-	"stopforumspam-is-blocked": "Le adresse IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> ha essite blocate per causa de invio de spam."
+	"stopforumspam-is-blocked": "Le adresse IP $1 ha essite restringite per causa de invio de spam. Pro plus information, tu pote cliccar sur le sequente ligamine <strong>externe</strong>: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Faciente isto, tu quitara {{SITENAME}} pro visitar stopforumspam.com, que pote reciper datos de tu apparato. Per favor examina lor [https://www.stopforumspam.com/privacy politica de confidentialitate], [https://www.stopforumspam.com/gdpr declaration RGPD] e [https://www.stopforumspam.com/legal conditiones de uso]."
 }

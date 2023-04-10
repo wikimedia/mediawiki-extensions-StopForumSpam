@@ -10,5 +10,5 @@
 	"right-sfsblock-bypass": "Umgehen von IP-Einschränkungen, die von der StopForumSpam-Erweiterung ausgegeben werden",
 	"stopforumspam-blocked": "Das Bearbeiten mit deiner IP-Adresse ($1) wurde eingeschränkt, da sie kürzlich zum Spammen auf Websites verwendet wurde.",
 	"stopforumspam-desc": "Integration mit stopforumspam.com",
-	"stopforumspam-is-blocked": "Die IP-Adresse <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> wurde aufgrund von Spamming gesperrt."
+	"stopforumspam-is-blocked": "Die IP-Adresse $1 wurde wegen Spam eingeschränkt. Für weitere Informationen klicke auf den folgenden <strong>externen</strong> Link: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Dadurch verlässt du {{SITENAME}}, um stopforumspam.com zu besuchen, das möglicherweise Daten von deinem Gerät empfängt. Bitte lies deren [https://www.stopforumspam.com/privacy Datenschutzbestimmungen], [https://www.stopforumspam.com/gdpr DSGVO-Hinweis] und [https://www.stopforumspam.com/legal Nutzungsbestimmungen]."
 }

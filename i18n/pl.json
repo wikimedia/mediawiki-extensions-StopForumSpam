@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Chrumps"
+			"Chrumps",
+			"WaldiSt"
 		]
 	},
 	"stopforumspam-blocked": "Edycja z Twojego adresu IP ($1) została zablokowana, ponieważ ostatnio był on wykorzystany do spamu stron internetowych.",
 	"stopforumspam-desc": "Umożliwia administratorom wysyłanie danych do stopforumspam.com",
-	"stopforumspam-is-blocked": "Adres IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> został zablokowany za rozsyłanie spamu."
+	"stopforumspam-is-blocked": "Adres IP $1 został ograniczony do spamowania. Aby uzyskać więcej informacji, możesz kliknąć następujący link <strong>zewnętrzny</strong> : <strong>[https://stopforumspam.com/ipcheck/ $1 $1 ]</strong> . W ten sposób opuścisz witrynę {{SITENAME}} i przejdziesz do strony stopforumspam.com, która może odbierać dane z Twojego urządzenia. Zapoznaj się z ich [https://www.stopforumspam.com/polityką prywatności prywatności], [https://www.stopforumspam.com/gdpr Informacja o RODO] i [https://www.stopforumspam.com/legal warunki używać]."
 }

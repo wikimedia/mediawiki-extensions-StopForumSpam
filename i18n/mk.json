@@ -5,9 +5,9 @@
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Дали IP-адресата е блокирана користејќи список од stopforumspam.com",
-	"action-sfsblock-bypass": "заобиколување на блокови на IP-адреси на списокот на отфрлени дадени од додатокот StopForumSpam",
-	"right-sfsblock-bypass": "Заобиколи блокови на IP-адреси на списокот на отфрлени дадени од додатокот StopForumSpam",
-	"stopforumspam-blocked": "Уредувањето од вашата IP-адреса ($1) е блокирано бидејќи неодамна се користела за спамирање.",
+	"action-sfsblock-bypass": "заобиколување на ограничувања на IP-адреси на списокот на отфрлени дадени од додатокот StopForumSpam",
+	"right-sfsblock-bypass": "Заобиколи ограничувања на IP-адреси на списокот на отфрлени дадени од додатокот StopForumSpam",
+	"stopforumspam-blocked": "Уредувањето од вашата IP-адреса ($1) е ограничено бидејќи неодамна се користела за спамирање.",
 	"stopforumspam-desc": "Преселба со stopforumspam.com",
-	"stopforumspam-is-blocked": "IP-адресата <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> е блокирана поради спамирање."
+	"stopforumspam-is-blocked": "IP-адресата ($1) е ограничена заради спамирање. Повеќе информации ќе најдете на следнава <strong>надворешна</strong> врска: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Со тоа ќе го напуштите мрежното место на {{SITENAME}} и ќе дојдете до stopforumspam.com, кое може да прима податоци од вашиот уред. Прочитајте ги нивинте [https://www.stopforumspam.com/privacy правила за личните податоци], [https://www.stopforumspam.com/gdpr GDPR-напомена] и [https://www.stopforumspam.com/legal условите на употреба]."
 }
