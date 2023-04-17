@@ -132,6 +132,10 @@ class Hooks implements
 			);
 
 			return true;
+
+		} elseif ( !$denyListManager->isIpDenyListed( $ip ) ) {
+			// report-only mode + ip NOT deny-listed
+			return true;
 		}
 
 		// log blocked action, regardless of report-only mode
