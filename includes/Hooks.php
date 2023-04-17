@@ -130,6 +130,8 @@ class Hooks implements
 					'reportonly' => $this->config->get( 'SFSReportOnly' )
 				]
 			);
+
+			return true;
 		}
 
 		// log blocked action, regardless of report-only mode
