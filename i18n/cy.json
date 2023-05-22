@@ -6,7 +6,7 @@
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Os yw'r cyfeiriad IP wedi ei flocio yn ôl rhestr stopforumspam.com",
-	"action-sfsblock-bypass": "caniatáu cyfeiriadau IP sydd ar y rhestr ddu wrth ategyn StopForumSpam",
+	"action-sfsblock-bypass": "osgoi cyfyngiadau ar gyfeiriadau IP gan yr estyniad StopForumSpam",
 	"right-sfsblock-bypass": "Caniatáu cyfeiriadau IP sydd ar y rhestr ddu wrth ategyn StopForumSpam",
 	"stopforumspam-blocked": "Mae golygu o'ch cyfeiriad IP ($1) wedi cael ei flocio achos mae rhywun wedi ei ddefnyddio i sbamio gwefannau.",
 	"stopforumspam-desc": "Integreiddiad gyda stopforumspam.com",
