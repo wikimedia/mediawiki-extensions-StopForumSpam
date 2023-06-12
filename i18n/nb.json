@@ -5,9 +5,9 @@
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Hvorvidt IP-adressen er blokkert med stopforumspam.com-listen",
-	"action-sfsblock-bypass": "forbigå svartelistede IP-blokkeringer utstedt av StopForumSpam-utvidelsen",
-	"right-sfsblock-bypass": "Forbigå svartelistede IP-blokkeringer utstedt av StopForumSpam-utvidelsen",
+	"action-sfsblock-bypass": "forbigå IP-restriksjoner utstedt av StopForumSpam-utvidelsen",
+	"right-sfsblock-bypass": "Forbigå IP-restriksjoner utstedt av StopForumSpam-utvidelsen",
 	"stopforumspam-blocked": "Redigering fra din IP-adresse ($1) har blitt blokkert siden den nylig har blitt brukt til å spamme nettsteder.",
 	"stopforumspam-desc": "Integrering med stopforumspam.com",
-	"stopforumspam-is-blocked": "IP-adressa <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> har blitt blokkert for spamming."
+	"stopforumspam-is-blocked": "IP-adressa $1 har blitt begrenset for spamming. For mer informasjon kan du trykke på følgende <strong>eksterne</strong> lenke: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Ved å gjøre det forlater du {{SITENAME}} for å besøke stopforumspam.com, som kan motta data fra enheten din. Se gjerne gjennom [https://www.stopforumspam.com/privacy personvernspolitikken deres], [https://www.stopforumspam.com/gdpr GDPR-notisen deres] og [https://www.stopforumspam.com/legal bruksvilkårene deres]."
 }
