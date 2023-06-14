@@ -1,10 +1,13 @@
 {
 	"@metadata": {
 		"authors": [
-			"Shirayuki"
+			"Shirayuki",
+			"春春眠眠"
 		]
 	},
-	"stopforumspam-blocked": "あなたの IP アドレス ($1) は、ウェブサイトへのスパム攻撃に最近使用されたため、編集ブロックされています。",
-	"stopforumspam-desc": "管理者がデータを stopforumspam.com に送信できるようにする",
-	"stopforumspam-is-blocked": "IP アドレス <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> は、スパム攻撃を行なったためブロックされています。"
+	"action-sfsblock-bypass": "StopForumSpam拡張機能によって設定されたIP制限を回避",
+	"right-sfsblock-bypass": "StopForumSpam拡張機能によって設定されたIP制限を回避",
+	"stopforumspam-blocked": "あなたのIPアドレス ($1) は、ウェブサイトへのスパム攻撃に最近使用されたため、制限されています。",
+	"stopforumspam-desc": "管理者がデータをstopforumspam.comに送信できるようにする",
+	"stopforumspam-is-blocked": "IPアドレス $1 は、スパム行為のため制限されています。詳細は、次の<strong>外部</strong>リンクをクリックしてください: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>。クリックすることで{{SITENAME}}から離れ、あなたの端末からデータを受け取る可能性のあるstopforumspam.comにアクセスすることになります。[https://www.stopforumspam.com/privacy プライバシー・ポリシー]、[https://www.stopforumspam.com/gdpr GDPR通知]、[https://www.stopforumspam.com/legal 利用規約]をご確認ください。"
 }
