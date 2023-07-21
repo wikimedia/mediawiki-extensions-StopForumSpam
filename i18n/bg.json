@@ -6,5 +6,5 @@
 		]
 	},
 	"action-sfsblock-bypass": "заобикаляне на IP ограниченията, приложени от разширението StopForumSpam",
-	"right-sfsblock-bypass": "Заобикаляне на IP ограниченията, приложени от разширението StopForumSpam"
+	"right-sfsblock-bypass": "Пренебрегване на IP ограниченията, приложени от разширението StopForumSpam"
 }
