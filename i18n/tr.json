@@ -2,13 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"BaRaN6161 TURK",
+			"Joseph",
 			"MuratTheTurkish"
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "IP adresinin stopforumspam.com listesi kullanılarak engellenip engellenmediği",
-	"action-sfsblock-bypass": "StopForumSpam uzantısı tarafından verilen IP engellerini atlama",
-	"right-sfsblock-bypass": "StopForumSpam uzantısı tarafından verilen IP engellerini atla",
-	"stopforumspam-blocked": "IP adresinizden ($1) yapılan düzenleme, son zamanlarda spam web sitelerinde kullanıldığı için engellendi.",
+	"action-sfsblock-bypass": "StopForumSpam uzantısı tarafından verilen IP kısıtlarını atlamaya",
+	"right-sfsblock-bypass": "StopForumSpam uzantısı tarafından verilen IP kısıtlarını atla",
+	"stopforumspam-blocked": "IP adresinizden ($1) yapılan düzenleme, son zamanlarda istenmeyen web sitelerinde kullanıldığı için kısıtlandı.",
 	"stopforumspam-desc": "stopforumspam.com ile entegrasyon",
-	"stopforumspam-is-blocked": "<strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> IP adresi spam nedeniyle engellendi."
+	"stopforumspam-is-blocked": "$1 IP adresi spam nedeniyle kısıtlandı. Daha fazla bilgi için şu <strong>dış</strong> bağlantıya tıklayabilirsiniz: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Bunu yaparak, {{SITENAME}} sitesinden ayrılıp stopforumspam.com ziyaret edeceksiniz, ki bu aygıtınızdan veri alabilir. Lütfen [https://www.stopforumspam.com/privacy gizlilik ilkelerini], [https://www.stopforumspam.com/gdpr GDPR bildirimini] ve [https://www.stopforumspam.com/legal kullanım şartlarını] gözden geçirin."
 }
