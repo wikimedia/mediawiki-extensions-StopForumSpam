@@ -26,8 +26,8 @@ use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Hook\OtherBlockLogLinkHook;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsExpensiveHook;
+use MediaWiki\Title\Title;
 use RequestContext;
-use Title;
 use User;
 use Wikimedia\IPUtils;
 
