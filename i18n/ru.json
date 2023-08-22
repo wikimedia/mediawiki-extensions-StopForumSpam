@@ -3,6 +3,7 @@
 		"authors": [
 			"DDPAT",
 			"Facenapalm",
+			"Fenixs-ru",
 			"Ice bulldog",
 			"Okras",
 			"Vlad5250",
@@ -10,9 +11,9 @@
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Заблокирован ли IP-адрес в списке stopforumspam.com",
-	"action-sfsblock-bypass": "обход блокировок IP-адресов запрещён, выдаваемых расширением StopForumSpam",
-	"right-sfsblock-bypass": "Обходить блокировки IP-адресов, выдаваемых расширением StopForumSpam",
-	"stopforumspam-blocked": "Внесение правок с вашего IP-адреса ($1) было заблокировано, так как он недавно был использован для спама веб-сайтов.",
+	"action-sfsblock-bypass": "обойти ограничения IP, установленные расширением StopForumSpam",
+	"right-sfsblock-bypass": "Обход IP-ограничений, выдаваемых расширением StopForumSpam",
+	"stopforumspam-blocked": "Внесение правок с вашего IP-адреса ($1) было ограничено, так как он недавно был использован для спама веб-сайтов.",
 	"stopforumspam-desc": "Интеграция с stopforumspam.com",
 	"stopforumspam-is-blocked": "IP-адрес <strong>[https://stopforumspam.com/ipcheck/$1 $1] </strong> был заблокирован за спам."
 }
