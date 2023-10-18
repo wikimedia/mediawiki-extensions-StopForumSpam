@@ -3,13 +3,14 @@
 		"authors": [
 			"Andriykopanytsia",
 			"Piramidion",
-			"Ата"
+			"Ата",
+			"Movses"
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Чи заблокована ця IP-адреса за допомогою списку stopforumspam.com",
-	"action-sfsblock-bypass": "обхід блокувань IP-адрес, що перебувають у списку відмов, які видає розширення StopForumSpam",
+	"action-sfsblock-bypass": "обхід IP-обмежень, які встановлені розширенням StopForumSpam",
 	"right-sfsblock-bypass": "Обхід блокувань IP-адрес, які видає розширення StopForumSpam",
-	"stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) вже заблоковане, позаяк вона нещодавно використовувалася для спам-сайтів.",
+	"stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) обмежене, оскільки адреса нещодавно використовувалася для спаму вебсайтів.",
 	"stopforumspam-desc": "Інтеграція із stopforumspam.com",
 	"stopforumspam-is-blocked": "IP-адреса <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> вже заблокована за розсилку спаму."
 }
