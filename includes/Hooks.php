@@ -53,10 +53,6 @@ class Hooks implements
 	 * @return bool|string IP address or false
 	 */
 	public static function getIPFromUser( User $user ) {
-		if ( $user->isAnon() ) {
-			return $user->getName();
-		}
-
 		$context = RequestContext::getMain();
 		if ( $context->getUser()->getName() === $user->getName() ) {
 			// Only use the main context if the users are the same
