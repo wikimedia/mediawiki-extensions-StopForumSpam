@@ -11,7 +11,7 @@ See also: https://www.mediawiki.org/wiki/Extension:StopForumSpam#Installation
 ```
 wfLoadExtension( 'StopForumSpam' );
 ```
-3. Configure the extension as required.
+3. Configure the extension as required.  **Note:** A proper value for ```$wgSFSIPListLocation``` _MUST_ be configured before the extension is used within any production environment.
 4. Navigate to Special:Version on your wiki to verify that the extension is successfully installed.
 5. Optionally run the provided maintenance script (```updateDenyList.php```) to populate and view information about the cache.
 
