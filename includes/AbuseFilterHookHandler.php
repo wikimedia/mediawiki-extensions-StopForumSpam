@@ -20,13 +20,13 @@
 
 namespace MediaWiki\Extension\StopForumSpam;
 
-use Config;
+use MediaWiki\Config\Config;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterBuilderHook;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterComputeVariableHook;
 use MediaWiki\Extension\AbuseFilter\Hooks\AbuseFilterGenerateUserVarsHook;
 use MediaWiki\Extension\AbuseFilter\Variables\VariableHolder;
+use MediaWiki\User\User;
 use RecentChange;
-use User;
 
 class AbuseFilterHookHandler implements
 	AbuseFilterBuilderHook,

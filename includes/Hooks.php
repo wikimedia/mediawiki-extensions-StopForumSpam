@@ -20,15 +20,15 @@
 
 namespace MediaWiki\Extension\StopForumSpam;
 
-use Config;
-use Html;
 use MediaWiki\Block\DatabaseBlock;
+use MediaWiki\Config\Config;
 use MediaWiki\Hook\OtherBlockLogLinkHook;
+use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsExpensiveHook;
 use MediaWiki\Title\Title;
+use MediaWiki\User\User;
 use RequestContext;
-use User;
 use Wikimedia\IPUtils;
 
 class Hooks implements
