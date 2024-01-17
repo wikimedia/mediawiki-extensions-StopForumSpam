@@ -7,8 +7,8 @@
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Os yw'r cyfeiriad IP wedi ei flocio yn ôl rhestr stopforumspam.com",
 	"action-sfsblock-bypass": "osgoi cyfyngiadau ar gyfeiriadau IP gan yr estyniad StopForumSpam",
-	"right-sfsblock-bypass": "Caniatáu cyfeiriadau IP sydd ar y rhestr ddu wrth ategyn StopForumSpam",
-	"stopforumspam-blocked": "Mae golygu o'ch cyfeiriad IP ($1) wedi cael ei flocio achos mae rhywun wedi ei ddefnyddio i sbamio gwefannau.",
+	"right-sfsblock-bypass": "Osgoi cyfyngiadau IP a roddir gan yr estyniad StopForumSpam",
+	"stopforumspam-blocked": "Mae golygu o'ch cyfeiriad IP ($1) wedi cael ei gyfyngu achos mae rhywun wedi ei ddefnyddio i sbamio gwefannau.",
 	"stopforumspam-desc": "Integreiddiad gyda stopforumspam.com",
-	"stopforumspam-is-blocked": "Mae'r cyfeiriad IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> wedi ei flocio am sbam."
+	"stopforumspam-is-blocked": "Mae'r cyfeiriad IP $1 wedi'i gyfyngu oherwydd sbamio. I gael rhagor o wybodaeth, gallwch glicio ar y ddolen <strong>allanol</strong> ganlynol: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Drwy wneud hynny, byddwch chi'n gadael {{SITENAME}} i ymweld â stopforumspam.com, a allai dderbyn data o'ch dyfais. Gallwch chi ddarllen eu [https://www.stopforumspam.com/privacy polisi preifatrwydd], [https://www.stopforumspam.com/gdpr hysbysiad GDPR], a [https://www.stopforumspam.com/legal thelerau defnydd]."
 }
