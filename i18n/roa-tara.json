@@ -5,9 +5,9 @@
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Ce l'indirizze IP jè bloccate ausanne l'elenghe stopforumspam.com",
-	"action-sfsblock-bypass": "zumbe le IP bloccate jndr'à lista de blocche fatte da l'estenzione StopForumSpam",
-	"right-sfsblock-bypass": "Zumbe le IP bloccate fatte da l'estenzione StopForumSpam",
-	"stopforumspam-blocked": "'U cangiamende da l'indirizze IP tune ($1) ha state bloccate purcé urtemamende ha state ausate pe mannà spam a site web.",
+	"action-sfsblock-bypass": "zumbe le restriziune de le IP jndr'à lista de blocche fatte da l'estenzione StopForumSpam",
+	"right-sfsblock-bypass": "Zumbe le restriziune de le IP fatte da l'estenzione StopForumSpam",
+	"stopforumspam-blocked": "'U cangiamende da l'indirizze IP tune ($1) ha state ristrette purcé urtemamende ha state ausate pe mannà spam a site web.",
 	"stopforumspam-desc": "Indegrazione cu stopforumspam.com",
-	"stopforumspam-is-blocked": "L'indirizze IP <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> ha state bloccate pe spam."
+	"stopforumspam-is-blocked": "L'indirizze IP $1 ha state ristrette pe spam. Pe chciù 'mbormaziune, pèuè cazzà stu collegamende <strong>de fore</strong>: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Jndr'à stu mode, lasse {{SITENAME}} pe 'ndrucà stopforumspam.com, ca pò avè le date tune da 'u dispositive. 'Ndruche 'a lore [https://www.stopforumspam.com/privacy politeche sus 'a privacy], [https://www.stopforumspam.com/gdpr GDPR] e le [https://www.stopforumspam.com/legal condiziune d'ause]."
 }
