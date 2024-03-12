@@ -44,7 +44,7 @@ class StopForumSpamThresholdTest extends MediaWikiIntegrationTestCase {
 			'IPv4 with 6 hits' => [ '99.8.132.217', true ],
 			'IPv4 address not in DenyList' => [ '127.0.0.1', false ],
 			'IPv6 with 1 hit' => [ '2a02:4780:8:d::', false ],
-			'IPv6 with 17 hits' => [ '2a02:7aa0:1619::' , true ],
+			'IPv6 with 17 hits' => [ '2a02:7aa0:1619::', true ],
 			'IPv6 with 5 hits' => [ '2a02:8071:82da:9a00::', true ],
 		];
 	}
