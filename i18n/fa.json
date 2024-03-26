@@ -1,10 +1,11 @@
 {
 	"@metadata": {
 		"authors": [
-			"Armin1392"
+			"Armin1392",
+			"Ebraminio"
 		]
 	},
-	"stopforumspam-blocked": "ویرایش از آدرس آی‌پی ($1) شما از زمانی که اخیراً برای وب‌سایت‌های اسپم استفاده شده‌است،مسدود شده‌است.",
+	"stopforumspam-blocked": "ویرایش از آدرس آی‌پی ($1) شما از زمانی که اخیراً برای وب‌سایت‌های اسپم استفاده شده است،مسدود شده است.",
 	"stopforumspam-desc": "اجازه به سرپرستان برای ارسال اطلاعات به stopforumspam.com",
-	"stopforumspam-is-blocked": "آدرس آی‌پی <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> برای اسپم شدن مسدود شده‌است."
+	"stopforumspam-is-blocked": "آدرس آی‌پی <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> برای اسپم شدن مسدود شده است."
 }
