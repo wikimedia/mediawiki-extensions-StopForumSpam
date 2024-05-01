@@ -9,8 +9,8 @@
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "IP 位址是否已經透過 stopforumspam.com 列表封禁",
 	"action-sfsblock-bypass": "繞過來自StopForumSpam擴充的IP限制",
-	"right-sfsblock-bypass": "繞過來自StopForumSpam擴充功能的IP封鎖",
-	"stopforumspam-blocked": "您的 IP 位址（$1）已被封禁無法編輯，原因是此 IP 最近用於發布垃圾信息。",
+	"right-sfsblock-bypass": "繞過來自StopForumSpam擴充功能的IP限制",
+	"stopforumspam-blocked": "您的 IP 位址（$1）已被限制無法編輯，原因是此 IP 最近用於發布垃圾訊息。",
 	"stopforumspam-desc": "整合 stopforumspam.com",
-	"stopforumspam-is-blocked": "這個 IP 位址 <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> 已被封禁，原因為發布垃圾訊息。"
+	"stopforumspam-is-blocked": "IP 位址 $1 因發送垃圾訊息而被限制。要了解更多資訊\n您可以點擊以下<strong>外部</strong>連結：<strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>。您點擊後將會離開{{SITENAME}}前往 stopforumspam.com，該網站可能會從您的設備接收資料。請查看他們的[https://www.stopforumspam.com/privacy 隱私方針]、 [https://www.stopforumspam.com/gdpr 一般資料保護規則通知]、[https://www.stopforumspam.com/legal 使用條款]。"
 }
