@@ -5,7 +5,7 @@
 			"MarcoAurelio"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Whether the IP address is blocked using the stopforumspam.com list",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Whether the IP address is blocked using the stopforumspam.com list ($1)",
 	"action-sfsblock-bypass": "bypass IP restrictions issued by the StopForumSpam extension",
 	"right-sfsblock-bypass": "Bypass IP restrictions issued by the StopForumSpam extension",
 	"stopforumspam-blocked": "Editing from your IP address ($1) has been restricted since it has recently been used to spam websites.",

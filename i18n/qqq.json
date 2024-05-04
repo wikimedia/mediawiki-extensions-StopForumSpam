@@ -8,7 +8,7 @@
 			"Umherirrender"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Abuse filter syntax option in a dropdown from the group {{msg-mw|abusefilter-edit-builder-group-vars}}.",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Abuse filter syntax option in a dropdown from the group {{msg-mw|abusefilter-edit-builder-group-vars}}. ($1 is the text that will be inserted into the filter code editor.)",
 	"action-sfsblock-bypass": "{{doc-action|sfsblock-bypass}}",
 	"right-sfsblock-bypass": "{{doc-right|sfsblock-bypass}}",
 	"stopforumspam-blocked": "Message a user sees when their IP address is denylisted and they cannot edit.\n\nParameters:\n* $1 - the user's current IP address",
