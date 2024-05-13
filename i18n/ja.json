@@ -5,7 +5,7 @@
 			"春春眠眠"
 		]
 	},
-	"action-sfsblock-bypass": "StopForumSpam拡張機能によって設定されたIP制限を回避",
+	"action-sfsblock-bypass": "StopForumSpam拡張機能によって設定されたIP制限の回避",
 	"right-sfsblock-bypass": "StopForumSpam拡張機能によって設定されたIP制限を回避",
 	"stopforumspam-blocked": "あなたのIPアドレス ($1) は、ウェブサイトへのスパム攻撃に最近使用されたため、制限されています。",
 	"stopforumspam-desc": "管理者がデータをstopforumspam.comに送信できるようにする",
