@@ -4,7 +4,7 @@
 			"Amire80"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "האם כתובת ה־IP חסומה באמצעות רשימת stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-blocked": "האם כתובת ה־IP חסומה באמצעות רשימת stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "לעקוף הגבלות IP שנעשו באמצעות ההרחבה StopForumSpam",
 	"right-sfsblock-bypass": "עקיפת הגבלות IP שנעשו באמצעות ההרחבה StopForumSpam",
 	"stopforumspam-blocked": "העריכה מכתובת ה־IP שלך ($1) הוגבלה מכיוון שלאחרונה היא שימשה לשליחת זבל לאתרים.",

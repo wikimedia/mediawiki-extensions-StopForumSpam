@@ -2,12 +2,13 @@
 	"@metadata": {
 		"authors": [
 			"HanV",
+			"McDutchie",
 			"Siebrand",
 			"Southparkfan",
 			"Vistaus"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Of het ip-adres wordt geblokkeerd op basis van de stopforumspam.com-lijst",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Of het IP-adres wordt geblokkeerd op basis van de lijst van stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "omzeil de ip-beperkingen uitgegeven door de StopForumSpam-extensie",
 	"right-sfsblock-bypass": "Omzeil de ip-beperkingen uitgegeven door de StopForumSpam-extensie",
 	"stopforumspam-blocked": "Bewerken vanaf uw IP-adres ($1) is geblokkeerd omdat het recent is gebruikt voor spammen.",
