@@ -9,7 +9,7 @@
 			"Yfdyh000"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "IP地址是否已通过stopforumspam.com列表封禁",
+	"abusefilter-edit-builder-vars-sfs-blocked": "IP地址是否已通过stopforumspam.com列表封禁（$1）",
 	"action-sfsblock-bypass": "绕过来自StopForumSpam扩展的IP限制",
 	"right-sfsblock-bypass": "绕过来自StopForumSpam扩展的IP限制",
 	"stopforumspam-blocked": "已限制从您的IP地址（$1）编辑，因为它最近被用于网站垃圾信息。",
