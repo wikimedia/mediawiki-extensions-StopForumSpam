@@ -4,7 +4,7 @@
 			"Jon Harald Søby"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Hvorvidt IP-adressen er blokkert med stopforumspam.com-listen",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Hvorvidt IP-adressen er blokkert med stopforumspam.com-listen ($1)",
 	"action-sfsblock-bypass": "forbigå IP-restriksjoner utstedt av StopForumSpam-utvidelsen",
 	"right-sfsblock-bypass": "Forbigå IP-restriksjoner utstedt av StopForumSpam-utvidelsen",
 	"stopforumspam-blocked": "Redigering fra din IP-adresse ($1) har blitt blokkert siden den nylig har blitt brukt til å spamme nettsteder.",
