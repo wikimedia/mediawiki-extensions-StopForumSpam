@@ -22,13 +22,13 @@ namespace MediaWiki\Extension\StopForumSpam;
 
 use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Config\Config;
+use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\OtherBlockLogLinkHook;
 use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsExpensiveHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
-use RequestContext;
 use Wikimedia\IPUtils;
 
 class Hooks implements
