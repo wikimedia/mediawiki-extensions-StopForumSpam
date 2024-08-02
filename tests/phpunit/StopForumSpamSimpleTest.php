@@ -34,7 +34,7 @@ class StopForumSpamSimpleTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( 'wgSFSIPListLocation', __DIR__ . '/sample_denylist.txt' );
+		$this->overrideConfigValue( 'SFSIPListLocation', __DIR__ . '/sample_denylist.txt' );
 	}
 
 	public static function provideSimpleDenyListing() {

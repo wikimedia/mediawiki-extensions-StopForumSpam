@@ -34,8 +34,10 @@ class StopForumSpamThresholdTest extends MediaWikiIntegrationTestCase {
 	protected function setUp(): void {
 		parent::setUp();
 
-		$this->setMwGlobals( 'wgSFSIPThreshold', 5 );
-		$this->setMwGlobals( 'wgSFSIPListLocation', __DIR__ . '/sample_denylist_all.txt' );
+		$this->overrideConfigValues( [
+			'SFSIPThreshold' => 5,
+			'SFSIPListLocation' => __DIR__ . '/sample_denylist_all.txt',
+		] );
 	}
 
 	public static function provideThresholdDenyListing() {
