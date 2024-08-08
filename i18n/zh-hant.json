@@ -7,7 +7,7 @@
 			"列维劳德"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "IP 位址是否已經透過 stopforumspam.com 列表封禁",
+	"abusefilter-edit-builder-vars-sfs-blocked": "IP 位址是否已經透過 stopforumspam.com 列表封禁（$1）",
 	"action-sfsblock-bypass": "繞過來自StopForumSpam擴充的IP限制",
 	"right-sfsblock-bypass": "繞過來自StopForumSpam擴充功能的IP限制",
 	"stopforumspam-blocked": "您的 IP 位址（$1）已被限制無法編輯，原因是此 IP 最近用於發布垃圾訊息。",
