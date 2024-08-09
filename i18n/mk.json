@@ -4,7 +4,7 @@
 			"Bjankuloski06"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Дали IP-адресата е блокирана користејќи список од stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Дали IP-адресата е блокирана користејќи список од stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "заобиколување на ограничувања на IP-адреси на списокот на отфрлени дадени од додатокот StopForumSpam",
 	"right-sfsblock-bypass": "Заобиколи ограничувања на IP-адреси на списокот на отфрлени дадени од додатокот StopForumSpam",
 	"stopforumspam-blocked": "Уредувањето од вашата IP-адреса ($1) е ограничено бидејќи неодамна се користела за спамирање.",
