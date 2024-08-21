@@ -1,0 +1,12 @@
+{
+	"@metadata": {
+		"authors": [
+			"Nemoralis"
+		]
+	},
+	"action-sfsblock-bypass": "StopForumSpam uzantısı tərəfindən tətbiq edilmiş IP məhdudiyyətlərindən təsirlənməmək",
+	"right-sfsblock-bypass": "StopForumSpam uzantısı tərəfindən tətbiq edilmiş IP məhdudiyyətlərindən təsirlənməmək",
+	"stopforumspam-blocked": "IP ünvanınızdan redaktə etmək ($1) məhdudlaşdırılıb, çünki bu yaxınlarda veb saytları spam etmək üçün istifadə olunub.",
+	"stopforumspam-desc": "stopforumspam.com ilə inteqrasiya",
+	"stopforumspam-is-blocked": "$1 IP ünvanı spam səbəbi ilə məhdudlaşdırılıb. Əlavə məlumat üçün aşağıdakı <strong>xarici</strong> linkə klikləyə bilərsiniz: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Bununla siz {{SITENAME}} saytını tərk edərək cihazınızdan data qəbul edə biləcək stopforumspam.com saytına daxil olacaqsınız. Zəhmət olmasa onların [https://www.stopforumspam.com/privacy məxfilik siyasəti], [https://www.stopforumspam.com/gdpr GDPR bildirişi] və [https://www.stopforumspam.com/legal istifadə şərtlərini] nəzərdən keçirin."
+}
