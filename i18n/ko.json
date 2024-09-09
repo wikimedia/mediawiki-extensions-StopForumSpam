@@ -4,14 +4,15 @@
 			"Hym411",
 			"Nuevo Paso",
 			"Revi",
+			"Suleiman the Magnificent Television",
 			"Ykhwong",
 			"아라"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "stopforumspam.com 목록을 사용하여 IP 주소가 차단되었는지의 여부",
+	"abusefilter-edit-builder-vars-sfs-blocked": "스톱포럼스팸닷컴 목록($1)을 사용하여 IP 주소가 차단되었는지 여부",
 	"action-sfsblock-bypass": "StopForumSpam 확장 기능이 발행한 IP 제한을 우회할",
 	"right-sfsblock-bypass": "StopForumSpam 확장 기능이 발행한 IP 제한 우회",
-	"stopforumspam-blocked": "당신이 IP 주소($1)를 통해 한 편집은 해당 IP가 최근에 스팸 사이트에서 사용되었기 때문에 차단되었습니다.",
+	"stopforumspam-blocked": "최근에 스팸을 보내기 위해 사용된 것으로 확인된 IP 주소($1)에서 편집이 제한되었습니다.",
 	"stopforumspam-desc": "관리자가 stopforumspam.com에 데이터를 보내도록 허용합니다.",
-	"stopforumspam-is-blocked": "<strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> IP 주소는 스팸을 넣었으므로 차단되었습니다."
+	"stopforumspam-is-blocked": "IP 주소 $1은 스팸으로 인해 제한되었습니다. 자세한 정보는 다음 <strong>외부</strong> 링크를 클릭하세요: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. 이렇게 하면 {{SITENAME}}을 떠나 stopforumspam.com을 방문하게 되며, 이 사이트는 귀하의 장치에서 데이터를 수신할 수 있습니다. [https://www.stopforumspam.com/privacy 개인 정보 보호 정책], [https://www.stopforumspam.com/gdpr GDPR 고지], 및 [https://www.stopforumspam.com/legal 사용 약관]을 확인하세요."
 }
