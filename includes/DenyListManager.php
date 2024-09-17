@@ -287,6 +287,12 @@ class DenyListManager {
 			return $this->fetchFlatDenyListHexIpsLocal( $filePath );
 		}
 
+		// T353001 - this should be an ok way to determine that we're in a quibble context
+		if ( getenv( 'ZUUL_PROJECT' ) && getenv( 'MW_INSTALL_PATH' ) ) {
+			$filePath = getenv( 'MW_INSTALL_PATH' ) . '/extensions/StopForumSpam/tests/phpunit/sample_denylist_all.txt';
+			return $this->fetchFlatDenyListHexIpsLocal( $filePath );
+		}
+
 		if ( !filter_var( $uri, FILTER_VALIDATE_URL ) ) {
 			throw new DomainException( "wgSFSIPListLocation does not appear to be a valid URL." );
 		}
