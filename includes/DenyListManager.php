@@ -379,7 +379,7 @@ class DenyListManager {
 	 * @return string
 	 */
 	private function fetchRemoteFile( string $fileUrl, array $httpOptions ): string {
-		$req = $this->http->create( $fileUrl, $httpOptions );
+		$req = $this->http->create( $fileUrl, $httpOptions, __METHOD__ );
 
 		$status = $req->execute();
 		if ( !$status->isOK() ) {
