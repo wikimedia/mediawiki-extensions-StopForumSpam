@@ -20,18 +20,18 @@
 
 namespace MediaWiki\Extension\StopForumSpam;
 
-use BagOStuff;
 use DomainException;
-use IStoreKeyEncoder;
 use MediaWiki\Http\HttpRequestFactory;
 use MediaWiki\Logger\LoggerFactory;
 use MediaWiki\MediaWikiServices;
 use Psr\Log\LoggerInterface;
 use Psr\Log\NullLogger;
 use RuntimeException;
-use WANObjectCache;
 use Wikimedia\IPSet;
 use Wikimedia\IPUtils;
+use Wikimedia\ObjectCache\BagOStuff;
+use Wikimedia\ObjectCache\IStoreKeyEncoder;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * @internal

@@ -17,7 +17,7 @@
 
 namespace MediaWiki\Extension\StopForumSpam;
 
-use Benchmarker;
+use MediaWiki\Maintenance\Benchmarker;
 use const RUN_MAINTENANCE_IF_MAIN;
 
 $IP = getenv( 'MW_INSTALL_PATH' );

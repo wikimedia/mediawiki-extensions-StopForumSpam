@@ -19,10 +19,10 @@
 
 namespace MediaWiki\Extension\StopForumSpam\Tests;
 
-use HashBagOStuff;
 use MediaWiki\Extension\StopForumSpam\DenyListManager;
 use MediaWikiIntegrationTestCase;
-use WANObjectCache;
+use Wikimedia\ObjectCache\HashBagOStuff;
+use Wikimedia\ObjectCache\WANObjectCache;
 
 /**
  * @group StopForumSpam
