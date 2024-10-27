@@ -343,7 +343,7 @@ class DenyListManager {
 
 			$rows++;
 
-			$ipData = str_getcsv( $line );
+			$ipData = str_getcsv( $line, ",", "\"", "\\" );
 			$ip = (string)$ipData[0];
 			$score = (int)$ipData[1];
 
