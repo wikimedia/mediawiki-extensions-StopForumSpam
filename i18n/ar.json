@@ -5,7 +5,7 @@
 			"ديفيد"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "ما إذا كان عنوان الآيبي ممنوعا باستخدام قائمة stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-blocked": "ما إذا كان عنوان IP محظور باستخدام قائمة stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "تجاوز كتل IP المنبوذة الصادرة عن امتداد StopForumSpam",
 	"right-sfsblock-bypass": "تجاوز كتل IP الصادرة عن امتداد StopForumSpam",
 	"stopforumspam-blocked": "تم منع التحرير من عنوان الآيبي الخاص بك ($1) لأنه تم استخدامه مؤخرا لمواقع السخام.",
