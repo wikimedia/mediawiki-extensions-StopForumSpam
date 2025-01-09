@@ -5,8 +5,8 @@
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "האם כתובת ה־IP חסומה באמצעות רשימת stopforumspam.com",
-	"action-sfsblock-bypass": "לעקוף הגבלות IP שנעשו באמצעות ההרחבה StopForumSpam",
-	"right-sfsblock-bypass": "עקיפת הגבלות IP שנעשו באמצעות ההרחבה StopForumSpam",
+	"action-sfsblock-bypass": "לעקוף הגבלות IP שהוטלו באמצעות ההרחבה StopForumSpam",
+	"right-sfsblock-bypass": "עקיפת הגבלות IP שהוטלו באמצעות ההרחבה StopForumSpam",
 	"stopforumspam-blocked": "העריכה מכתובת ה־IP שלך ($1) הוגבלה מכיוון שלאחרונה היא שימשה לשליחת זבל לאתרים.",
 	"stopforumspam-desc": "אינטגרציה עם stopforumspam.com",
 	"stopforumspam-is-blocked": "כתובת ה־IP‏ $1 הוגבלה בגלל ספאם. למידע נוסף אפשר ללחוץ על הקישור <strong>החיצוני</strong> הבא: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. לחיצה על הקישור לגרום לך לעזוב את {{SITENAME}} כדי לבקר באתר stopforumspam.com, שעשוי לקבל נתונים מהמכשיר שלך. נא לעיין ב[https://www.stopforumspam.com/privacy מדיניות הפרטיות], ב[https://www.stopforumspam.com/gdpr הודעת ה־GDPR] וב־[https://www.stopforumspam.com/legal תנאי השימוש]."
