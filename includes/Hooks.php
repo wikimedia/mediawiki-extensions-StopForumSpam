@@ -20,12 +20,12 @@
 
 namespace MediaWiki\Extension\StopForumSpam;
 
-use MediaWiki\Block\DatabaseBlock;
 use MediaWiki\Config\Config;
 use MediaWiki\Context\RequestContext;
 use MediaWiki\Hook\OtherBlockLogLinkHook;
 use MediaWiki\Html\Html;
 use MediaWiki\Logger\LoggerFactory;
+use MediaWiki\MediaWikiServices;
 use MediaWiki\Permissions\Hook\GetUserPermissionsErrorsExpensiveHook;
 use MediaWiki\Title\Title;
 use MediaWiki\User\User;
@@ -100,7 +100,7 @@ class Hooks implements
 		}
 
 		// allow if user is exempted from autoblocks (borrowed from TorBlock)
-		if ( DatabaseBlock::isExemptedFromAutoblocks( $ip ) ) {
+		if ( MediaWikiServices::getInstance()->getAutoblockExemptionList()->isExempt( $ip ) ) {
 			$exemptReasons[] = "{clientip} is in autoblock exemption list, exempting from SFS blocks";
 		}
 
