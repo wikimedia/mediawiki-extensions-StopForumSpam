@@ -7,10 +7,10 @@
 			"Ата"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Чи заблокована ця IP-адреса за допомогою списку stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Чи заблокована ця IP-адреса за допомогою списку stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "обхід IP-обмежень, які встановлені розширенням StopForumSpam",
 	"right-sfsblock-bypass": "Обхід обмежень IP-адрес, які встановлені розширенням StopForumSpam",
 	"stopforumspam-blocked": "Редагування з вашої IP-адреси ($1) обмежене, оскільки адреса нещодавно використовувалася для спаму вебсайтів.",
 	"stopforumspam-desc": "Інтеграція із stopforumspam.com",
-	"stopforumspam-is-blocked": "IP-адреса <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> вже заблокована за розсилку спаму."
+	"stopforumspam-is-blocked": "IP-адреса $1 була обмежена через спам. Для отримання додаткової інформації ви можете натиснути на подане <strong>зовнішнє</strong> посилання: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Зробивши це, ви залишите {{GRAMMAR:accusative|{{SITENAME}}}} і відвідаєте stopforumspam.com, який може отримувати дані з вашого пристрою. Перегляньте їхню [https://www.stopforumspam.com/privacy політику конфіденційності], [https://www.stopforumspam.com/gdpr повідомлення GDPR] і [https://www.stopforumspam.com/legal умови використання]."
 }
