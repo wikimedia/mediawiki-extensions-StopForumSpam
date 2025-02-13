@@ -1,6 +1,7 @@
 {
 	"@metadata": {
 		"authors": [
+			"Diskdance",
 			"GuoPC",
 			"Liuxinyu970226",
 			"Shizhao",
@@ -12,7 +13,7 @@
 	"abusefilter-edit-builder-vars-sfs-blocked": "IP地址是否已通过stopforumspam.com列表封禁（$1）",
 	"action-sfsblock-bypass": "绕过来自StopForumSpam扩展的IP限制",
 	"right-sfsblock-bypass": "绕过来自StopForumSpam扩展的IP限制",
-	"stopforumspam-blocked": "已限制从您的IP地址（$1）编辑，因为它最近被用于网站垃圾信息。",
+	"stopforumspam-blocked": "已限制从您的IP地址（$1）编辑，因为其最近被用于向网站传播垃圾信息。",
 	"stopforumspam-desc": "集成stopforumspam.com",
 	"stopforumspam-is-blocked": "IP地址$1由于发送垃圾邮件已被限制。欲了解更多信息，您可以点击以下<strong>外部</strong>链接： <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> 。这样，您将离开 {{SITENAME}} 并访问 stopforumspam.com，该网站可能会从您的设备接收数据。请查看他们的 [https://www.stopforumspam.com/privacy 隐私政策]、[https://www.stopforumspam.com/gdpr GDPR 须知] 和 [https://www.stopforumspam.com/legal 使用条款]。"
 }
