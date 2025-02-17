@@ -240,7 +240,7 @@ class DenyListManager {
 		$ipList = [];
 
 		while ( !feof( $fh ) ) {
-			$ipData = fgetcsv( $fh, 4096, ',', '"' );
+			$ipData = fgetcsv( $fh, 4096, ',', '"', "\\" );
 			if ( $ipData === false ) {
 				break;
 			}
