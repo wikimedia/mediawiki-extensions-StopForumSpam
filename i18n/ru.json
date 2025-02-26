@@ -7,7 +7,8 @@
 			"Ice bulldog",
 			"Okras",
 			"Vlad5250",
-			"Wileyfoxyx"
+			"Wileyfoxyx",
+			"Yurina Tatiana"
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "Заблокирован ли IP-адрес в списке stopforumspam.com",
@@ -15,5 +16,5 @@
 	"right-sfsblock-bypass": "Обход IP-ограничений, выдаваемых расширением StopForumSpam",
 	"stopforumspam-blocked": "Внесение правок с вашего IP-адреса ($1) было ограничено, так как он недавно был использован для спама веб-сайтов.",
 	"stopforumspam-desc": "Интеграция с stopforumspam.com",
-	"stopforumspam-is-blocked": "IP-адрес <strong>[https://stopforumspam.com/ipcheck/$1 $1] </strong> был заблокирован за спам."
+	"stopforumspam-is-blocked": "IP-адрес $1 был ограничен из-за спама. Для получения дополнительной информации вы можете нажать на следующую <strong>внешнюю</strong> ссылку: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> . Сделав это, вы покинете {{SITENAME}}, чтобы посетить stopforumspam.com, который может получать данные с вашего устройства. Пожалуйста, ознакомьтесь с их [https://www.stopforumspam.com/privacy политикой конфиденциальности], [https://www.stopforumspam.com/gdpr уведомлением GDPR] и [https://www.stopforumspam.com/legal условиями использования]."
 }
