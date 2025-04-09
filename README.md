@@ -1,6 +1,6 @@
 # StopForumSpam
 
-A mediawiki extenion that allows integration various [https://www.stopforumspam.com/](stopforumspam.org) deny-lists.
+A MediaWiki extension that allows integration various [https://www.stopforumspam.com/](stopforumspam.org) deny-lists.
 
 ## Installing
 
