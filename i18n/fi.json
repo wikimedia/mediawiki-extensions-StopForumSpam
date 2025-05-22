@@ -4,6 +4,8 @@
 			"Samoasambia"
 		]
 	},
+	"action-sfsblock-bypass": "ohittaa StopForumSpam-laajennuksen asettamia IP-rajoitteita",
+	"right-sfsblock-bypass": "Ohittaa StopForumSpam-laajennuksen asettamia IP-rajoitteita",
 	"stopforumspam-blocked": "Muokkaaminen IP-osoitteestasi ($1) on rajoitettu, koska sitä on viime aikoina käytetty nettisivustojen spämmäämiseen.",
 	"stopforumspam-desc": "Integrointi stopforumspam.com:in kanssa",
 	"stopforumspam-is-blocked": "IP-osoitetta $1 rajoitettu spämmäämisen vuoksi. Saat lisätietoja klikkaamalla seuraavaa <strong>ulkoista</strong> linkkiä: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Näin tekemällä poistut {{GRAMMAR:elative|{{SITENAME}}}} ja siirryt stopforumspam.com:iin, joka voi vastaanottaa tietoja laitteeltasi. Katso heidän  [https://www.stopforumspam.com/privacy tietosuojakäytäntönsä], [https://www.stopforumspam.com/gdpr GDPR-ilmoituksensa] ja [https://www.stopforumspam.com/legal käyttöehtonsa]."
