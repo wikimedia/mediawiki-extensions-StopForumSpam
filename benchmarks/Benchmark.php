@@ -20,11 +20,13 @@ namespace MediaWiki\Extension\StopForumSpam;
 use MediaWiki\Maintenance\Benchmarker;
 use const RUN_MAINTENANCE_IF_MAIN;
 
+// @codeCoverageIgnoreStart
 $IP = getenv( 'MW_INSTALL_PATH' );
 if ( $IP === false ) {
 	$IP = __DIR__ . '/../../..';
 }
 require_once "$IP/maintenance/includes/Benchmarker.php";
+// @codeCoverageIgnoreEnd
 
 /**
  * Benchmark the StopForumSpam data set loading into an IPSet
@@ -63,5 +65,7 @@ class Benchmark extends Benchmarker {
 	}
 }
 
+// @codeCoverageIgnoreStart
 $maintClass = Benchmark::class;
 require_once RUN_MAINTENANCE_IF_MAIN;
+// @codeCoverageIgnoreEnd
