@@ -54,6 +54,9 @@ class Hooks implements
 	 */
 	public static function getIPFromUser( User $user ) {
 		$context = RequestContext::getMain();
+		if ( !$context->getUser()->isSafeToLoad() ) {
+			return false;
+		}
 		if ( $context->getUser()->getName() === $user->getName() ) {
 			// Only use the main context if the users are the same
 			return $context->getRequest()->getIP();
