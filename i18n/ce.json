@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Умар"
+		]
+	},
+	"abusefilter-edit-builder-vars-sfs-blocked": "IP-адрес блоктоьхна ду йа дац stopforumspam.com ($1) могӀамца",
+	"action-sfsblock-bypass": "StopForumSpam шордаро хӀиттийна IP-дехкарш тергал ца дан",
+	"right-sfsblock-bypass": "StopForumSpam шордаро хӀиттийна IP-дехкарш тергал ца дан",
+	"stopforumspam-blocked": "Хьан IP-адрес тӀера ($1) хийцамаш бар дихкина ду, хӀунда аьлча дукха хан йоццуш иза лелийна спам-сайташна.",
+	"stopforumspam-desc": "Stopforumspam.com сайтаца интеграци йар",
+	"stopforumspam-is-blocked": "IP-адрес $1 дехкарш дина спам бахьана долуш. Кхин дӀа информаци хаа лууш делахь хьажа йиш йу хӀокху <strong>арахьара</strong> хьажорг тӀе: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> . Иштта деш, ахь дӀатосур ду {{SITENAME}} кху stopforumspam.com чу кхача, цуо гулбан тарло хьан гӀирсах хаамаш. Дехар до, хьажа церан [https://www.stopforumspam.com/privacy конфиденциаллалин политика], [https://www.stopforumspam.com/gdpr GDPR хаам], [https://www.stopforumspam.com/legal лелоран билламаш]."
+}
