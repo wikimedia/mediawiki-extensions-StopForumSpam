@@ -40,12 +40,6 @@ class DenyListManager {
 
 	private const CACHE_VERSION = 1;
 
-	/** @var HttpRequestFactory */
-	private $http;
-	/** @var BagOStuff */
-	private $srvCache;
-	/** @var WANObjectCache */
-	private $wanCache;
 	/** @var LoggerInterface */
 	private $logger;
 
@@ -55,21 +49,12 @@ class DenyListManager {
 	/** @var self */
 	private static $instance = null;
 
-	/**
-	 * @param HttpRequestFactory $http
-	 * @param BagOStuff $srvCache
-	 * @param WANObjectCache $wanCache
-	 * @param LoggerInterface|null $logger
-	 */
 	public function __construct(
-		HttpRequestFactory $http,
-		BagOStuff $srvCache,
-		WANObjectCache $wanCache,
-		?LoggerInterface $logger
+		private readonly HttpRequestFactory $http,
+		private readonly BagOStuff $srvCache,
+		private readonly WANObjectCache $wanCache,
+		?LoggerInterface $logger,
 	) {
-		$this->http = $http;
-		$this->srvCache = $srvCache;
-		$this->wanCache = $wanCache;
 		$this->logger = $logger ?: new NullLogger();
 	}
 

@@ -36,14 +36,7 @@ class Hooks implements
 	OtherBlockLogLinkHook
 {
 
-	/** @var Config */
-	private Config $config;
-
-	/**
-	 * @param Config $config
-	 */
-	public function __construct( Config $config ) {
-		$this->config = $config;
+	public function __construct( private readonly Config $config ) {
 	}
 
 	/**
