@@ -9,7 +9,7 @@
 	"abusefilter-edit-builder-vars-sfs-blocked": "Ці заблякаваны гэты IP-адрас з дапамогай сьпісу stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "абыход абмежаваньняў IP-адрасоў, зробленых пашырэньнем StopForumSpam",
 	"right-sfsblock-bypass": "Абыход абмежаваньняў IP-адрасоў, зробленых пашырэньнем StopForumSpam",
-	"stopforumspam-blocked": "Рэдагаваньне з вашага IP-адрасу ($1) было заблякаванае, бо ён нядаўна выкарыстоўваўся для спаму вэбсайтаў.",
+	"stopforumspam-blocked": "Рэдагаваньне з вашага IP-адрасу ($1) было абмежаванае, бо ён нядаўна выкарыстоўваўся для спаму вэбсайтаў.",
 	"stopforumspam-desc": "Інтэграцыя з stopforumspam.com",
-	"stopforumspam-is-blocked": "IP-адрас <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> быў заблякаваны за спам."
+	"stopforumspam-is-blocked": "IP-адрас $1 быў заблякаваны за спам. Дзеля падрабязнасьцяў можаце націснуць на адну з гэтых <strong>вонкавых</strong> спасылак: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Пры гэтым вы сыходзіце з {{SITENAME}} і патрапіце на stopforumspam.com, які можа атрымліваць зьвесткі з вашай прылады. Калі ласка, прачытайце іхнюю [https://www.stopforumspam.com/privacy палітыку прыватнасьці], [https://www.stopforumspam.com/gdpr паведамленьне АПАЗ] і [https://www.stopforumspam.com/legal ўмовы карыстаньня]."
 }
