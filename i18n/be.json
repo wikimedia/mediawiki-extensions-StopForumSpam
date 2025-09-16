@@ -2,10 +2,11 @@
 	"@metadata": {
 		"authors": [
 			"Artsiom91",
-			"Vlad5250"
+			"Vlad5250",
+			"No Sleep till Krupki"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Ці заблакаваны гэты IP-адрас з дапамогай спісу stopforumspam.com",
-	"right-sfsblock-bypass": "Абыход IP-блакіровак, выдадзеных пашырэннем StopForumSpam",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Ці заблакаваны гэты IP-адрас з дапамогай спісу stopforumspam.com ($1)",
+	"right-sfsblock-bypass": "Абыход абмежаванняў IP, выдадзеных пашырэннем StopForumSpam",
 	"stopforumspam-desc": "Інтэграцыя з stopforumspam.com"
 }
