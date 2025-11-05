@@ -3,10 +3,11 @@
 		"authors": [
 			"BaRaN6161 TURK",
 			"Joseph",
-			"MuratTheTurkish"
+			"MuratTheTurkish",
+			"SaldırganSincap"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "IP adresinin stopforumspam.com listesi kullanılarak engellenip engellenmediği",
+	"abusefilter-edit-builder-vars-sfs-blocked": "IP adresinin stopforumspam.com listesi kullanılarak engellenip engellenmediği ($1)",
 	"action-sfsblock-bypass": "StopForumSpam uzantısı tarafından verilen IP kısıtlarını atlamaya",
 	"right-sfsblock-bypass": "StopForumSpam uzantısı tarafından verilen IP kısıtlarını atla",
 	"stopforumspam-blocked": "IP adresinizden ($1) yapılan düzenleme, son zamanlarda istenmeyen web sitelerinde kullanıldığı için kısıtlandı.",
