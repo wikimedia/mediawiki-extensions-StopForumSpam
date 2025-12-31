@@ -7,11 +7,12 @@
 			"Ice bulldog",
 			"Okras",
 			"Vlad5250",
+			"Vonavy",
 			"Wileyfoxyx",
 			"Yurina Tatiana"
 		]
 	},
-	"abusefilter-edit-builder-vars-sfs-blocked": "Заблокирован ли IP-адрес в списке stopforumspam.com",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Заблокирован ли IP-адрес в списке stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "обойти ограничения IP, установленные расширением StopForumSpam",
 	"right-sfsblock-bypass": "Обход IP-ограничений, выдаваемых расширением StopForumSpam",
 	"stopforumspam-blocked": "Внесение правок с вашего IP-адреса ($1) было ограничено, так как он недавно был использован для спама веб-сайтов.",
