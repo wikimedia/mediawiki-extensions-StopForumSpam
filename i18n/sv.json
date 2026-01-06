@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Jopparn",
-			"WikiPhoenix"
+			"WikiPhoenix",
+			"Stefan2255"
 		]
 	},
-	"action-sfsblock-bypass": "kringgå IP-block i svartlistan som adresseras av tillägget StopForumSpam",
-	"right-sfsblock-bypass": "Kringgå IP-block i svartlistan som adresseras av tillägget StopForumSpam",
-	"stopforumspam-blocked": "Redigering från din IP-adress ($1) har blockerats eftersom den nyligen har använts till att spamma webbplatser.",
+	"abusefilter-edit-builder-vars-sfs-blocked": "Om IP-adressen är blockerad med hjälp av stopforumspam.com-listan ($1)",
+	"action-sfsblock-bypass": "kringgå IP-begränsningar utfärdade av StopForumSpam-tillägget",
+	"right-sfsblock-bypass": "Kringgå IP-begränsningar utfärdade av StopForumSpam-tillägget",
+	"stopforumspam-blocked": "Redigering från din IP-adress ($1) har begränsats eftersom den nyligen har använts till att spamma webbplatser.",
 	"stopforumspam-desc": "Gör det möjligt för administratörer att skicka data till stopforumspam.com",
-	"stopforumspam-is-blocked": "IP-adressen <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong> har blockerats för spammning."
+	"stopforumspam-is-blocked": "IP-adressen $1 har begränsats för spamning. För mer information kan du klicka på följande <strong>externa</strong> länk: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>.  Genom att göra det lämnar du {{SITENAME}} för att besöka stopforumspam.com, som kan ta emot data från din enhet. Vänligen granska deras [https://www.stopforumspam.com/privacy integritetspolicy], [https://www.stopforumspam.com/gdpr GDPR-meddelande] och [https://www.stopforumspam.com/legal användarvillkor]."
 }
