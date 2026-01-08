@@ -2,12 +2,14 @@
 	"@metadata": {
 		"authors": [
 			"Chrumps",
-			"WaldiSt"
+			"WaldiSt",
+			"Woytecr"
 		]
 	},
+	"abusefilter-edit-builder-vars-sfs-blocked": "Czy adres IP jest blokowany za pomocą listy od stopforumspam.com ($1)",
 	"action-sfsblock-bypass": "Obejście ograniczeń IP nałożonych przez rozszerzenie StopForumSpam",
 	"right-sfsblock-bypass": "Obejście ograniczeń IP nałożonych przez rozszerzenie StopForumSpam",
-	"stopforumspam-blocked": "Edycja z Twojego adresu IP ($1) została zablokowana, ponieważ ostatnio był on wykorzystany do spamu stron internetowych.",
+	"stopforumspam-blocked": "Edytowanie z Twojego adresu IP ($1) zostało ograniczone, ponieważ ostatnio był on wykorzystany do spamu stron internetowych.",
 	"stopforumspam-desc": "Umożliwia administratorom wysyłanie danych do stopforumspam.com",
 	"stopforumspam-is-blocked": "Adres IP $1 został ograniczony do spamowania. Aby uzyskać więcej informacji, możesz kliknąć następujący link <strong>zewnętrzny</strong> : <strong>[https://stopforumspam.com/ipcheck/ $1 $1 ]</strong> . W ten sposób opuścisz witrynę {{SITENAME}} i przejdziesz do strony stopforumspam.com, która może odbierać dane z Twojego urządzenia. Zapoznaj się z ich [https://www.stopforumspam.com/polityką prywatności prywatności], [https://www.stopforumspam.com/gdpr Informacja o RODO] i [https://www.stopforumspam.com/legal warunki używać]."
 }
