@@ -142,7 +142,7 @@ class DenyListManager {
 					'staleTTL' => $wgSFSDenyListCacheDuration,
 					// placeholder
 					'busyValue' => '',
-					'minAsOf' => ( $recache === 'recache' ) ? INF : $wanCache::MIN_TIMESTAMP_NONE
+					'touchedCallback' => static fn () => ( $recache === 'recache' ) ? time() : null
 				]
 			);
 
