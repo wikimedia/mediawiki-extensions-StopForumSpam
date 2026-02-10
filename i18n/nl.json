@@ -13,5 +13,5 @@
 	"right-sfsblock-bypass": "Omzeil de ip-beperkingen uitgegeven door de StopForumSpam-extensie",
 	"stopforumspam-blocked": "Bewerken vanaf uw IP-adres ($1) is geblokkeerd omdat het recent is gebruikt voor spammen.",
 	"stopforumspam-desc": "Geeft beheerders de mogelijkheid om gegevens te sturen naar stopforumspam.com",
-	"stopforumspam-is-blocked": "Het IP-adres $1 is geblokkeerd vanwege spammen. Klik voor meer informatie op de volgende <strong>externe</strong> link: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. U verlaat dan  {{SITENAME}} en bezoekt stopforumspam.com, die gegevens van uw apparaat kunnen ophalen. Bekijk dus hun  [https://www.stopforumspam.com/privacy privacybeleid], [https://www.stopforumspam.com/gdpr GDPR kennisgeving] en [https://www.stopforumspam.com/legal gebruiksvorowaarden]."
+	"stopforumspam-is-blocked": "Het IP-adres $1 is geblokkeerd vanwege spammen. Klik voor meer informatie op de volgende <strong>externe</strong> koppeling: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. U verlaat dan  {{SITENAME}} en bezoekt stopforumspam.com, die gegevens van uw apparaat kunnen ophalen. Bekijk dus hun  [https://www.stopforumspam.com/privacy privacybeleid], [https://www.stopforumspam.com/gdpr GDPR kennisgeving] en [https://www.stopforumspam.com/legal gebruiksvorowaarden]."
 }
