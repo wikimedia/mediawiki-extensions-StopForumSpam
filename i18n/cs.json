@@ -1,0 +1,9 @@
+{
+	"@metadata": {
+		"authors": [
+			"Mormegil"
+		]
+	},
+	"action-sfsblock-bypass": "obejít omezení IP definovaná rozšířením StopForumSpam",
+	"right-sfsblock-bypass": "Obcházení omezení IP definovaných rozšířením StopForumSpam"
+}
