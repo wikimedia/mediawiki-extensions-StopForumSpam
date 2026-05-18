@@ -5,12 +5,13 @@
 			"Nuevo Paso",
 			"Revi",
 			"Suleiman the Magnificent Television",
+			"Tensama0415",
 			"Ykhwong",
 			"아라"
 		]
 	},
 	"abusefilter-edit-builder-vars-sfs-blocked": "스톱포럼스팸닷컴 목록($1)을 사용하여 IP 주소가 차단되었는지 여부",
-	"action-sfsblock-bypass": "StopForumSpam 확장 기능이 발행한 IP 제한을 우회할",
+	"action-sfsblock-bypass": "StopForumSpam 확장 기능이 발행한 IP 제한 우회",
 	"right-sfsblock-bypass": "StopForumSpam 확장 기능이 발행한 IP 제한 우회",
 	"stopforumspam-blocked": "최근에 스팸을 보내기 위해 사용된 것으로 확인된 IP 주소($1)에서 편집이 제한되었습니다.",
 	"stopforumspam-desc": "관리자가 stopforumspam.com에 데이터를 보내도록 허용합니다.",
