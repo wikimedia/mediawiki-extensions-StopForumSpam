@@ -4,5 +4,10 @@
 			"AhmedG612"
 		]
 	},
-	"stopforumspam-blocked": "Wax ka beddelka laga sameeyo cinwaanka IP-gaaga ($1) waa la xaddiday maadaama dhawaan loo adeegsaday in lagu spam gareeyo mareegaha."
+	"abusefilter-edit-builder-vars-sfs-blocked": "In cinwaanka IP-ga lagu xannibay iyadoo la adeegsanayo liiska stopforumspam.com ($1)",
+	"action-sfsblock-bypass": "Ka gudub xannibaadaha IP-ga ee ay soo rogtay kordhinta StopForumSpam",
+	"right-sfsblock-bypass": "Ka gudub xannibaadaha IP-ga ee ay soo rogtay kordhinta StopForumSpam",
+	"stopforumspam-blocked": "Wax ka beddelka laga sameeyo cinwaanka IP-gaaga ($1) waa la xaddiday maadaama dhawaan loo adeegsaday in lagu spam gareeyo mareegaha.",
+	"stopforumspam-desc": "Isku darka stopforumspam.com",
+	"stopforumspam-is-blocked": "Ciwaanka IP-ga $1 ayaa loo xaddiday faafinta spam-ka. Macluumaad dheeraad ah, waxaad gujin kartaa xiriiriyaha <strong>dibadda</strong> ee soo socda: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Markaad sidaas samayso, waxaad ka bixi doontaa {{SITENAME}} si aad u booqato stopforumspam.com, kaas oo laga yaabo inuu xog ka helo qalabkaaga. Fadlan dib u eeg [https://www.stopforumspam.com/privacy siyaasaddooda asturnaanta], [https://www.stopforumspam.com/gdpr ogeysiiska GDPR], iyo [https://www.stopforumspam.com/legal shuruudaha isticmaalka]."
 }
