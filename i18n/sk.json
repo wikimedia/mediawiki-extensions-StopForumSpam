@@ -1,0 +1,13 @@
+{
+	"@metadata": {
+		"authors": [
+			"Wizzard"
+		]
+	},
+	"abusefilter-edit-builder-vars-sfs-blocked": "Či je IP adresa zablokovaná pomocou zoznamu stopforumspam.com ($1)",
+	"action-sfsblock-bypass": "obísť obmedzenia IP adries zavedené rozšírením StopForumSpam",
+	"right-sfsblock-bypass": "Obísť obmedzenia IP adries zavedené rozšírením StopForumSpam",
+	"stopforumspam-blocked": "Úpravy z vašej IP adresy ($1) boli obmedzené, pretože bola nedávno použitá na spamovanie webových stránok.",
+	"stopforumspam-desc": "Integrácia so stopforumspam.com",
+	"stopforumspam-is-blocked": "IP adresa $1 bola obmedzená pre spamovanie. Ďalšie informácie získate kliknutím na tento <strong>externý</strong> odkaz: <strong>[https://stopforumspam.com/ipcheck/$1 $1]</strong>. Tým opustíte {{SITENAME}} a prejdete na stopforumspam.com, ktorá môže získať údaje z vášho zariadenia. Prečítajte si, prosím, ich [https://www.stopforumspam.com/privacy zásady ochrany súkromia], [https://www.stopforumspam.com/gdpr oznámenie o GDPR] a [https://www.stopforumspam.com/legal podmienky používania]."
+}
